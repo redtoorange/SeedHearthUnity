@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 namespace SeedHearth.Cards
 {
-    public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
         public static Action<Card> onCardStartHover;
         public static Action<Card> onCardStopHover;
+        
+        public static Action<Card> onCardStartDrag;
+        public static Action<Card> onCardStopDrag;
 
         [Header("Card")]
         [SerializeField] private CardData cardData;
@@ -44,6 +47,7 @@ namespace SeedHearth.Cards
 
         public void ToggleHover(bool hovered)
         {
+            transform.SetAsLastSibling();
             LeanTween.cancel(gameObject);
             LeanTween.scale(
                 gameObject,
@@ -62,6 +66,16 @@ namespace SeedHearth.Cards
         public void OnPointerExit(PointerEventData eventData)
         {
             onCardStopHover?.Invoke(this);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            onCardStartDrag?.Invoke(this);
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            onCardStopDrag?.Invoke(this);
         }
     }
 }
