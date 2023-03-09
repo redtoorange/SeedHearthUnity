@@ -10,7 +10,7 @@ namespace SeedHearth.Cards
     {
         public static Action<Card> onCardStartHover;
         public static Action<Card> onCardStopHover;
-        
+
         public static Action<Card> onCardStartDrag;
         public static Action<Card> onCardStopDrag;
 
@@ -20,18 +20,25 @@ namespace SeedHearth.Cards
         [Header("Zoom Settings")]
         [SerializeField] private float zoomInScale = 1.25f;
         [SerializeField] private float zoomInTime = 0.1f;
+        [SerializeField] private float yMoveAmount = 100.0f;
 
         [Header("Display")]
         [SerializeField] private TMP_Text cardTitleLabel;
         [SerializeField] private TMP_Text cardDescriptionLabel;
         [SerializeField] private Image cardBackgroundImage;
-        
+        [SerializeField] private TMP_Text staminaCost;
+
         // TODO Implement card icons
         [SerializeField] private Image cardIconImage;
-        
+
         private void Start()
         {
             RefreshCardData();
+        }
+
+        public void Initialize(CardData cardData)
+        {
+            this.cardData = cardData;
         }
 
         [ContextMenu("Refresh")]
@@ -42,6 +49,7 @@ namespace SeedHearth.Cards
                 cardTitleLabel.text = cardData.cardTitle;
                 cardDescriptionLabel.text = cardData.cardDescription;
                 cardBackgroundImage.color = cardData.cardBackgroundColor;
+                staminaCost.text = cardData.staminaCost.ToString();
             }
         }
 
@@ -54,6 +62,15 @@ namespace SeedHearth.Cards
                 hovered ? new Vector2(zoomInScale, zoomInScale) : new Vector2(1, 1),
                 zoomInTime
             );
+            if (hovered)
+            {
+                Debug.Log("Movin on Up");
+                LeanTween.moveY(
+                    gameObject,
+                    transform.position.y + yMoveAmount,
+                    zoomInTime
+                );
+            }
         }
 
 

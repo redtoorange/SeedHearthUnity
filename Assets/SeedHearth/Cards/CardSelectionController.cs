@@ -4,6 +4,7 @@ namespace SeedHearth.Cards
 {
     public class CardSelectionController : MonoBehaviour
     {
+        [SerializeField] private CardHandArea cardHandArea;
         private Card currentlyHoveredCard;
         private Card currentlyDraggingCard;
         private Camera camera;
@@ -83,6 +84,7 @@ namespace SeedHearth.Cards
             }
 
             card.ToggleHover(false);
+            cardHandArea.OrganizeCards();
         }
 
         private void HandleCardStartDrag(Card card)
@@ -99,6 +101,7 @@ namespace SeedHearth.Cards
             {
                 isDragging = false;
                 currentlyDraggingCard = null;
+                cardHandArea.OrganizeCards();
             }
         }
     }
