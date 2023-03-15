@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FieldSnack
   m_EditorClassIdentifier: 
   cardTitle: Field Snack
-  cardDescription: <b>Consume</b> to recover <b>1</b> stamina.
+  cardDescription: <b>Consume</b> to recover <b>1</b> <u><b>Stamina</b></u> and <b>Draw
+    1</b> card.
   cardBackgroundColor: {r: 0.6886792, g: 0.163725, b: 0.09420614, a: 1}
   staminaCost: 0

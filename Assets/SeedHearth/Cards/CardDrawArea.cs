@@ -1,10 +1,9 @@
 ﻿using System;
-using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace SeedHearth.Cards
 {
-    public class CardDrawArea : MonoBehaviour, IPointerClickHandler
+    public class CardDrawArea : CardArea, IPointerClickHandler
     {
         public Action onDrawAreaClicked;
 

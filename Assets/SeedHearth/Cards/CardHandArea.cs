@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SeedHearth.Cards
 {
-    public class CardHandArea : MonoBehaviour
+    public class CardHandArea : CardArea
     {
         private List<Card> heldCards = new List<Card>();
         private RectTransform rectTransform;
@@ -18,12 +18,19 @@ namespace SeedHearth.Cards
         public void AddCard(Card card)
         {
             heldCards.Add(card);
+            card.AddToHand();
             OrganizeCards();
+        }
+
+        public List<Card> GetHeldCards()
+        {
+            return new List<Card>(heldCards);
         }
 
         public void RemoveCard(Card card)
         {
             heldCards.Remove(card);
+            card.RemoveFromHand();
             OrganizeCards();
         }
 

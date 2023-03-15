@@ -16,6 +16,7 @@ namespace SeedHearth.Cards
 
         [Header("Card")]
         [SerializeField] private CardData cardData;
+        public CardData GetCardData() => cardData;
 
         [Header("Zoom Settings")]
         [SerializeField] private float zoomInScale = 1.25f;
@@ -30,7 +31,8 @@ namespace SeedHearth.Cards
 
         // TODO Implement card icons
         [SerializeField] private Image cardIconImage;
-
+        private bool inHand = false;
+        
         private void Start()
         {
             RefreshCardData();
@@ -62,9 +64,8 @@ namespace SeedHearth.Cards
                 hovered ? new Vector2(zoomInScale, zoomInScale) : new Vector2(1, 1),
                 zoomInTime
             );
-            if (hovered)
+            if (hovered && inHand)
             {
-                Debug.Log("Movin on Up");
                 LeanTween.moveY(
                     gameObject,
                     transform.position.y + yMoveAmount,
@@ -93,6 +94,16 @@ namespace SeedHearth.Cards
         public void OnPointerUp(PointerEventData eventData)
         {
             onCardStopDrag?.Invoke(this);
+        }
+
+        public void AddToHand()
+        {
+            inHand = true;
+        }
+        
+        public void RemoveFromHand()
+        {
+            inHand = false;
         }
     }
 }

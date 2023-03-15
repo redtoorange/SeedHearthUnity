@@ -11,8 +11,14 @@ namespace SeedHearth.Deck
     {
         private DeckData sourceDeck;
 
-        [SerializeField] private List<CardData> undrawnCardInstances;
-        [SerializeField] private List<CardData> drawnCardInstances;
+        // Cards that are in the draw pile
+        [SerializeField] private List<CardData> libraryCardInstances;
+
+        // Cards that are currently in play
+        [SerializeField] private List<CardData> activeCardInstances;
+
+        // Card that are currently in the discard pile
+        [SerializeField] private List<CardData> graveyardCardInstances;
 
 
         public DeckInstance(DeckData sourceDeck)
@@ -23,46 +29,54 @@ namespace SeedHearth.Deck
 
         private void LoadDeck()
         {
-            undrawnCardInstances = new List<CardData>();
-            drawnCardInstances = new List<CardData>();
+            libraryCardInstances = new List<CardData>();
+            activeCardInstances = new List<CardData>();
+            graveyardCardInstances = new List<CardData>();
+
             for (int i = 0; i < sourceDeck.deckCardData.Count; i++)
             {
                 DeckCardData deckCardData = sourceDeck.deckCardData[i];
                 for (int j = 0; j < deckCardData.count; j++)
                 {
-                    undrawnCardInstances.Add(deckCardData.cardData);
+                    libraryCardInstances.Add(deckCardData.cardData);
                 }
             }
 
-            Debug.Log($"Created deck instance with {undrawnCardInstances.Count} cards");
+            Debug.Log($"Created deck instance with {libraryCardInstances.Count} cards");
         }
 
         public CardData DrawCard()
         {
-            if (undrawnCardInstances.Count == 0) return null;
+            // Out of cards, attempt to shuffle
+            if (libraryCardInstances.Count <= 0 && graveyardCardInstances.Count > 0)
+            {
+                ShuffleDeck();
+            }
 
-            int index = Random.Range(0, undrawnCardInstances.Count);
-            CardData card = undrawnCardInstances[index];
-            undrawnCardInstances.RemoveAt(index);
-            drawnCardInstances.Add(card);
+            // After shuffle, still no cards, return null
+            if (libraryCardInstances.Count <= 0)
+            {
+                return null;
+            }
+
+            int index = Random.Range(0, libraryCardInstances.Count);
+            CardData card = libraryCardInstances[index];
+            libraryCardInstances.RemoveAt(index);
+            activeCardInstances.Add(card);
 
             return card;
         }
 
-        public void RemoveCardFromDrawn(CardData cardData)
+        public void DiscardCard(CardData cardData)
         {
-            drawnCardInstances.Remove(cardData);
-        }
-
-        public void RemoveCardFromUndrawn(CardData cardData)
-        {
-            undrawnCardInstances.Remove(cardData);
+            activeCardInstances.Remove(cardData);
+            graveyardCardInstances.Add(cardData);
         }
 
         public void ShuffleDeck()
         {
-            undrawnCardInstances.AddRange(drawnCardInstances);
-            drawnCardInstances.Clear();
+            libraryCardInstances.AddRange(graveyardCardInstances);
+            graveyardCardInstances.Clear();
         }
     }
 }

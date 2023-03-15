@@ -633,7 +633,7 @@ MonoBehaviour:
   cardData: {fileID: 11400000, guid: 98bf081915be7bb418b89ceb344efc2c, type: 2}
   zoomInScale: 1.25
   zoomInTime: 0.1
-  yMoveAmount: 90
+  yMoveAmount: 68.75
   cardTitleLabel: {fileID: 7487437210748032201}
   cardDescriptionLabel: {fileID: 6691977409063128330}
   cardBackgroundImage: {fileID: 3800134574598040602}

@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SeedHearth.Cards
 {
     public class CardSelectionController : MonoBehaviour
     {
-        [SerializeField] private CardHandArea cardHandArea;
+        private MouseEnterDetector mouseEnterDetector;
+        private CardController cardController;
+        
         private Card currentlyHoveredCard;
         private Card currentlyDraggingCard;
-        private Camera camera;
         private RectTransform canvasTransform;
 
 
@@ -17,8 +19,10 @@ namespace SeedHearth.Cards
 
         private void Start()
         {
-            camera = Camera.main;
             canvasTransform = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+            
+            mouseEnterDetector = GetComponent<MouseEnterDetector>();
+            cardController = GetComponent<CardController>();
         }
 
         private void OnEnable()
@@ -54,7 +58,7 @@ namespace SeedHearth.Cards
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvasTransform,
-                Input.mousePosition,
+                Mouse.current.position.ReadValue(),
                 null,
                 out Vector2 localPoint
             );
@@ -84,7 +88,7 @@ namespace SeedHearth.Cards
             }
 
             card.ToggleHover(false);
-            cardHandArea.OrganizeCards();
+            cardController.ResetCardHand();
         }
 
         private void HandleCardStartDrag(Card card)
@@ -93,6 +97,8 @@ namespace SeedHearth.Cards
             isDragging = true;
             cardTransform = currentlyDraggingCard.GetComponent<RectTransform>();
             cardDragOffset = cardTransform.anchoredPosition - GetMousePosition();
+
+            cardController.PlayingCard(card);
         }
 
         private void HandleCardStopDrag(Card card)
@@ -101,7 +107,17 @@ namespace SeedHearth.Cards
             {
                 isDragging = false;
                 currentlyDraggingCard = null;
-                cardHandArea.OrganizeCards();
+
+                CardArea area = mouseEnterDetector.DetectCardArea();
+                if (area is CardDiscardArea discardArea)
+                {
+                    Debug.Log("Discarding Card");
+                    cardController.DiscardCard(card);
+                }
+                else if (area is CardHandArea handArea)
+                {
+                    cardController.ResetCardToHand(card);
+                }
             }
         }
     }

@@ -23,6 +23,12 @@ namespace SeedHearth.ResourceDisplay
             resourceText.text = $"{valueLabel}\n{value}";
         }
 
+        public void SetAmount(int newAmount)
+        {
+            value = Mathf.Clamp(newAmount, minValue, maxValue);
+            resourceText.text = $"{valueLabel}\n{value}";
+        }
+
         public void ChangeResource(int deltaAmount)
         {
             value = Mathf.Clamp(value + deltaAmount, minValue, maxValue);

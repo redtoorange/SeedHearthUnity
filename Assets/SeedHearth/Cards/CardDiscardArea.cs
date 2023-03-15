@@ -1,9 +1,6 @@
-﻿using UnityEngine;
-
-namespace SeedHearth.Cards
+﻿namespace SeedHearth.Cards
 {
-    public class CardDiscardArea : MonoBehaviour
+    public class CardDiscardArea : CardArea
     {
-        
     }
 }

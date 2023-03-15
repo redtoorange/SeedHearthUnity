@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using SeedHearth.Deck;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SeedHearth.Cards
 {
@@ -18,7 +17,7 @@ namespace SeedHearth.Cards
 
         [Header("Cards")]
         [SerializeField] private Card cardPrefab;
-        [FormerlySerializedAs("instancedCard")] [SerializeField] private List<Card> instancedCards;
+        [SerializeField] private List<Card> instancedCards;
 
         private void Start()
         {
@@ -44,14 +43,17 @@ namespace SeedHearth.Cards
 
         private void HandleDrawAreaClicked()
         {
+            DrawCard();
+        }
+
+        public void DrawCard()
+        {
             if (deckInstance == null) return;
 
-            Debug.Log("Should Draw Card");
             CardData drawnCard = deckInstance.DrawCard();
 
             if (drawnCard != null)
             {
-                Debug.Log("Drew card: " + drawnCard.cardTitle);
                 Card newCard = Instantiate(cardPrefab, transform);
                 newCard.Initialize(drawnCard);
                 cardHandArea.AddCard(newCard);
@@ -60,6 +62,55 @@ namespace SeedHearth.Cards
             {
                 Debug.Log("No cards remaining");
             }
+        }
+
+        public void DiscardHand()
+        {
+            foreach (Card heldCard in cardHandArea.GetHeldCards())
+            {
+                cardHandArea.RemoveCard(heldCard);
+                deckInstance.DiscardCard(heldCard.GetCardData());
+                Destroy(heldCard.gameObject);
+            }
+        }
+
+        /**
+         * Card is moved to the discard pile, will be shuffled back into deck on reshuffle
+         */
+        public void DiscardCard(Card card)
+        {
+            if (deckInstance == null) return;
+
+            cardHandArea.RemoveCard(card);
+            deckInstance.DiscardCard(card.GetCardData());
+            Destroy(card.gameObject);
+        }
+
+        /**
+         * Card is removed entirely from play
+         */
+        public void BurnCard(Card card)
+        {
+            if (deckInstance == null) return;
+        }
+
+        public void ResetCardToHand(Card card)
+        {
+            cardHandArea.AddCard(card);
+        }
+
+
+        public void ResetCardHand()
+        {
+            cardHandArea.OrganizeCards();
+        }
+
+        /**
+         * Player is moving this card, it should not be managed by the hand
+         */
+        public void PlayingCard(Card card)
+        {
+            cardHandArea.RemoveCard(card);
         }
     }
 }
