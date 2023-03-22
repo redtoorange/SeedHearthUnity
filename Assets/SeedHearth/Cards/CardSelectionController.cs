@@ -108,6 +108,7 @@ namespace SeedHearth.Cards
                 isDragging = false;
                 currentlyDraggingCard = null;
 
+                // TODO move this to the CardController
                 CardArea area = mouseEnterDetector.DetectCardArea();
                 if (area is CardDiscardArea discardArea)
                 {

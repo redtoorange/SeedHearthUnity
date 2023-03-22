@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
-  m_Name: PotatoSeed
+  m_Name: 3_PotatoSeed
   m_EditorClassIdentifier: 
+  id: 3
   cardTitle: Potato Seed
   cardDescription: Plant 1 Potato. Requires <b>5</b> days to grow.
-  cardBackgroundColor: {r: 0.13443395, g: 0.5377358, b: 0.17367294, a: 1}
+  cardBackgroundColor: {r: 0.24313727, g: 0.5372549, b: 0.28235295, a: 1}
   staminaCost: 1
+  cardType: 0
+  cardMetaData:
+  - key: 0
+    value: 4
+  - key: 1
+    value: 5

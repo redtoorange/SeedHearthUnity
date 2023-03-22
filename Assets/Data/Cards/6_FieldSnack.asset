@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
-  m_Name: FieldSnack
+  m_Name: 6_FieldSnack
   m_EditorClassIdentifier: 
+  id: 6
   cardTitle: Field Snack
   cardDescription: <b>Consume</b> to recover <b>1</b> <u><b>Stamina</b></u> and <b>Draw
     1</b> card.
-  cardBackgroundColor: {r: 0.6886792, g: 0.163725, b: 0.09420614, a: 1}
+  cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
   staminaCost: 0
+  cardType: 0
+  cardMetaData:
+  - key: 2
+    value: 1

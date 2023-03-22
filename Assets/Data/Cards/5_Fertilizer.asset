@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
-  m_Name: Parsnip
+  m_Name: 5_Fertilizer
   m_EditorClassIdentifier: 
-  cardTitle: Parsnip
-  cardDescription: <b>Consume</b> to recover <b>1</b> stamina.
-  cardBackgroundColor: {r: 0.6886792, g: 0.163725, b: 0.09420614, a: 1}
+  id: 5
+  cardTitle: Fertilizer
+  cardDescription: Apply before planting a crop to increase yield.
+  cardBackgroundColor: {r: 0.40784317, g: 0.21960786, b: 0.42352945, a: 1}
+  staminaCost: 1
+  cardType: 0
+  cardMetaData: []
