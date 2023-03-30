@@ -1,21 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using RotaryHeart.Lib.SerializableDictionary;
 using UnityEngine;
 
 namespace SeedHearth.Cards
 {
     [Serializable]
-    public enum CardKeys
+    public enum CardPropertyKeys
     {
-        ProduceId,
+        Targetable,
+        Targets,
+        Applies,
+        Plants,
         GrowTime,
-        StaminaRecoveryAmount
+        StaminaGain,
+        Consumable,
+        Sellable
     }
     
     [Serializable]
     public class CardMetaData
     {
-        [SerializeField] public CardKeys key;
+        [SerializeField] public CardPropertyKeys key;
         [SerializeField] public string value;
     }
 
@@ -32,12 +38,14 @@ namespace SeedHearth.Cards
     [Serializable]
     public class CardData : ScriptableObject
     {
-        [SerializeField] public int id = 0;
+        public static string NONE_ID = "NONE";
+
+        [SerializeField] public string id = NONE_ID;
         [SerializeField] public string cardTitle;
         [SerializeField][Multiline(8)] public string cardDescription;
         [SerializeField] public Color cardBackgroundColor;
         [SerializeField] public int staminaCost = 0;
         [SerializeField] public CardType cardType = CardType.Seed;
-        [SerializeField] public List<CardMetaData> cardMetaData;
+        [SerializeField] private SerializableDictionaryBase<CardPropertyKeys, string> cardProperties;
     }
 }

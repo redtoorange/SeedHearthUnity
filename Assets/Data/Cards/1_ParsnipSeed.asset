@@ -12,14 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
   m_Name: 1_ParsnipSeed
   m_EditorClassIdentifier: 
-  id: 1
+  id: PARSNIP_SEED
   cardTitle: Parsnip Seed
   cardDescription: Plant 1 Potato. Requires <b>3</b> days to grow.
   cardBackgroundColor: {r: 0.24313727, g: 0.5372549, b: 0.28235295, a: 1}
   staminaCost: 1
   cardType: 0
-  cardMetaData:
-  - key: 0
-    value: 2
-  - key: 1
-    value: 3
+  cardProperties:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+        m_TextWithWhitespace: "Keys\u200B"
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 000000000100000002000000030000000400000007000000
+    _keys: 000000000100000002000000030000000400000007000000
+    _values:
+    - 1
+    - soil
+    - seed
+    - PARSNIP
+    - 3
+    - true

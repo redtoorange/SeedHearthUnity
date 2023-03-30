@@ -12,12 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
   m_Name: 2_Parsnip
   m_EditorClassIdentifier: 
-  id: 2
+  id: PARSNIP
   cardTitle: Parsnip
   cardDescription: <b>Consume</b> to recover <b>1</b> stamina.
   cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
   staminaCost: 0
   cardType: 1
-  cardMetaData:
-  - key: 2
-    value: 1
+  cardProperties:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+        m_TextWithWhitespace: "Keys\u200B"
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 070000000600000005000000
+    _keys: 070000000600000005000000
+    _values:
+    - true
+    - true
+    - 1

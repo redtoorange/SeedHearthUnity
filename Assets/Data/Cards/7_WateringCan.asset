@@ -12,10 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
   m_Name: 7_WateringCan
   m_EditorClassIdentifier: 
-  id: 7
+  id: WATERING_CAN_1
   cardTitle: Watering Can
   cardDescription: <b>Water</b> a single crop tile.
   cardBackgroundColor: {r: 0.07058824, g: 0.30588236, b: 0.5372549, a: 1}
   staminaCost: 1
   cardType: 0
-  cardMetaData: []
+  cardProperties:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+        m_TextWithWhitespace: "Keys\u200B"
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 010000000000000002000000
+    _keys: 010000000000000002000000
+    _values:
+    - crops
+    - 3
+    - watered
