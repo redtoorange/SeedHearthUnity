@@ -119,6 +119,10 @@ namespace SeedHearth.Cards
                 {
                     cardController.ResetCardToHand(card);
                 }
+                else
+                {
+                    cardController.StartCasting(card);
+                }
             }
         }
     }

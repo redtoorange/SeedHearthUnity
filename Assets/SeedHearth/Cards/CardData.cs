@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using RotaryHeart.Lib.SerializableDictionary;
 using UnityEngine;
 
@@ -16,13 +15,6 @@ namespace SeedHearth.Cards
         StaminaGain,
         Consumable,
         Sellable
-    }
-    
-    [Serializable]
-    public class CardMetaData
-    {
-        [SerializeField] public CardPropertyKeys key;
-        [SerializeField] public string value;
     }
 
     [Serializable]
@@ -42,7 +34,7 @@ namespace SeedHearth.Cards
 
         [SerializeField] public string id = NONE_ID;
         [SerializeField] public string cardTitle;
-        [SerializeField][Multiline(8)] public string cardDescription;
+        [SerializeField] [Multiline(8)] public string cardDescription;
         [SerializeField] public Color cardBackgroundColor;
         [SerializeField] public int staminaCost = 0;
         [SerializeField] public CardType cardType = CardType.Seed;

@@ -112,5 +112,10 @@ namespace SeedHearth.Cards
         {
             cardHandArea.RemoveCard(card);
         }
+
+        public void StartCasting(Card card)
+        {
+            Debug.Log("Attempting to Cars: " + card.name);
+        }
     }
 }
