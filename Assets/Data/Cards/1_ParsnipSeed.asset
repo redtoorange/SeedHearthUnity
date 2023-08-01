@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: PARSNIP_SEED
   cardTitle: Parsnip Seed
+  cardSprite: {fileID: 3320051678166339757, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
   cardDescription: Plant 1 Potato. Requires <b>3</b> days to grow.
   cardBackgroundColor: {r: 0.24313727, g: 0.5372549, b: 0.28235295, a: 1}
   staminaCost: 1

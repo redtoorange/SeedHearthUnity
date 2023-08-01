@@ -17,9 +17,8 @@ namespace SeedHearth.Cards
         [SerializeField] private TMP_Text cardDescriptionLabel;
         [SerializeField] private Image cardBackgroundImage;
         [SerializeField] private TMP_Text staminaCost;
-
-        // TODO Implement card icons
         [SerializeField] private Image cardIconImage;
+        
         private bool inHand = false;
 
         private CardZoomController cardZoomController;
@@ -47,6 +46,7 @@ namespace SeedHearth.Cards
                 cardDescriptionLabel.text = cardData.cardDescription;
                 cardBackgroundImage.color = cardData.cardBackgroundColor;
                 staminaCost.text = cardData.staminaCost.ToString();
+                cardIconImage.sprite = cardData.cardSprite;
             }
         }
 

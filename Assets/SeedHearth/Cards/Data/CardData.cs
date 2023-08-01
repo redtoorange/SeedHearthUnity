@@ -12,6 +12,7 @@ namespace SeedHearth.Cards
 
         [SerializeField] public string id = NONE_ID;
         [SerializeField] public string cardTitle;
+        [SerializeField] public Sprite cardSprite;
         [SerializeField] [Multiline(8)] public string cardDescription;
         [SerializeField] public Color cardBackgroundColor;
         [SerializeField] public int staminaCost = 0;
