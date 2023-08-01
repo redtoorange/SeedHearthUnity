@@ -18,33 +18,5 @@ MonoBehaviour:
     1</b> card.
   cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
   staminaCost: 0
-  cardType: 0
-  cardProperties:
-    reorderableList:
-      canAdd: 1
-      canRemove: 1
-      draggable: 1
-      expandable: 1
-      multipleSelection: 1
-      isExpanded: 1
-      label:
-        m_Text: Keys
-        m_Image: {fileID: 0}
-        m_Tooltip: 
-        m_TextWithWhitespace: "Keys\u200B"
-      headerHeight: 18
-      footerHeight: 13
-      slideEasing: 0.15
-      verticalSpacing: 2
-      showDefaultBackground: 1
-      elementDisplayType: 0
-      elementNameProperty: 
-      elementNameOverride: 
-      elementIcon: {fileID: 0}
-    reqReferences: {fileID: 0}
-    isExpanded: 1
-    _keyValues: 0600000005000000
-    _keys: 0600000005000000
-    _values:
-    - true
-    - 1
+  cardType: {fileID: 0}
+  cardProperties: []

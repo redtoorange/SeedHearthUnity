@@ -17,34 +17,8 @@ MonoBehaviour:
   cardDescription: <b>Consume</b> to recover <b>1</b> stamina.
   cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
   staminaCost: 0
-  cardType: 1
+  cardType: {fileID: 11400000, guid: de8b48675399b0744b8b8572da36f020, type: 2}
   cardProperties:
-    reorderableList:
-      canAdd: 1
-      canRemove: 1
-      draggable: 1
-      expandable: 1
-      multipleSelection: 1
-      isExpanded: 1
-      label:
-        m_Text: Keys
-        m_Image: {fileID: 0}
-        m_Tooltip: 
-        m_TextWithWhitespace: "Keys\u200B"
-      headerHeight: 18
-      footerHeight: 13
-      slideEasing: 0.15
-      verticalSpacing: 2
-      showDefaultBackground: 1
-      elementDisplayType: 0
-      elementNameProperty: 
-      elementNameOverride: 
-      elementIcon: {fileID: 0}
-    reqReferences: {fileID: 0}
-    isExpanded: 1
-    _keyValues: 070000000600000005000000
-    _keys: 070000000600000005000000
-    _values:
-    - true
-    - true
-    - 1
+  - {fileID: 11400000, guid: 26f1a6d8bdc1f994ebe46feae38d9e8d, type: 2}
+  - {fileID: 11400000, guid: 991e10d549df216458da887c73e9579b, type: 2}
+  - {fileID: 11400000, guid: 205b890ff0cd91741b29d7f24f9f1031, type: 2}

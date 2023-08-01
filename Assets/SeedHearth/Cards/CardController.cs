@@ -96,7 +96,7 @@ namespace SeedHearth.Cards
 
         public void ResetCardToHand(Card card)
         {
-            cardHandArea.AddCard(card);
+            cardHandArea.AddCardAtPosition(card);
         }
 
 
@@ -115,7 +115,7 @@ namespace SeedHearth.Cards
 
         public void StartCasting(Card card)
         {
-            Debug.Log("Attempting to Cars: " + card.name);
+            Debug.Log("Attempting to Cast: " + card.name);
         }
     }
 }

@@ -1,27 +1,16 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace SeedHearth.Cards
 {
-    public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    [RequireComponent(typeof(CardZoomController))]
+    [RequireComponent(typeof(CardHoverController))]
+    public class Card : MonoBehaviour
     {
-        public static Action<Card> onCardStartHover;
-        public static Action<Card> onCardStopHover;
-
-        public static Action<Card> onCardStartDrag;
-        public static Action<Card> onCardStopDrag;
-
         [Header("Card")]
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
-
-        [Header("Zoom Settings")]
-        [SerializeField] private float zoomInScale = 1.25f;
-        [SerializeField] private float zoomInTime = 0.1f;
-        [SerializeField] private float yMoveAmount = 100.0f;
 
         [Header("Display")]
         [SerializeField] private TMP_Text cardTitleLabel;
@@ -32,10 +21,16 @@ namespace SeedHearth.Cards
         // TODO Implement card icons
         [SerializeField] private Image cardIconImage;
         private bool inHand = false;
-        
+
+        private CardZoomController cardZoomController;
+        private CardHoverController cardHoverController;
+
         private void Start()
         {
             RefreshCardData();
+
+            cardZoomController = GetComponent<CardZoomController>();
+            cardHoverController = GetComponent<CardHoverController>();
         }
 
         public void Initialize(CardData cardData)
@@ -55,52 +50,14 @@ namespace SeedHearth.Cards
             }
         }
 
-        public void ToggleHover(bool hovered)
-        {
-            transform.SetAsLastSibling();
-            LeanTween.cancel(gameObject);
-            LeanTween.scale(
-                gameObject,
-                hovered ? new Vector2(zoomInScale, zoomInScale) : new Vector2(1, 1),
-                zoomInTime
-            );
-            if (hovered && inHand)
-            {
-                LeanTween.moveY(
-                    gameObject,
-                    transform.position.y + yMoveAmount,
-                    zoomInTime
-                );
-            }
-        }
-
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            onCardStartHover?.Invoke(this);
-        }
-
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            onCardStopHover?.Invoke(this);
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            onCardStartDrag?.Invoke(this);
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            onCardStopDrag?.Invoke(this);
-        }
+        public CardZoomController GetZoomControl() => cardZoomController;
+        public CardHoverController GetHoverControl() => cardHoverController;
 
         public void AddToHand()
         {
             inHand = true;
         }
-        
+
         public void RemoveFromHand()
         {
             inHand = false;

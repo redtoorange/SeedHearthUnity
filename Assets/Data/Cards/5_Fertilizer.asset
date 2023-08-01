@@ -17,34 +17,5 @@ MonoBehaviour:
   cardDescription: Apply before planting a crop to increase yield.
   cardBackgroundColor: {r: 0.40784317, g: 0.21960786, b: 0.42352945, a: 1}
   staminaCost: 1
-  cardType: 0
-  cardProperties:
-    reorderableList:
-      canAdd: 1
-      canRemove: 1
-      draggable: 1
-      expandable: 1
-      multipleSelection: 1
-      isExpanded: 1
-      label:
-        m_Text: Keys
-        m_Image: {fileID: 0}
-        m_Tooltip: 
-        m_TextWithWhitespace: "Keys\u200B"
-      headerHeight: 18
-      footerHeight: 13
-      slideEasing: 0.15
-      verticalSpacing: 2
-      showDefaultBackground: 1
-      elementDisplayType: 0
-      elementNameProperty: 
-      elementNameOverride: 
-      elementIcon: {fileID: 0}
-    reqReferences: {fileID: 0}
-    isExpanded: 1
-    _keyValues: 000000000100000002000000
-    _keys: 000000000100000002000000
-    _values:
-    - 1
-    - soil
-    - fertilized
+  cardType: {fileID: 0}
+  cardProperties: []

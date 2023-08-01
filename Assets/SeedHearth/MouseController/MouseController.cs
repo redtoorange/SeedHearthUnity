@@ -37,7 +37,7 @@ namespace SeedHearth.MouseController
             TileBase tile = wetDirtMap.GetTile(intPosition);
             if (tile != null)
             {
-                Debug.Log("Tile: " + tile.name);
+                // Debug.Log("Tile: " + tile.name);
                 selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
                 return;
             }
@@ -45,7 +45,7 @@ namespace SeedHearth.MouseController
             tile = dirtMap.GetTile(intPosition);
             if (tile != null)
             {
-                Debug.Log("Tile: " + tile.name);
+                // Debug.Log("Tile: " + tile.name);
                 selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
                 return;
             }
@@ -53,7 +53,7 @@ namespace SeedHearth.MouseController
             tile = grassMap.GetTile(intPosition);
             if (tile != null)
             {
-                Debug.Log("Tile: " + tile.name);
+                // Debug.Log("Tile: " + tile.name);
                 selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
             }
         }

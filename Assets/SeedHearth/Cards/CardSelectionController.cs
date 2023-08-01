@@ -7,9 +7,10 @@ namespace SeedHearth.Cards
     {
         private MouseEnterDetector mouseEnterDetector;
         private CardController cardController;
-        
+
         private Card currentlyHoveredCard;
         private Card currentlyDraggingCard;
+
         private RectTransform canvasTransform;
 
 
@@ -20,25 +21,24 @@ namespace SeedHearth.Cards
         private void Start()
         {
             canvasTransform = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-            
             mouseEnterDetector = GetComponent<MouseEnterDetector>();
             cardController = GetComponent<CardController>();
         }
 
         private void OnEnable()
         {
-            Card.onCardStartHover += HandleCardStartHover;
-            Card.onCardStopHover += HandleCardStopHover;
-            Card.onCardStartDrag += HandleCardStartDrag;
-            Card.onCardStopDrag += HandleCardStopDrag;
+            CardHoverController.onCardStartHover += HandleCardStartHover;
+            CardHoverController.onCardStopHover += HandleCardStopHover;
+            CardHoverController.onCardStartDrag += HandleCardStartDrag;
+            CardHoverController.onCardStopDrag += HandleCardStopDrag;
         }
 
         private void OnDisable()
         {
-            Card.onCardStartHover -= HandleCardStartHover;
-            Card.onCardStopHover -= HandleCardStopHover;
-            Card.onCardStartDrag -= HandleCardStartDrag;
-            Card.onCardStopDrag -= HandleCardStopDrag;
+            CardHoverController.onCardStartHover -= HandleCardStartHover;
+            CardHoverController.onCardStopHover -= HandleCardStopHover;
+            CardHoverController.onCardStartDrag -= HandleCardStartDrag;
+            CardHoverController.onCardStopDrag -= HandleCardStopDrag;
         }
 
         private void Update()
@@ -75,7 +75,7 @@ namespace SeedHearth.Cards
             }
 
             currentlyHoveredCard = card;
-            card.ToggleHover(true);
+            card.GetZoomControl().ToggleZoomed(true);
         }
 
         private void HandleCardStopHover(Card card)
@@ -87,7 +87,7 @@ namespace SeedHearth.Cards
                 currentlyHoveredCard = null;
             }
 
-            card.ToggleHover(false);
+            card.GetZoomControl().ToggleZoomed(false);
             cardController.ResetCardHand();
         }
 
@@ -109,13 +109,13 @@ namespace SeedHearth.Cards
                 currentlyDraggingCard = null;
 
                 // TODO move this to the CardController
-                CardArea area = mouseEnterDetector.DetectCardArea();
-                if (area is CardDiscardArea discardArea)
+                CardArea area = mouseEnterDetector.DetectCardArea(out Vector2 releasePosition);
+                if (area is CardDiscardArea)
                 {
                     Debug.Log("Discarding Card");
                     cardController.DiscardCard(card);
                 }
-                else if (area is CardHandArea handArea)
+                else if (area is CardHandArea || area is CardDrawArea)
                 {
                     cardController.ResetCardToHand(card);
                 }
