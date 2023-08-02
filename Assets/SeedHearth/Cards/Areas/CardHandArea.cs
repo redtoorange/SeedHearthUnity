@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SeedHearth.Casting;
 using UnityEngine;
 
 namespace SeedHearth.Cards
@@ -8,11 +10,20 @@ namespace SeedHearth.Cards
         private List<Card> heldCards = new List<Card>();
         private RectTransform rectTransform;
         private Rect handAreaRect;
+        private CardCastingManager cardCastingManager;
 
         private void Start()
         {
             rectTransform = GetComponent<RectTransform>();
             handAreaRect = rectTransform.rect;
+
+            cardCastingManager = FindFirstObjectByType<CardCastingManager>();
+        }
+
+        private void Update()
+        {
+            //TODO This needs to be optimized
+            UpdateCardCanCast();
         }
 
         public void AddCard(Card card)
@@ -21,7 +32,7 @@ namespace SeedHearth.Cards
             card.AddToHand();
             OrganizeCards();
         }
-        
+
         public void AddCardAtPosition(Card card)
         {
             heldCards.Add(card);
@@ -75,9 +86,17 @@ namespace SeedHearth.Cards
                 heldCard.transform.SetSiblingIndex(i);
             }
         }
+
+        public void UpdateCardCanCast()
+        {
+            foreach (Card card in heldCards)
+            {
+                card.SetCanCast(cardCastingManager.IsAbleToCast(card));
+            }
+        }
     }
-    
-    public class CardComparer: IComparer<Card>
+
+    public class CardComparer : IComparer<Card>
     {
         public int Compare(Card a, Card b)
         {
@@ -85,7 +104,7 @@ namespace SeedHearth.Cards
             {
                 return 0;
             }
-            
+
             float aXPos = a.transform.position.x;
             float bXPos = b.transform.position.x;
 

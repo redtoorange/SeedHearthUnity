@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: WATERING_CAN_1
   cardTitle: Watering Can
+  cardSprite: {fileID: 4408161865562369581, guid: 9801d8825f698f44c8babdc6054dfa3d, type: 3}
   cardDescription: <b>Water</b> a single crop tile.
   cardBackgroundColor: {r: 0.07058824, g: 0.30588236, b: 0.5372549, a: 1}
   staminaCost: 1

@@ -1,11 +1,14 @@
+using System;
 using System.Collections.Generic;
 using SeedHearth.Deck;
 using UnityEngine;
 
 namespace SeedHearth.Cards
 {
-    public class CardController : MonoBehaviour
+    public class CardManager : MonoBehaviour
     {
+        public Action<Card> OnStartCasting;
+
         [Header("Player Areas")]
         [SerializeField] private CardDrawArea cardDrawArea;
         [SerializeField] private CardHandArea cardHandArea;
@@ -77,11 +80,19 @@ namespace SeedHearth.Cards
         /**
          * Card is moved to the discard pile, will be shuffled back into deck on reshuffle
          */
-        public void DiscardCard(Card card)
+        public void DiscardCardFromHand(Card card)
         {
             if (deckInstance == null) return;
 
             cardHandArea.RemoveCard(card);
+            deckInstance.DiscardCard(card.GetCardData());
+            Destroy(card.gameObject);
+        }
+        
+        public void DiscardCardFromPlay(Card card)
+        {
+            if (deckInstance == null) return;
+
             deckInstance.DiscardCard(card.GetCardData());
             Destroy(card.gameObject);
         }
@@ -115,7 +126,10 @@ namespace SeedHearth.Cards
 
         public void StartCasting(Card card)
         {
-            Debug.Log("Attempting to Cast: " + card.name);
+            Debug.Log("Attempting to Cast: " + card.GetName());
+            OnStartCasting?.Invoke(card);
         }
+
+        
     }
 }

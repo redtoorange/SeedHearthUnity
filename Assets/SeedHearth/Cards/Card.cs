@@ -18,6 +18,7 @@ namespace SeedHearth.Cards
         [SerializeField] private Image cardBackgroundImage;
         [SerializeField] private TMP_Text staminaCost;
         [SerializeField] private Image cardIconImage;
+        [SerializeField] private GameObject cardOverlay;
         
         private bool inHand = false;
 
@@ -61,6 +62,16 @@ namespace SeedHearth.Cards
         public void RemoveFromHand()
         {
             inHand = false;
+        }
+
+        public string GetName()
+        {
+            return cardData.cardTitle;
+        }
+
+        public void SetCanCast(bool canCast)
+        {
+            cardOverlay.SetActive(!canCast);
         }
     }
 }

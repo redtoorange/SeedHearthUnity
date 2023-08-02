@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Casting;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace SeedHearth.Cards
 {
-    public class CardSelectionController : MonoBehaviour
+    public class CardSelectionManager : MonoBehaviour
     {
         private MouseEnterDetector mouseEnterDetector;
-        private CardController cardController;
+        private CardManager cardManager;
+        private CardCastingManager cardCastingManager;
 
         private Card currentlyHoveredCard;
         private Card currentlyDraggingCard;
 
+        [SerializeField]
+        private Canvas playCanvas;
         private RectTransform canvasTransform;
 
 
@@ -20,9 +24,10 @@ namespace SeedHearth.Cards
 
         private void Start()
         {
-            canvasTransform = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+            canvasTransform = playCanvas.GetComponent<RectTransform>();
             mouseEnterDetector = GetComponent<MouseEnterDetector>();
-            cardController = GetComponent<CardController>();
+            cardManager = GetComponent<CardManager>();
+            cardCastingManager = GetComponent<CardCastingManager>();
         }
 
         private void OnEnable()
@@ -88,17 +93,19 @@ namespace SeedHearth.Cards
             }
 
             card.GetZoomControl().ToggleZoomed(false);
-            cardController.ResetCardHand();
+            cardManager.ResetCardHand();
         }
 
         private void HandleCardStartDrag(Card card)
         {
+            if (!cardCastingManager.IsAbleToCast(card)) return;
+            
             currentlyDraggingCard = card;
             isDragging = true;
             cardTransform = currentlyDraggingCard.GetComponent<RectTransform>();
             cardDragOffset = cardTransform.anchoredPosition - GetMousePosition();
 
-            cardController.PlayingCard(card);
+            cardManager.PlayingCard(card);
         }
 
         private void HandleCardStopDrag(Card card)
@@ -113,15 +120,15 @@ namespace SeedHearth.Cards
                 if (area is CardDiscardArea)
                 {
                     Debug.Log("Discarding Card");
-                    cardController.DiscardCard(card);
+                    cardManager.DiscardCardFromHand(card);
                 }
                 else if (area is CardHandArea || area is CardDrawArea)
                 {
-                    cardController.ResetCardToHand(card);
+                    cardManager.ResetCardToHand(card);
                 }
                 else
                 {
-                    cardController.StartCasting(card);
+                    cardManager.StartCasting(card);
                 }
             }
         }

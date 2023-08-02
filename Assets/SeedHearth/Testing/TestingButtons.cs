@@ -1,5 +1,6 @@
 ﻿using SeedHearth.Cards;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SeedHearth.Testing
 {
@@ -8,15 +9,15 @@ namespace SeedHearth.Testing
         [SerializeField] private int handSize = 4;
         [SerializeField] private int staminaAmount = 4;
 
-        [SerializeField] private CardController cardController;
+        [FormerlySerializedAs("cardController")] [SerializeField] private CardManager cardManager;
 
         public void DrawNewHand()
         {
-            cardController.DiscardHand();
+            cardManager.DiscardHand();
 
             for (int i = 0; i < handSize; i++)
             {
-                cardController.DrawCard();
+                cardManager.DrawCard();
             }
         }
     }
