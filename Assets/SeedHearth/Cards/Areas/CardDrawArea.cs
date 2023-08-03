@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.EventSystems;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Areas
 {
     public class CardDrawArea : CardArea, IPointerClickHandler
     {

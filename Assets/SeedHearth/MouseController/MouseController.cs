@@ -9,14 +9,22 @@ namespace SeedHearth.MouseController
         [SerializeField] private Tilemap grassMap;
         [SerializeField] private Tilemap dirtMap;
         [SerializeField] private Tilemap wetDirtMap;
-        
+
         private Camera mainCamera;
 
         [SerializeField] private GameObject selectionSquare;
+        [SerializeField] private LayerMask plantLayerMask;
 
+        [SerializeField] private TileBase hoveredTile;
+        [SerializeField] private GameObject hoveredObject;
+
+        RaycastHit2D[] results = new RaycastHit2D[10];
+
+        
         private void Start()
         {
             mainCamera = Camera.main;
+            
         }
 
         private void Update()
@@ -32,29 +40,48 @@ namespace SeedHearth.MouseController
                 Mathf.FloorToInt(worldPosition.x),
                 Mathf.FloorToInt(worldPosition.y)
             );
+            
+            UpdateSelectionSquare(intPosition);
+            CheckHoveredObject(worldPosition);
+            CheckHoveredTile(intPosition);
+        }
 
-            // tileMap.get
-            TileBase tile = wetDirtMap.GetTile(intPosition);
-            if (tile != null)
+        private void UpdateSelectionSquare(Vector3Int intPosition)
+        {
+            selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
+        }
+
+        private void CheckHoveredTile(Vector3Int intPosition)
+        {
+            hoveredTile = wetDirtMap.GetTile(intPosition);
+            if (hoveredTile != null)
             {
-                // Debug.Log("Tile: " + tile.name);
-                selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
                 return;
             }
-            
-            tile = dirtMap.GetTile(intPosition);
-            if (tile != null)
+
+            hoveredTile = dirtMap.GetTile(intPosition);
+            if (hoveredTile != null)
             {
-                // Debug.Log("Tile: " + tile.name);
-                selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
                 return;
             }
-            
-            tile = grassMap.GetTile(intPosition);
-            if (tile != null)
+
+            hoveredTile = grassMap.GetTile(intPosition);
+            if (hoveredTile != null)
             {
-                // Debug.Log("Tile: " + tile.name);
-                selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
+                return;
+            }
+        }
+
+        private void CheckHoveredObject(Vector2 worldPosition)
+        {
+            int count = Physics2D.RaycastNonAlloc(worldPosition, Vector2.zero, results, 0.0f, plantLayerMask);
+            hoveredObject = null;
+            if (count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    hoveredObject = results[i].collider.gameObject;
+                }
             }
         }
     }

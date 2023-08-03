@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
+using SeedHearth.Cards.Data;
 using UnityEngine;
 
 namespace SeedHearth.Deck

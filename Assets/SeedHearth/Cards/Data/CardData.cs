@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SeedHearth.Cards.Data.Abilities;
+using SeedHearth.Cards.Data.CardProperties;
 using UnityEngine;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Data
 {
     [CreateAssetMenu(fileName = "CardData", menuName = "Card Data", order = 0)]
     [Serializable]
@@ -10,13 +12,14 @@ namespace SeedHearth.Cards
     {
         public static string NONE_ID = "NONE";
 
-        [SerializeField] public string id = NONE_ID;
-        [SerializeField] public string cardTitle;
-        [SerializeField] public Sprite cardSprite;
-        [SerializeField] [Multiline(8)] public string cardDescription;
-        [SerializeField] public Color cardBackgroundColor;
-        [SerializeField] public int staminaCost = 0;
-        [SerializeField] public CardType cardType;
-        [SerializeField] private List<CardProperty> cardProperties;
+        public string id = NONE_ID;
+        public string cardTitle;
+        public Sprite cardSprite;
+        [TextArea(5, 8)] public string cardDescription;
+        public Color cardBackgroundColor;
+        public int staminaCost = 0;
+        public CardType cardType;
+        public List<CardAbility> cardAbilities;
+        public List<CardProperty> cardProperties;
     }
 }

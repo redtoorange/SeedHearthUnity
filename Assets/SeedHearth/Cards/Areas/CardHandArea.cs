@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SeedHearth.Casting;
+﻿using System.Collections.Generic;
+using SeedHearth.Managers;
 using UnityEngine;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Areas
 {
     public class CardHandArea : CardArea
     {
