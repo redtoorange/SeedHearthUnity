@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Cards.Areas;
-using SeedHearth.Cards.Data;
 using SeedHearth.Deck;
 using UnityEngine;
 
@@ -16,14 +15,12 @@ namespace SeedHearth.Managers
         [SerializeField] private CardDrawArea cardDrawArea;
         [SerializeField] private CardHandArea cardHandArea;
         [SerializeField] private CardDiscardArea cardDiscardArea;
-        [SerializeField] private Transform cardSpawnTarget; 
 
         [Header("Deck")]
         [SerializeField] private DeckData currentlyLoadedDeck;
-        [SerializeField] private DeckInstance deckInstance;
+        [SerializeField] private DeckManager deckManager;
 
         [Header("Cards")]
-        [SerializeField] private Card cardPrefab;
         [SerializeField] private List<Card> instancedCards;
         [SerializeField] private int drawHandSize = 4;
 
@@ -35,7 +32,7 @@ namespace SeedHearth.Managers
             // Instance the deck
             if (currentlyLoadedDeck != null)
             {
-                deckInstance = new DeckInstance(currentlyLoadedDeck);
+                deckManager.LoadDeck(currentlyLoadedDeck);
             }
 
             // Gather instanced Cards
@@ -68,15 +65,13 @@ namespace SeedHearth.Managers
 
         public void DrawCard()
         {
-            if (deckInstance == null) return;
+            if (deckManager == null) return;
 
-            CardData drawnCard = deckInstance.DrawCard();
+            Card drawnCard = deckManager.DrawCard();
 
             if (drawnCard != null)
             {
-                Card newCard = Instantiate(cardPrefab, cardSpawnTarget);
-                newCard.Initialize(drawnCard);
-                cardHandArea.AddCard(newCard);
+                cardHandArea.AddCard(drawnCard);
             }
             else
             {
@@ -97,8 +92,7 @@ namespace SeedHearth.Managers
             foreach (Card heldCard in cardHandArea.GetHeldCards())
             {
                 cardHandArea.RemoveCard(heldCard);
-                deckInstance.DiscardCard(heldCard.GetCardData());
-                Destroy(heldCard.gameObject);
+                deckManager.DiscardCard(heldCard);
             }
         }
 
@@ -107,19 +101,17 @@ namespace SeedHearth.Managers
          */
         public void DiscardCardFromHand(Card card)
         {
-            if (deckInstance == null) return;
+            if (deckManager == null) return;
 
             cardHandArea.RemoveCard(card);
-            deckInstance.DiscardCard(card.GetCardData());
-            Destroy(card.gameObject);
+            deckManager.DiscardCard(card);
         }
-        
+
         public void DiscardCardFromPlay(Card card)
         {
-            if (deckInstance == null) return;
+            if (deckManager == null) return;
 
-            deckInstance.DiscardCard(card.GetCardData());
-            Destroy(card.gameObject);
+            deckManager.DiscardCard(card);
         }
 
         /**
@@ -127,7 +119,7 @@ namespace SeedHearth.Managers
          */
         public void BurnCard(Card card)
         {
-            if (deckInstance == null) return;
+            if (deckManager == null) return;
         }
 
         public void ResetCardToHand(Card card)
@@ -154,7 +146,5 @@ namespace SeedHearth.Managers
             Debug.Log("Attempting to Cast: " + card.GetName());
             OnStartCasting?.Invoke(card);
         }
-
-        
     }
 }

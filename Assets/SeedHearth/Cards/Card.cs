@@ -34,11 +34,6 @@ namespace SeedHearth.Cards
             cardHoverController = GetComponent<CardHoverController>();
         }
 
-        public void Initialize(CardData cardData)
-        {
-            this.cardData = cardData;
-        }
-
         [ContextMenu("Refresh")]
         private void RefreshCardData()
         {
