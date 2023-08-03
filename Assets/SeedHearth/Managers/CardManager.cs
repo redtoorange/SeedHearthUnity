@@ -27,7 +27,7 @@ namespace SeedHearth.Managers
         [SerializeField] private List<Card> instancedCards;
         [SerializeField] private int drawHandSize = 4;
 
-        private void Start()
+        private void Awake()
         {
             // Wire signals
             cardDrawArea.onDrawAreaClicked += HandleDrawAreaClicked;

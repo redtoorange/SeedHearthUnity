@@ -30,8 +30,9 @@ namespace SeedHearth.MouseController
         {
             results.Clear();
             pointerEventData.position = Mouse.current.position.ReadValue();
+            eventSystem.RaycastAll(pointerEventData, results);
 
-            raycaster.Raycast(pointerEventData, results);
+            // raycaster.Raycast();
             for (int i = 0; i < results.Count; i++)
             {
                 RaycastResult result = results[i];

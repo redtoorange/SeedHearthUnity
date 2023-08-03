@@ -59,7 +59,7 @@ namespace SeedHearth.Managers
 
         public void FinishedCasting()
         {
-            playerResourceManager.ChangeStamina(-currentlyCastingCard.GetCardData().staminaCost);
+            playerResourceManager.AddStamina(-currentlyCastingCard.GetCardData().staminaCost);
             cardManager.DiscardCardFromPlay(currentlyCastingCard);
             Debug.Log("Done Casting: " + currentlyCastingCard.GetName());
             currentlyCastingCard = null;

@@ -13,7 +13,7 @@ namespace SeedHearth.Cards.Data.Abilities
             {
                 if (property is GainStaminaProperty staminaProperty)
                 {
-                    context.playerResourceManager.ChangeStamina(staminaProperty.amount);
+                    context.playerResourceManager.AddStamina(staminaProperty.amount);
                     callback();
                     return;
                 }

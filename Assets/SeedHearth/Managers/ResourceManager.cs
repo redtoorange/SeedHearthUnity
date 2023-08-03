@@ -23,8 +23,23 @@ namespace SeedHearth.Managers
 
         private void Start()
         {
-            ChangeStamina(startingStamina);
-            ChangeGold(startingGold);
+            AddStamina(startingStamina);
+            AddGold(startingGold);
+        }
+
+        private void OnEnable()
+        {
+            TurnManager.onBeginTurn += ResetStamina;
+        }
+
+        private void OnDisable()
+        {
+            TurnManager.onBeginTurn -= ResetStamina;
+        }
+
+        private void ResetStamina()
+        {
+            SetStamina(startingStamina);
         }
 
         public int GetGold() => gold;
@@ -40,7 +55,7 @@ namespace SeedHearth.Managers
             return gold >= required;
         }
 
-        public void ChangeStamina(int amount)
+        public void AddStamina(int amount)
         {
             int oldValue = stamina;
             int newValue = Mathf.Clamp(stamina + amount, minStamina, maxStamina);
@@ -48,7 +63,7 @@ namespace SeedHearth.Managers
             stamina = newValue;
         }
 
-        public void ChangeGold(int amount)
+        public void AddGold(int amount)
         {
             int oldValue = gold;
             int newValue = Mathf.Clamp(gold + amount, minGold, maxGold);

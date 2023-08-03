@@ -9,6 +9,11 @@ namespace SeedHearth.Managers
         public static Action onEndTurn;
         public static Action onBeginTurn;
 
+        private void Start()
+        {
+            TriggerBeginTurn();
+        }
+
         public void TriggerEndTurn()
         {
             onEndTurn?.Invoke();

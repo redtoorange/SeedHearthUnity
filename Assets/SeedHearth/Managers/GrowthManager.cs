@@ -10,12 +10,12 @@ namespace SeedHearth.Managers
 
         private void OnEnable()
         {
-            TurnManager.onBeginTurn += GrowPlants;
+            TurnManager.onEndTurn += GrowPlants;
         }
 
         private void OnDisable()
         {
-            TurnManager.onBeginTurn -= GrowPlants;
+            TurnManager.onEndTurn -= GrowPlants;
         }
 
         private void Start()
