@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Plants;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
@@ -16,15 +17,16 @@ namespace SeedHearth.MouseController
         [SerializeField] private LayerMask plantLayerMask;
 
         [SerializeField] private TileBase hoveredTile;
-        [SerializeField] private GameObject hoveredObject;
+
+        [SerializeField] private Plant hoveredPlant;
+        [SerializeField] private Produce.Produce hoveredProduce;
 
         RaycastHit2D[] results = new RaycastHit2D[10];
 
-        
+
         private void Start()
         {
             mainCamera = Camera.main;
-            
         }
 
         private void Update()
@@ -40,10 +42,22 @@ namespace SeedHearth.MouseController
                 Mathf.FloorToInt(worldPosition.x),
                 Mathf.FloorToInt(worldPosition.y)
             );
-            
+
             UpdateSelectionSquare(intPosition);
             CheckHoveredObject(worldPosition);
             CheckHoveredTile(intPosition);
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                if (hoveredPlant != null)
+                {
+                    hoveredPlant.ConvertToProduce();
+                }
+                else if (hoveredProduce != null)
+                {
+                    hoveredProduce.PickUpProduce();
+                }
+            }
         }
 
         private void UpdateSelectionSquare(Vector3Int intPosition)
@@ -75,12 +89,22 @@ namespace SeedHearth.MouseController
         private void CheckHoveredObject(Vector2 worldPosition)
         {
             int count = Physics2D.RaycastNonAlloc(worldPosition, Vector2.zero, results, 0.0f, plantLayerMask);
-            hoveredObject = null;
+
+            hoveredPlant = null;
+            hoveredProduce = null;
+
             if (count > 0)
             {
                 for (int i = 0; i < count; i++)
                 {
-                    hoveredObject = results[i].collider.gameObject;
+                    if (results[i].collider.TryGetComponent(out Plant plant))
+                    {
+                        hoveredPlant = plant;
+                    }
+                    else if (results[i].collider.TryGetComponent(out Produce.Produce produce))
+                    {
+                        hoveredProduce = produce;
+                    }
                 }
             }
         }

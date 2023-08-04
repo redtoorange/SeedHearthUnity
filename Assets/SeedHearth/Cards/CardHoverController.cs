@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 namespace SeedHearth.Cards
 {
     [RequireComponent(typeof(Card))]
-    public class CardHoverController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    public class CardHoverController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
+        IPointerUpHandler
     {
         public static Action<Card> onCardStartHover;
         public static Action<Card> onCardStopHover;

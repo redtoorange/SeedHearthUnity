@@ -34,7 +34,7 @@ namespace SeedHearth.Managers
             currentlyCastingCard = cardToCast;
 
             // Create a stack of properties to cast
-            callStack = new Queue<CardAbility>(cardToCast.GetCardData().cardAbilities);
+            callStack = new Queue<CardAbility>(cardToCast.GetComponents<CardAbility>());
             ProcessNextCardAbility();
         }
 

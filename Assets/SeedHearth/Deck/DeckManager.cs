@@ -10,7 +10,7 @@ namespace SeedHearth.Deck
     public class DeckManager : MonoBehaviour
     {
         [SerializeField] private Transform cardSpawnTarget;
-        
+
         private DeckData sourceDeck;
 
         // Cards that are in the draw pile
@@ -36,7 +36,7 @@ namespace SeedHearth.Deck
                 DeckCardData deckCardData = sourceDeck.deckCardData[i];
                 for (int j = 0; j < deckCardData.count; j++)
                 {
-                    Card newCard = Instantiate(deckCardData.cardPrefab, cardSpawnTarget);
+                    Card newCard = SpawnNewCard(deckCardData.cardPrefab);
                     newCard.gameObject.SetActive(false);
                     libraryCardInstances.Add(newCard);
                 }
@@ -79,6 +79,16 @@ namespace SeedHearth.Deck
         {
             libraryCardInstances.AddRange(graveyardCardInstances);
             graveyardCardInstances.Clear();
+        }
+
+        public void AddActiveCard(Card card)
+        {
+            activeCardInstances.Add(card);
+        }
+
+        public Card SpawnNewCard(Card card)
+        {
+            return Instantiate(card, cardSpawnTarget);
         }
     }
 }

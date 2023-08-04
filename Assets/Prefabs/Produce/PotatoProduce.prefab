@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4440326042624846111
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 723923133704642375, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -320179763925181062, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
+    - target: {fileID: 3495118046990890020, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: produceCardPrefab
+      value: 
+      objectReference: {fileID: 4890684946629085404, guid: 4939824e9bd12564d923feaeaba0c9b1, type: 3}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431453540081406970, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318426237616709868, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
+      propertyPath: m_Name
+      value: PotatoProduce
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}

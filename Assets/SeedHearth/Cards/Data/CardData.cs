@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SeedHearth.Cards.Data.Abilities;
 using SeedHearth.Cards.Data.CardProperties;
 using UnityEngine;
 
@@ -19,7 +18,6 @@ namespace SeedHearth.Cards.Data
         public Color cardBackgroundColor;
         public int staminaCost = 0;
         public CardType cardType;
-        public List<CardAbility> cardAbilities;
         public List<CardProperty> cardProperties;
     }
 }

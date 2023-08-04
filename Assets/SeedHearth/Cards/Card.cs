@@ -20,7 +20,7 @@ namespace SeedHearth.Cards
         [SerializeField] private TMP_Text staminaCost;
         [SerializeField] private Image cardIconImage;
         [SerializeField] private GameObject cardOverlay;
-        
+
         private bool inHand = false;
 
         private CardZoomController cardZoomController;

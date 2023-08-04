@@ -1,8 +1,5 @@
-﻿using SeedHearth.Cards;
-using SeedHearth.Managers;
-using SeedHearth.Player;
+﻿using SeedHearth.Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SeedHearth.Testing
 {
@@ -22,7 +19,7 @@ namespace SeedHearth.Testing
             {
                 cardManager.DrawCard();
             }
-            
+
             resourceManager.SetStamina(staminaAmount);
             growthManager.GrowPlants();
         }

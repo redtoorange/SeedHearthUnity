@@ -16,11 +16,12 @@ namespace SeedHearth.Plants
         [Header("Grow")]
         [SerializeField] private int daysRequiredToGrow = 4;
         [SerializeField] private int daysToGrownSoFar = 0;
-        [SerializeField] private GameObject harvestPrefab;
 
         [Header("Harvest")]
         private PlantManager plantManager;
         [SerializeField] private bool harvestable = false;
+        [SerializeField] private Produce.Produce producePrefab;
+
 
         private void Start()
         {
@@ -45,7 +46,21 @@ namespace SeedHearth.Plants
 
         private void OnDisable()
         {
+            Debug.Log("Disabling plant");
             plantManager.RemovePlant(this);
+        }
+
+        public void ConvertToProduce()
+        {
+            if (!harvestable) return;
+
+            Produce.Produce spawnedProduce = Instantiate(
+                producePrefab,
+                transform.position,
+                Quaternion.identity,
+                transform.parent
+            );
+            Destroy(gameObject);
         }
 
         private void UpdatePlantVisuals()
@@ -76,11 +91,14 @@ namespace SeedHearth.Plants
 
         public void Grow(int days)
         {
+            if (harvestable) return;
+
             daysToGrownSoFar = Math.Min(daysToGrownSoFar + days, daysRequiredToGrow);
             if (daysToGrownSoFar == daysRequiredToGrow)
             {
                 harvestable = true;
             }
+
             UpdatePlantVisuals();
         }
     }

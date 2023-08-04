@@ -101,7 +101,7 @@ namespace SeedHearth.Managers
         private void HandleCardStartDrag(Card card)
         {
             if (!cardCastingManager.IsAbleToCast(card)) return;
-            
+
             currentlyDraggingCard = card;
             isDragging = true;
             cardTransform = currentlyDraggingCard.GetComponent<RectTransform>();

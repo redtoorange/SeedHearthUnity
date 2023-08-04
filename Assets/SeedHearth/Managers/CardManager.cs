@@ -146,5 +146,16 @@ namespace SeedHearth.Managers
             Debug.Log("Attempting to Cast: " + card.GetName());
             OnStartCasting?.Invoke(card);
         }
+
+        public void AddNewCard(Card card)
+        {
+            deckManager.AddActiveCard(card);
+            cardHandArea.AddCard(card);
+        }
+
+        public Card SpawnNewCard(Card card)
+        {
+            return deckManager.SpawnNewCard(card);
+        }
     }
 }
