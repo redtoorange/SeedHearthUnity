@@ -1,52 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
-using SeedHearth.Cards.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace SeedHearth.Deck
 {
     [Serializable]
-    public class DeckInstance
+    public class DeckManager : MonoBehaviour
     {
+        [SerializeField] private Transform cardSpawnTarget;
+
         private DeckData sourceDeck;
 
         // Cards that are in the draw pile
-        [SerializeField] private List<CardData> libraryCardInstances;
+        [SerializeField] private List<Card> libraryCardInstances;
 
         // Cards that are currently in play
-        [SerializeField] private List<CardData> activeCardInstances;
+        [SerializeField] private List<Card> activeCardInstances;
 
         // Card that are currently in the discard pile
-        [SerializeField] private List<CardData> graveyardCardInstances;
+        [SerializeField] private List<Card> graveyardCardInstances;
 
 
-        public DeckInstance(DeckData sourceDeck)
+        public void LoadDeck(DeckData sourceDeck)
         {
             this.sourceDeck = sourceDeck;
-            LoadDeck();
-        }
 
-        private void LoadDeck()
-        {
-            libraryCardInstances = new List<CardData>();
-            activeCardInstances = new List<CardData>();
-            graveyardCardInstances = new List<CardData>();
+            libraryCardInstances = new List<Card>();
+            activeCardInstances = new List<Card>();
+            graveyardCardInstances = new List<Card>();
 
             for (int i = 0; i < sourceDeck.deckCardData.Count; i++)
             {
                 DeckCardData deckCardData = sourceDeck.deckCardData[i];
                 for (int j = 0; j < deckCardData.count; j++)
                 {
-                    libraryCardInstances.Add(deckCardData.cardData);
+                    Card newCard = SpawnNewCard(deckCardData.cardPrefab);
+                    newCard.gameObject.SetActive(false);
+                    libraryCardInstances.Add(newCard);
                 }
             }
 
             Debug.Log($"Created deck instance with {libraryCardInstances.Count} cards");
         }
 
-        public CardData DrawCard()
+        public Card DrawCard()
         {
             // Out of cards, attempt to shuffle
             if (libraryCardInstances.Count <= 0 && graveyardCardInstances.Count > 0)
@@ -61,23 +60,35 @@ namespace SeedHearth.Deck
             }
 
             int index = Random.Range(0, libraryCardInstances.Count);
-            CardData card = libraryCardInstances[index];
+            Card card = libraryCardInstances[index];
             libraryCardInstances.RemoveAt(index);
             activeCardInstances.Add(card);
+            card.gameObject.SetActive(true);
 
             return card;
         }
 
-        public void DiscardCard(CardData cardData)
+        public void DiscardCard(Card cardToDiscard)
         {
-            activeCardInstances.Remove(cardData);
-            graveyardCardInstances.Add(cardData);
+            cardToDiscard.gameObject.SetActive(false);
+            activeCardInstances.Remove(cardToDiscard);
+            graveyardCardInstances.Add(cardToDiscard);
         }
 
         public void ShuffleDeck()
         {
             libraryCardInstances.AddRange(graveyardCardInstances);
             graveyardCardInstances.Clear();
+        }
+
+        public void AddActiveCard(Card card)
+        {
+            activeCardInstances.Add(card);
+        }
+
+        public Card SpawnNewCard(Card card)
+        {
+            return Instantiate(card, cardSpawnTarget);
         }
     }
 }

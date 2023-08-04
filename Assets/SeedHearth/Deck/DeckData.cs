@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
-using SeedHearth.Cards.Data;
 using UnityEngine;
 
 namespace SeedHearth.Deck
@@ -10,9 +9,9 @@ namespace SeedHearth.Deck
     public class DeckCardData
     {
         public int count = 1;
-        public CardData cardData;
+        public Card cardPrefab;
     }
-    
+
     [CreateAssetMenu(fileName = "DeckData", menuName = "Deck Data", order = 0)]
     [Serializable]
     public class DeckData : ScriptableObject

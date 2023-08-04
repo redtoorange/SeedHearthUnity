@@ -5,7 +5,6 @@ namespace SeedHearth.Managers
 {
     public class TurnManager : MonoBehaviour
     {
-
         public static Action onEndTurn;
         public static Action onBeginTurn;
 
@@ -17,7 +16,7 @@ namespace SeedHearth.Managers
         public void TriggerEndTurn()
         {
             onEndTurn?.Invoke();
-            
+
             TriggerBeginTurn();
         }
 

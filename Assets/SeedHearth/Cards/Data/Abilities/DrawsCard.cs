@@ -2,13 +2,17 @@
 
 namespace SeedHearth.Cards.Data.Abilities
 {
-    public class GainStamina : CardAbility
+    public class DrawsCard : CardAbility
     {
         [SerializeField] private int amount = 1;
 
         public override void Cast(CardCastingContext context, CastCallback callback)
         {
-            context.playerResourceManager.AddStamina(amount);
+            for (int i = 0; i < amount; i++)
+            {
+                context.cardManager.DrawCard();
+            }
+
             callback();
         }
     }

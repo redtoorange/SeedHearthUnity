@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckName: Sample Deck
   deckCardData:
-  - count: 2
-    cardData: {fileID: 11400000, guid: f1f7fa52ecbc1e24f9f881e32293dcdb, type: 2}
-  - count: 2
-    cardData: {fileID: 11400000, guid: 98bf081915be7bb418b89ceb344efc2c, type: 2}
-  - count: 2
-    cardData: {fileID: 11400000, guid: 244a02c1e257f444892f30a6d5c9b1c0, type: 2}
-  - count: 2
-    cardData: {fileID: 11400000, guid: 0d9e4857de3144041ab69b23765683b4, type: 2}
   - count: 4
-    cardData: {fileID: 11400000, guid: a0e4ed76d65e96745857db0b50b4b87e, type: 2}
+    cardPrefab: {fileID: 4890684946629085404, guid: 809d0b6b4380ae34bb490fcd22b41bc5, type: 3}
+  - count: 4
+    cardPrefab: {fileID: 4890684946629085404, guid: 8eaf6db1468401743aeac2784e02aca1, type: 3}
+  - count: 8
+    cardPrefab: {fileID: 4890684946629085404, guid: 0cd40e5cdaa69e44297eb049278a1141, type: 3}
+  - count: 8
+    cardPrefab: {fileID: 4890684946629085404, guid: 3cf6e33737462af48a40d83ef99f7900, type: 3}
+  - count: 8
+    cardPrefab: {fileID: 4890684946629085404, guid: 30be96a94b7637c40ac139b6d70b7668, type: 3}

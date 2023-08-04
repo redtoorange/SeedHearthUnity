@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437eec1c2ec649efaa8ff01dfdbb950f, type: 3}
-  m_Name: 7_WateringCan
+  m_Name: _WateringCan
   m_EditorClassIdentifier: 
   id: WATERING_CAN_1
   cardTitle: Watering Can
   cardSprite: {fileID: 4408161865562369581, guid: 9801d8825f698f44c8babdc6054dfa3d, type: 3}
-  cardDescription: <b>Water</b> a single crop tile.
+  cardDescription: <b>Water</b> a single crop tile and <b>Draw 1</b> card.
   cardBackgroundColor: {r: 0.07058824, g: 0.30588236, b: 0.5372549, a: 1}
   staminaCost: 1
   cardType: {fileID: 0}

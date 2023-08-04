@@ -20,7 +20,7 @@ namespace SeedHearth.Cards
         [SerializeField] private TMP_Text staminaCost;
         [SerializeField] private Image cardIconImage;
         [SerializeField] private GameObject cardOverlay;
-        
+
         private bool inHand = false;
 
         private CardZoomController cardZoomController;
@@ -32,11 +32,6 @@ namespace SeedHearth.Cards
 
             cardZoomController = GetComponent<CardZoomController>();
             cardHoverController = GetComponent<CardHoverController>();
-        }
-
-        public void Initialize(CardData cardData)
-        {
-            this.cardData = cardData;
         }
 
         [ContextMenu("Refresh")]

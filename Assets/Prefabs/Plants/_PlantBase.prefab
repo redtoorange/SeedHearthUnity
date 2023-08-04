@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 8550775283643807560}
   - component: {fileID: -3307548533958976403}
   m_Layer: 6
-  m_Name: Parsnip
+  m_Name: _PlantBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +233,8 @@ MonoBehaviour:
   plantVisualBottom: {fileID: 6901083367769713047}
   daysRequiredToGrow: 5
   daysToGrownSoFar: 0
-  harvestPrefab: {fileID: 0}
+  harvestable: 0
+  producePrefab: {fileID: 3495118046990890020, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
 --- !u!61 &-3307548533958976403
 BoxCollider2D:
   m_ObjectHideFlags: 0

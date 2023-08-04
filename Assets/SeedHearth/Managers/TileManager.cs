@@ -4,6 +4,5 @@ namespace SeedHearth.Managers
 {
     public class TileManager : MonoBehaviour
     {
-        
     }
 }
