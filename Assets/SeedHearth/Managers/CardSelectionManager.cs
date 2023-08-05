@@ -75,6 +75,7 @@ namespace SeedHearth.Managers
         private void HandleCardStartHover(Card card)
         {
             if (isDragging) return;
+            if (!card.InHand()) return;
 
             if (currentlyHoveredCard != null)
             {

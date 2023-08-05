@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SeedHearth.Managers;
 using UnityEngine;
 
@@ -28,7 +29,6 @@ namespace SeedHearth.Cards.Areas
         public void AddCard(Card card)
         {
             heldCards.Add(card);
-            card.AddToHand();
             OrganizeCards();
         }
 
@@ -36,7 +36,6 @@ namespace SeedHearth.Cards.Areas
         {
             heldCards.Add(card);
             heldCards.Sort(new CardComparer());
-            card.AddToHand();
             OrganizeCards();
         }
 
@@ -80,10 +79,17 @@ namespace SeedHearth.Cards.Areas
                     0,
                     0
                 );
-                LeanTween.move(heldCard.gameObject, cardPosition, 0.1f);
-
                 heldCard.transform.SetSiblingIndex(i);
+                LeanTween.move(heldCard.gameObject, cardPosition, 0.25f)
+                    .setOnCompleteParam(heldCard)
+                    .setOnComplete(HandleCardComplete);
             }
+        }
+
+        private void HandleCardComplete(object card)
+        {
+            Card castCast = (Card)card;
+            castCast.AddToHand();
         }
 
         public void UpdateCardCanCast()

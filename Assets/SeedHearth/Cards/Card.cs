@@ -69,5 +69,10 @@ namespace SeedHearth.Cards
         {
             cardOverlay.SetActive(!canCast);
         }
+
+        public bool InHand()
+        {
+            return inHand;
+        }
     }
 }
