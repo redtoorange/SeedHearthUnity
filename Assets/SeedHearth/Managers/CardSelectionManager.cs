@@ -22,7 +22,8 @@ namespace SeedHearth.Managers
 
         private bool isDragging = false;
         private RectTransform cardTransform;
-        private Vector2 cardDragOffset;
+        [SerializeField] float cardMoveSpeed = 10.0f;
+
 
         private void Start()
         {
@@ -58,7 +59,9 @@ namespace SeedHearth.Managers
 
         private void UpdateDragging()
         {
-            cardTransform.anchoredPosition = GetMousePosition() + cardDragOffset;
+            Vector2 mPos = GetMousePosition();
+            Vector2 cPos = cardTransform.anchoredPosition;
+            cardTransform.anchoredPosition = Vector2.Lerp(cPos, mPos, Time.deltaTime * cardMoveSpeed);
         }
 
         private Vector2 GetMousePosition()
@@ -106,7 +109,6 @@ namespace SeedHearth.Managers
             currentlyDraggingCard = card;
             isDragging = true;
             cardTransform = currentlyDraggingCard.GetComponent<RectTransform>();
-            cardDragOffset = cardTransform.anchoredPosition - GetMousePosition();
 
             cardManager.PlayingCard(card);
         }

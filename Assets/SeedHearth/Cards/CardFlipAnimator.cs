@@ -50,9 +50,13 @@ namespace SeedHearth.Cards
             {
                 cardBack.SetActive(true);
                 LTSeq sequence = LeanTween.sequence();
-                sequence.append(LeanTween.scaleX(cardFront, 0.0f, flipTime / 2.0f)
-                    .setOnComplete(_ => cardFront.SetActive(false)));
-                sequence.append(LeanTween.scaleX(cardBack, 1.0f, flipTime / 2.0f));
+                sequence.append(
+                    LeanTween.scaleX(cardFront, 0.0f, flipTime / 2.0f)
+                    .setOnComplete(_ => cardFront.SetActive(false))
+                );
+                sequence.append(
+                    LeanTween.scaleX(cardBack, 1.0f, flipTime / 2.0f)
+                );
             }
             else
             {
