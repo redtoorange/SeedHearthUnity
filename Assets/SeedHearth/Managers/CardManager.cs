@@ -16,24 +16,21 @@ namespace SeedHearth.Managers
         [SerializeField] private CardHandArea cardHandArea;
         [SerializeField] private CardDiscardArea cardDiscardArea;
 
-        [Header("Deck")]
-        [SerializeField] private DeckData currentlyLoadedDeck;
-        [SerializeField] private DeckManager deckManager;
-
         [Header("Cards")]
         [SerializeField] private List<Card> instancedCards;
         [SerializeField] private int drawHandSize = 4;
+
+        [Header("Casting")]
+        [SerializeField] private RectTransform castingPoint;
+
+        [Header("External Dependencies")]
+        [SerializeField]
+        private DeckManager deckManager;
 
         private void Awake()
         {
             // Wire signals
             cardDrawArea.onDrawAreaClicked += HandleDrawAreaClicked;
-
-            // Instance the deck
-            if (currentlyLoadedDeck != null)
-            {
-                deckManager.LoadDeck(currentlyLoadedDeck);
-            }
 
             // Gather instanced Cards
             instancedCards = new List<Card>();
@@ -144,6 +141,11 @@ namespace SeedHearth.Managers
         public void StartCasting(Card card)
         {
             Debug.Log("Attempting to Cast: " + card.GetName());
+            if (card.TryGetComponent(out CardTargetingController cardTargetingController))
+            {
+                card.MoveTo(castingPoint.position);
+            }
+
             OnStartCasting?.Invoke(card);
         }
 

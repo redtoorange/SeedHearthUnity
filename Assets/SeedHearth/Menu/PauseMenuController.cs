@@ -38,5 +38,10 @@ namespace SeedHearth.Menu
         {
             SceneManager.LoadScene(0);
         }
+        
+        public void OnQuitPressed()
+        {
+            Application.Quit();
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace SeedHearth.Cards
 {
+    
     [RequireComponent(typeof(CardZoomController))]
     [RequireComponent(typeof(CardHoverController))]
     public class Card : MonoBehaviour
@@ -23,15 +24,20 @@ namespace SeedHearth.Cards
 
         private bool inHand = false;
 
+        private CardMovementController cardMovementController;
         private CardZoomController cardZoomController;
         private CardHoverController cardHoverController;
+        
+        public delegate void MoveToCallback(Card card);
 
-        private void Start()
+
+        private void Awake()
         {
             RefreshCardData();
 
             cardZoomController = GetComponent<CardZoomController>();
             cardHoverController = GetComponent<CardHoverController>();
+            cardMovementController = GetComponent<CardMovementController>();
         }
 
         [ContextMenu("Refresh")]
@@ -50,16 +56,11 @@ namespace SeedHearth.Cards
         public CardZoomController GetZoomControl() => cardZoomController;
         public CardHoverController GetHoverControl() => cardHoverController;
 
-        public void AddToHand()
+        public void SetInHand(bool isInHand)
         {
-            inHand = true;
+            inHand = isInHand;
         }
-
-        public void RemoveFromHand()
-        {
-            inHand = false;
-        }
-
+        
         public string GetName()
         {
             return cardData.cardTitle;
@@ -73,6 +74,11 @@ namespace SeedHearth.Cards
         public bool InHand()
         {
             return inHand;
+        }
+
+        public void MoveTo(Vector2 position)
+        {
+            cardMovementController.MoveTo(position);
         }
     }
 }

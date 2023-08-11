@@ -6,7 +6,7 @@ namespace SeedHearth.Managers
 {
     public class GrowthManager : MonoBehaviour
     {
-        private PlantManager plantManager;
+        [SerializeField] private PlantManager plantManager;
 
         private void OnEnable()
         {
@@ -16,11 +16,6 @@ namespace SeedHearth.Managers
         private void OnDisable()
         {
             TurnManager.onEndTurn -= GrowPlants;
-        }
-
-        private void Start()
-        {
-            plantManager = FindFirstObjectByType<PlantManager>();
         }
 
         public void GrowPlants()

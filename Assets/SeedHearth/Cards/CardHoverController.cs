@@ -6,7 +6,7 @@ namespace SeedHearth.Cards
 {
     [RequireComponent(typeof(Card))]
     public class CardHoverController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
-        IPointerUpHandler
+        IPointerUpHandler, IDragHandler, IDropHandler
     {
         public static Action<Card> onCardStartHover;
         public static Action<Card> onCardStopHover;
@@ -40,6 +40,16 @@ namespace SeedHearth.Cards
         public void OnPointerUp(PointerEventData eventData)
         {
             onCardStopDrag?.Invoke(parentCard);
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            Debug.Log("OnDrag");
+        }
+
+        public void OnDrop(PointerEventData eventData)
+        {
+            Debug.Log("OnDrop");
         }
     }
 }

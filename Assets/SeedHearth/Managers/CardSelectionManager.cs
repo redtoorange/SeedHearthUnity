@@ -8,29 +8,21 @@ namespace SeedHearth.Managers
 {
     public class CardSelectionManager : MonoBehaviour
     {
-        private MouseEnterDetector mouseEnterDetector;
-        private CardManager cardManager;
-        private CardCastingManager cardCastingManager;
-
+        [SerializeField] private MouseEnterDetector mouseEnterDetector;
+        [SerializeField] private CardManager cardManager;
+        [SerializeField] private CardCastingManager cardCastingManager;
+        [SerializeField] private Canvas playCanvas;
+        
         private Card currentlyHoveredCard;
         private Card currentlyDraggingCard;
-
-        [SerializeField]
-        private Canvas playCanvas;
         private RectTransform canvasTransform;
-
-
         private bool isDragging = false;
         private RectTransform cardTransform;
-        [SerializeField] float cardMoveSpeed = 10.0f;
 
 
         private void Start()
         {
             canvasTransform = playCanvas.GetComponent<RectTransform>();
-            mouseEnterDetector = GetComponent<MouseEnterDetector>();
-            cardManager = GetComponent<CardManager>();
-            cardCastingManager = GetComponent<CardCastingManager>();
         }
 
         private void OnEnable()
@@ -59,20 +51,8 @@ namespace SeedHearth.Managers
 
         private void UpdateDragging()
         {
-            Vector2 mPos = GetMousePosition();
-            Vector2 cPos = cardTransform.anchoredPosition;
-            cardTransform.anchoredPosition = Vector2.Lerp(cPos, mPos, Time.deltaTime * cardMoveSpeed);
-        }
-
-        private Vector2 GetMousePosition()
-        {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvasTransform,
-                Mouse.current.position.ReadValue(),
-                null,
-                out Vector2 localPoint
-            );
-            return localPoint;
+            Vector2 mPos = Mouse.current.position.ReadValue();
+            currentlyDraggingCard.MoveTo(mPos);
         }
 
         private void HandleCardStartHover(Card card)

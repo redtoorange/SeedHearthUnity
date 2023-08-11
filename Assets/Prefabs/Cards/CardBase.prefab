@@ -218,8 +218,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Parsnip Seed
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0e2a5957fcb395d4280bd94df830e612, type: 2}
+  m_sharedMaterial: {fileID: -4193386467475282336, guid: 0e2a5957fcb395d4280bd94df830e612, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5713493572465638037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3429983351474589854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -655,8 +655,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 9
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0e2a5957fcb395d4280bd94df830e612, type: 2}
+  m_sharedMaterial: {fileID: -4193386467475282336, guid: 0e2a5957fcb395d4280bd94df830e612, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 3628573338434978105}
   - component: {fileID: 1891447232104711927}
   - component: {fileID: 4320786269250144503}
+  - component: {fileID: -949639644825291444}
   m_Layer: 5
   m_Name: CardBase
   m_TagString: Untagged
@@ -825,6 +826,19 @@ MonoBehaviour:
   cardBack: {fileID: 4356489162880519594}
   flipTime: 0.25
   showingFront: 1
+--- !u!114 &-949639644825291444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6116145139971268100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c1e47a42b2ef243b9e3420f4ca0b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementTime: 0.1
 --- !u!1 &7717953224040770023
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,8 +981,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Plant 1 Potato. Requires <b>3</b> days to grow.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ff68d5cb30d949c449e934a435d56ad2, type: 2}
+  m_sharedMaterial: {fileID: -5691172611530065846, guid: ff68d5cb30d949c449e934a435d56ad2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

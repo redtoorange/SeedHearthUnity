@@ -9,31 +9,34 @@ namespace SeedHearth.Deck
     [Serializable]
     public class DeckManager : MonoBehaviour
     {
+        [Tooltip("The transform which will be the parent of all new cards we spawn.")]
         [SerializeField] private Transform cardSpawnTarget;
 
-        private DeckData sourceDeck;
-
-        // Cards that are in the draw pile
+        [Header("Deck")]
+        [SerializeField] private DeckData currentlyLoadedDeck;
         [SerializeField] private List<Card> libraryCardInstances;
-
-        // Cards that are currently in play
         [SerializeField] private List<Card> activeCardInstances;
-
-        // Card that are currently in the discard pile
         [SerializeField] private List<Card> graveyardCardInstances;
 
 
-        public void LoadDeck(DeckData sourceDeck)
+        private void Awake()
         {
-            this.sourceDeck = sourceDeck;
+            // Instance the deck
+            if (currentlyLoadedDeck != null)
+            {
+                LoadDeck();
+            }
+        }
 
+        public void LoadDeck()
+        {
             libraryCardInstances = new List<Card>();
             activeCardInstances = new List<Card>();
             graveyardCardInstances = new List<Card>();
 
-            for (int i = 0; i < sourceDeck.deckCardData.Count; i++)
+            for (int i = 0; i < currentlyLoadedDeck.deckCardData.Count; i++)
             {
-                DeckCardData deckCardData = sourceDeck.deckCardData[i];
+                DeckCardData deckCardData = currentlyLoadedDeck.deckCardData[i];
                 for (int j = 0; j < deckCardData.count; j++)
                 {
                     Card newCard = SpawnNewCard(deckCardData.cardPrefab);
