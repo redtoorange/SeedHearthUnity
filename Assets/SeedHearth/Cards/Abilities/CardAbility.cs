@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Cards.Abilities;
+using UnityEngine;
 
 namespace SeedHearth.Cards.Data.Abilities
 {
@@ -7,5 +8,9 @@ namespace SeedHearth.Cards.Data.Abilities
     public abstract class CardAbility : MonoBehaviour
     {
         public abstract void Cast(CardCastingContext context, CastCallback callback);
+
+        public virtual void CancelCasting()
+        {
+        }
     }
 }

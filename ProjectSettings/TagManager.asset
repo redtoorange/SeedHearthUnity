@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Plants
   - Produce
-  - 
+  - GroundTiles
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GroundTiles
+    uniqueID: 1135249221
+    locked: 0
   - name: PlantBottoms
     uniqueID: 801817983
     locked: 0
@@ -49,4 +52,7 @@ TagManager:
     locked: 0
   - name: Produce
     uniqueID: 473462245
+    locked: 0
+  - name: Overlay
+    uniqueID: 1896951087
     locked: 0

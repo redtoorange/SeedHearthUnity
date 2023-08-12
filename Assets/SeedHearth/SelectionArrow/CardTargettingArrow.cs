@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace SeedHearth.SelectionArrow
 {
-    public class ArrowCurve : MonoBehaviour
+    public class CardTargettingArrow : MonoBehaviour
     {
         [SerializeField] private GameObject arrowHeadPrefab;
         [SerializeField] private GameObject arrowNodePrefab;

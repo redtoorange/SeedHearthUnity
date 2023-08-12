@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6b57137bacdb842a24056840c7f523, type: 3}
+  m_Name: ManagerRegistry
+  m_EditorClassIdentifier: 
+  plantManager: {fileID: 11400000, guid: 306ffcf2b66e0e44a9aa0b57b204771d, type: 2}
+  tileManager: {fileID: 11400000, guid: e2541c55249fd3e4dbb35870ec25570d, type: 2}
+  cardManager: {fileID: 0}
+  castingManager: {fileID: 0}
+  cardSelectionManager: {fileID: 0}
+  cardTargettingManager: {fileID: 0}
+  deckManager: {fileID: 0}
+  growthManager: {fileID: 0}
+  resourceManager: {fileID: 0}
+  turnManager: {fileID: 0}

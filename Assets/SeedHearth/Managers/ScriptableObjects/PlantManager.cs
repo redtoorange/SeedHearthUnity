@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace SeedHearth.Managers
 {
-    public class PlantManager : MonoBehaviour
+    [CreateAssetMenu(menuName = "Managers/Plant Manager", fileName = "PlantManager")]
+    public class PlantManager : ScriptableObject
     {
-        [SerializeField] private List<Plant> managedPlants = new List<Plant>();
+        private List<Plant> managedPlants = new List<Plant>();
 
         public void AddPlant(Plant plantToAdd)
         {

@@ -18,7 +18,7 @@ namespace SeedHearth.Plants
         [SerializeField] private int daysToGrownSoFar = 0;
 
         [Header("Harvest")]
-        private PlantManager plantManager;
+        [SerializeField] private PlantManager plantManager;
         [SerializeField] private bool harvestable = false;
         [SerializeField] private Produce.Produce producePrefab;
 
@@ -40,7 +40,6 @@ namespace SeedHearth.Plants
 
         private void OnEnable()
         {
-            plantManager = FindFirstObjectByType<PlantManager>();
             plantManager.AddPlant(this);
         }
 

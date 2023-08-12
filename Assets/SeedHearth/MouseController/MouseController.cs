@@ -1,23 +1,17 @@
 ﻿using SeedHearth.Plants;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 namespace SeedHearth.MouseController
 {
     public class MouseController : MonoBehaviour
     {
-        [SerializeField] private Tilemap grassMap;
-        [SerializeField] private Tilemap dirtMap;
-        [SerializeField] private Tilemap wetDirtMap;
-
         private Camera mainCamera;
 
         [SerializeField] private GameObject selectionSquare;
         [SerializeField] private LayerMask plantLayerMask;
 
-        [SerializeField] private TileBase hoveredTile;
-
+        [SerializeField] private PlantableTile hoveredTile;
         [SerializeField] private Plant hoveredPlant;
         [SerializeField] private Produce.Produce hoveredProduce;
 
@@ -34,18 +28,17 @@ namespace SeedHearth.MouseController
             DetectHoveredTile();
         }
 
+        public PlantableTile GetHoveredTile() => hoveredTile;
+        public Plant GetHoveredPlant() => hoveredPlant;
+        public Produce.Produce GetHoveredProduce() => hoveredProduce;
+
         private void DetectHoveredTile()
         {
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             Vector2 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-            Vector3Int intPosition = new Vector3Int(
-                Mathf.FloorToInt(worldPosition.x),
-                Mathf.FloorToInt(worldPosition.y)
-            );
 
-            UpdateSelectionSquare(intPosition);
             CheckHoveredObject(worldPosition);
-            CheckHoveredTile(intPosition);
+            UpdateSelectionSquare();
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
@@ -60,29 +53,16 @@ namespace SeedHearth.MouseController
             }
         }
 
-        private void UpdateSelectionSquare(Vector3Int intPosition)
+        private void UpdateSelectionSquare()
         {
-            selectionSquare.transform.position = new Vector3(intPosition.x, intPosition.y);
-        }
-
-        private void CheckHoveredTile(Vector3Int intPosition)
-        {
-            hoveredTile = wetDirtMap.GetTile(intPosition);
-            if (hoveredTile != null)
+            if (hoveredTile == null)
             {
-                return;
+                selectionSquare.gameObject.SetActive(false);
             }
-
-            hoveredTile = dirtMap.GetTile(intPosition);
-            if (hoveredTile != null)
+            else
             {
-                return;
-            }
-
-            hoveredTile = grassMap.GetTile(intPosition);
-            if (hoveredTile != null)
-            {
-                return;
+                selectionSquare.gameObject.SetActive(true);
+                selectionSquare.transform.position = hoveredTile.transform.position;
             }
         }
 
@@ -92,6 +72,7 @@ namespace SeedHearth.MouseController
 
             hoveredPlant = null;
             hoveredProduce = null;
+            hoveredTile = null;
 
             if (count > 0)
             {
@@ -104,6 +85,10 @@ namespace SeedHearth.MouseController
                     else if (results[i].collider.TryGetComponent(out Produce.Produce produce))
                     {
                         hoveredProduce = produce;
+                    }
+                    else if (results[i].collider.TryGetComponent(out PlantableTile plantable))
+                    {
+                        hoveredTile = plantable;
                     }
                 }
             }

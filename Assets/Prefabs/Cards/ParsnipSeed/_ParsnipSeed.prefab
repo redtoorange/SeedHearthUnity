@@ -120,7 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46e076f852d49c18fe5c1aaf7a1913d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   plantPrefab: {fileID: 9189013635298799320, guid: 485dd714d1753b242ace147ecaf8f703, type: 3}
+  plantManager: {fileID: 11400000, guid: 306ffcf2b66e0e44a9aa0b57b204771d, type: 2}
 --- !u!114 &248965030972080356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1b6bac9ef25b243908fcd376ac0e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardTargetingCurve: {fileID: 0}

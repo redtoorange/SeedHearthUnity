@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 801817983
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4136858674104254888, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1255494619
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -233,6 +233,7 @@ MonoBehaviour:
   plantVisualBottom: {fileID: 6901083367769713047}
   daysRequiredToGrow: 5
   daysToGrownSoFar: 0
+  plantManager: {fileID: 11400000, guid: 306ffcf2b66e0e44a9aa0b57b204771d, type: 2}
   harvestable: 0
   producePrefab: {fileID: 3495118046990890020, guid: ecd7184b3fcbeb645bc14b1f0e24619f, type: 3}
 --- !u!61 &-3307548533958976403

@@ -1,6 +1,7 @@
-﻿using SeedHearth.Managers;
+﻿using SeedHearth.Cards.Data;
+using SeedHearth.Managers;
 
-namespace SeedHearth.Cards.Data.Abilities
+namespace SeedHearth.Cards.Abilities
 {
     public struct CardCastingContext
     {
