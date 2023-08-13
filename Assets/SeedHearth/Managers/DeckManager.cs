@@ -82,7 +82,7 @@ namespace SeedHearth.Deck
         {
             foreach (Card cardInstance in graveyardCardInstances)
             {
-                cardInstance.FlipCard();
+                cardInstance.FlipToBack();
                 cardInstance.MoveTo(cardDrawArea.GetCenter());
             }
 

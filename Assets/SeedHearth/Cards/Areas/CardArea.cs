@@ -17,5 +17,11 @@ namespace SeedHearth.Cards.Areas
             Vector2 rect = rectTransform.rect.center;
             return center + rect;
         }
+        
+        public virtual void AddCard(Card cardToAdd)
+        {
+            cardToAdd.FlipToBack();
+            cardToAdd.MoveTo(GetCenter());
+        }
     }
 }

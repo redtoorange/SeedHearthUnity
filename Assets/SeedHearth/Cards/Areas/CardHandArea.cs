@@ -16,10 +16,10 @@ namespace SeedHearth.Cards.Areas
             UpdateCardCanCast();
         }
 
-        public void AddCard(Card card)
+        public override void AddCard(Card card)
         {
             heldCards.Add(card);
-            card.FlipCard();
+            card.FlipToFont();
             card.SetInHand(true);
             OrganizeCards();
         }

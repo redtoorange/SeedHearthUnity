@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace SeedHearth.Cards
 {
-    
     [RequireComponent(typeof(CardZoomController))]
     [RequireComponent(typeof(CardHoverController))]
     public class Card : MonoBehaviour
@@ -28,7 +27,7 @@ namespace SeedHearth.Cards
         private CardZoomController cardZoomController;
         private CardHoverController cardHoverController;
         private CardFlipAnimator cardFlipAnimator;
-        
+
         public delegate void MoveToCallback(Card card);
 
 
@@ -62,7 +61,7 @@ namespace SeedHearth.Cards
         {
             inHand = isInHand;
         }
-        
+
         public string GetName()
         {
             return cardData.cardTitle;
@@ -83,9 +82,14 @@ namespace SeedHearth.Cards
             cardMovementController.MoveTo(position);
         }
 
-        public void FlipCard()
+        public void FlipToFont()
         {
-            cardFlipAnimator.FlipCard();
+            cardFlipAnimator.FlipToFront();
+        }
+
+        public void FlipToBack()
+        {
+            cardFlipAnimator.FlipToBack();
         }
     }
 }

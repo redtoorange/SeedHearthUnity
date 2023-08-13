@@ -19,5 +19,8 @@ namespace SeedHearth.Cards.Data
         public int staminaCost = 0;
         public CardType cardType;
         public List<CardProperty> cardProperties;
+
+        public int baseSellValue = 0;
+        public int basePurchaseValue = 0;
     }
 }

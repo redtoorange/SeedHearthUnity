@@ -13,7 +13,7 @@ namespace SeedHearth.Cards
 
         [SerializeField] private bool showingFront = true;
 
-        private void Start()
+        private void Awake()
         {
             cardFront.transform.localScale = new Vector3(0, 1, 1);
             cardBack.transform.localScale = new Vector3(1, 1, 1);
