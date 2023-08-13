@@ -824,7 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardFront: {fileID: 3414805222448854671}
   cardBack: {fileID: 4356489162880519594}
-  flipTime: 0.25
+  flipTime: 0.15
   showingFront: 1
 --- !u!114 &-949639644825291444
 MonoBehaviour:
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c1e47a42b2ef243b9e3420f4ca0b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementTime: 0.1
+  movementTime: 0.15
 --- !u!1 &7717953224040770023
 GameObject:
   m_ObjectHideFlags: 0

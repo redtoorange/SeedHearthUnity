@@ -27,6 +27,7 @@ namespace SeedHearth.Cards
         private CardMovementController cardMovementController;
         private CardZoomController cardZoomController;
         private CardHoverController cardHoverController;
+        private CardFlipAnimator cardFlipAnimator;
         
         public delegate void MoveToCallback(Card card);
 
@@ -38,6 +39,7 @@ namespace SeedHearth.Cards
             cardZoomController = GetComponent<CardZoomController>();
             cardHoverController = GetComponent<CardHoverController>();
             cardMovementController = GetComponent<CardMovementController>();
+            cardFlipAnimator = GetComponent<CardFlipAnimator>();
         }
 
         [ContextMenu("Refresh")]
@@ -79,6 +81,11 @@ namespace SeedHearth.Cards
         public void MoveTo(Vector2 position)
         {
             cardMovementController.MoveTo(position);
+        }
+
+        public void FlipCard()
+        {
+            cardFlipAnimator.FlipCard();
         }
     }
 }

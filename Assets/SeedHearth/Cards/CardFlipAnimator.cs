@@ -22,8 +22,6 @@ namespace SeedHearth.Cards
             cardBack.SetActive(true);
 
             showingFront = false;
-
-            FlipCard();
         }
 
         public void FlipToFront()
