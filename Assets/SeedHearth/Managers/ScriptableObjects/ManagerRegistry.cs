@@ -1,7 +1,6 @@
-﻿using SeedHearth.Deck;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SeedHearth.Managers
+namespace SeedHearth.Managers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "ManagerRegistry", menuName = "Managers/Manager Registry")]
     public class ManagerRegistry : ScriptableObject

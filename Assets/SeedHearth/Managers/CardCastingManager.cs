@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Cards.Abilities;
-using SeedHearth.Cards.Data.Abilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

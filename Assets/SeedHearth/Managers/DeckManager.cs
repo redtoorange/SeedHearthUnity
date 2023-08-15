@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Cards.Areas;
+using SeedHearth.Deck;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SeedHearth.Deck
+namespace SeedHearth.Managers
 {
     [Serializable]
     public class DeckManager : MonoBehaviour
