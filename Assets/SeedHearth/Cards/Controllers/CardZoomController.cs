@@ -2,7 +2,7 @@
 
 namespace SeedHearth.Cards
 {
-    public class CardZoomController : MonoBehaviour
+    public class CardZoomController : CardController
     {
         [Header("Zoom Settings")]
         [SerializeField] private float zoomInScale = 1.25f;

@@ -1,4 +1,5 @@
 ﻿using System;
+using SeedHearth.Cards.Data;
 using SeedHearth.Managers;
 using SeedHearth.Plants;
 using UnityEngine;
@@ -21,15 +22,15 @@ namespace SeedHearth.Cards
     }
 
 
-    public class CardTargetingController : MonoBehaviour
+    public class CardTargetingController : CardController
     {
         public Action<HoveredTargets> OnTargetSelected;
-
         private CardTargettingManager cardTargetingManager;
         private bool selectingTarget = false;
 
-        private void Start()
+        public override void Initialize(Card pCard, CardData pCardData)
         {
+            base.Initialize(pCard, pCardData);
             cardTargetingManager = FindFirstObjectByType<CardTargettingManager>();
         }
 

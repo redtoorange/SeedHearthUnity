@@ -20,6 +20,7 @@ namespace SeedHearth.Cards.Data
         public CardType cardType;
         public List<CardProperty> cardProperties;
 
+        public bool isSellable = true;
         public int baseSellValue = 0;
         public int basePurchaseValue = 0;
     }
