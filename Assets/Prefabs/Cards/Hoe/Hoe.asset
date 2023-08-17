@@ -20,5 +20,6 @@ MonoBehaviour:
   staminaCost: 1
   cardType: {fileID: 0}
   cardProperties: []
+  isSellable: 0
   baseSellValue: 0
   basePurchaseValue: 0
