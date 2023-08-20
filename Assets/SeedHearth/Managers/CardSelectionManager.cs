@@ -12,7 +12,8 @@ namespace SeedHearth.Managers
         [SerializeField] private CardManager cardManager;
         [SerializeField] private CardCastingManager cardCastingManager;
         [SerializeField] private Canvas playCanvas;
-        
+
+        private Camera camera;
         private Card currentlyHoveredCard;
         private Card currentlyDraggingCard;
         private RectTransform canvasTransform;
@@ -22,6 +23,7 @@ namespace SeedHearth.Managers
 
         private void Start()
         {
+            camera = Camera.main;
             canvasTransform = playCanvas.GetComponent<RectTransform>();
         }
 
@@ -52,7 +54,9 @@ namespace SeedHearth.Managers
         private void UpdateDragging()
         {
             Vector2 mPos = Mouse.current.position.ReadValue();
-            currentlyDraggingCard.MoveTo(mPos);
+            currentlyDraggingCard.MoveTo(
+                camera.ScreenToWorldPoint(mPos)
+            );
         }
 
         private void HandleCardStartHover(Card card)

@@ -22,7 +22,7 @@ namespace SeedHearth.Managers
 
         [SerializeField] private CardDrawArea cardDrawArea;
 
-        private void Awake()
+        private void Start()
         {
             // Instance the deck
             if (currentlyLoadedDeck != null)
@@ -43,7 +43,7 @@ namespace SeedHearth.Managers
                 for (int j = 0; j < deckCardData.count; j++)
                 {
                     Card newCard = SpawnNewCard(deckCardData.cardPrefab);
-                    newCard.MoveTo(cardDrawArea.GetCenter());
+                    cardDrawArea.AddCard(newCard);
                     libraryCardInstances.Add(newCard);
                 }
             }

@@ -46,16 +46,11 @@ namespace SeedHearth.Cards.Areas
 
         public void OrganizeCards()
         {
-            // startPos will be the left edge, middle height
-            //      |
-            //      |
-            //      x---------
-            //      |
-            //      |
-            Vector3 startPos = rectTransform.position;
-            Rect handAreaRect = rectTransform.rect;
+            Rect handAreaRect = GetWorldBounds();
+
+            Vector3 startPos = handAreaRect.center;
             startPos.x -= handAreaRect.width / 2.0f;
-            startPos.y += handAreaRect.height / 2.0f;
+            // startPos.y -= handAreaRect.height / 2.0f;
 
             float totalWidth = handAreaRect.width;
             float totalCards = heldCards.Count;
@@ -86,6 +81,7 @@ namespace SeedHearth.Cards.Areas
             }
         }
     }
+
 
     public class CardComparer : IComparer<Card>
     {
