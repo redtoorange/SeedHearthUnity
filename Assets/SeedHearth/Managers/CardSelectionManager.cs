@@ -115,6 +115,10 @@ namespace SeedHearth.Managers
                 {
                     cardManager.ResetCardToHand(card);
                 }
+                else if (area is CardSellArea sellArea)
+                {
+                    sellArea.AddCard(card);
+                }
                 else
                 {
                     cardManager.StartCasting(card);

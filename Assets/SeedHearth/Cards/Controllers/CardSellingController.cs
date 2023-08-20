@@ -15,8 +15,7 @@ namespace SeedHearth.Cards
             sellPrice = cardData.baseSellValue;
         }
 
-        public void SellCard()
-        {
-        }
+        public bool IsSellable => isSellable;
+        public int SellPrice => sellPrice;
     }
 }

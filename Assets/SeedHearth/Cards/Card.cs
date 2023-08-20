@@ -77,5 +77,10 @@ namespace SeedHearth.Cards
         {
             cardFlipAnimator.FlipToBack();
         }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
