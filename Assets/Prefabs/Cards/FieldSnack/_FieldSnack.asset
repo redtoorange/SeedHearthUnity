@@ -20,7 +20,8 @@ MonoBehaviour:
   cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
   staminaCost: 0
   cardType: {fileID: 0}
-  cardAbilities:
-  - {fileID: 11400000, guid: 71b5889df86b1964faae1d3e4bf72f0b, type: 2}
   cardProperties:
   - {fileID: 11400000, guid: 87c012944bbba394780b490f549b21e0, type: 2}
+  isSellable: 1
+  baseSellValue: 1
+  basePurchaseValue: 5

@@ -42,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7534412431805337501, guid: c2af0bacac6d48143a8bc9db2ddf9aa7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 7534412431805337501, guid: c2af0bacac6d48143a8bc9db2ddf9aa7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 350
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7534412431805337501, guid: c2af0bacac6d48143a8bc9db2ddf9aa7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -128,7 +128,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   plantPrefab: {fileID: 9189013635298799320, guid: d8098f2d9dc70e64798067e057a87cb1, type: 3}
-  plantManager: {fileID: 11400000, guid: 306ffcf2b66e0e44a9aa0b57b204771d, type: 2}
 --- !u!114 &-7422687533809215387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,4 +140,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1b6bac9ef25b243908fcd376ac0e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardTargetingCurve: {fileID: 0}

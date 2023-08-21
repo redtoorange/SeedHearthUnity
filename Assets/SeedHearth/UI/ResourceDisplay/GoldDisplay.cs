@@ -8,9 +8,6 @@ namespace SeedHearth.UI.ResourceDisplay
     {
         private TMP_Text resourceText;
 
-        [SerializeField] private string valueLabel = "";
-
-
         private void Awake()
         {
             resourceText = GetComponentInChildren<TMP_Text>();
@@ -34,7 +31,7 @@ namespace SeedHearth.UI.ResourceDisplay
 
         private void SetAmount(int newAmount)
         {
-            resourceText.text = $"{valueLabel}\n{newAmount}";
+            resourceText.text = $"{newAmount}";
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
+using SeedHearth.Cards.Areas;
+using SeedHearth.Deck;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SeedHearth.Deck
+namespace SeedHearth.Managers
 {
     [Serializable]
     public class DeckManager : MonoBehaviour
@@ -18,8 +20,9 @@ namespace SeedHearth.Deck
         [SerializeField] private List<Card> activeCardInstances;
         [SerializeField] private List<Card> graveyardCardInstances;
 
+        [SerializeField] private CardDrawArea cardDrawArea;
 
-        private void Awake()
+        private void Start()
         {
             // Instance the deck
             if (currentlyLoadedDeck != null)
@@ -40,7 +43,7 @@ namespace SeedHearth.Deck
                 for (int j = 0; j < deckCardData.count; j++)
                 {
                     Card newCard = SpawnNewCard(deckCardData.cardPrefab);
-                    newCard.gameObject.SetActive(false);
+                    cardDrawArea.AddCard(newCard);
                     libraryCardInstances.Add(newCard);
                 }
             }
@@ -66,20 +69,24 @@ namespace SeedHearth.Deck
             Card card = libraryCardInstances[index];
             libraryCardInstances.RemoveAt(index);
             activeCardInstances.Add(card);
-            card.gameObject.SetActive(true);
 
             return card;
         }
 
         public void DiscardCard(Card cardToDiscard)
         {
-            cardToDiscard.gameObject.SetActive(false);
             activeCardInstances.Remove(cardToDiscard);
             graveyardCardInstances.Add(cardToDiscard);
         }
 
         public void ShuffleDeck()
         {
+            foreach (Card cardInstance in graveyardCardInstances)
+            {
+                cardInstance.FlipToBack();
+                cardInstance.MoveTo(cardDrawArea.GetCenter());
+            }
+
             libraryCardInstances.AddRange(graveyardCardInstances);
             graveyardCardInstances.Clear();
         }
@@ -92,6 +99,13 @@ namespace SeedHearth.Deck
         public Card SpawnNewCard(Card card)
         {
             return Instantiate(card, cardSpawnTarget);
+        }
+
+        public void DestroyCard(Card card)
+        {
+            // Remove from all stacks
+            activeCardInstances.Remove(card);
+            graveyardCardInstances.Remove(card);
         }
     }
 }

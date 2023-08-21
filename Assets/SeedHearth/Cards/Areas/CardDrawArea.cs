@@ -1,18 +1,13 @@
 ﻿using System;
-using UnityEngine.EventSystems;
+using UnityEngine;
 
 namespace SeedHearth.Cards.Areas
 {
-    public class CardDrawArea : CardArea, IPointerClickHandler
+    public class CardDrawArea : CardArea
     {
-        public Action onDrawAreaClicked;
-
-        public void OnPointerClick(PointerEventData eventData)
+        private void Start()
         {
-            if (eventData.button == PointerEventData.InputButton.Left)
-            {
-                onDrawAreaClicked?.Invoke();
-            }
+            Debug.Log("DrawAreaCenter: " + GetCenter());
         }
     }
 }

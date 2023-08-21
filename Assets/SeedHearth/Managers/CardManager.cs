@@ -29,9 +29,6 @@ namespace SeedHearth.Managers
 
         private void Awake()
         {
-            // Wire signals
-            cardDrawArea.onDrawAreaClicked += HandleDrawAreaClicked;
-
             // Gather instanced Cards
             instancedCards = new List<Card>();
             instancedCards.AddRange(GetComponentsInChildren<Card>());
@@ -53,11 +50,6 @@ namespace SeedHearth.Managers
         {
             TurnManager.onEndTurn -= DiscardHand;
             TurnManager.onBeginTurn -= DrawNewHand;
-        }
-
-        private void HandleDrawAreaClicked()
-        {
-            DrawCard();
         }
 
         public void DrawCard()
@@ -88,8 +80,7 @@ namespace SeedHearth.Managers
         {
             foreach (Card heldCard in cardHandArea.GetHeldCards())
             {
-                cardHandArea.RemoveCard(heldCard);
-                deckManager.DiscardCard(heldCard);
+                DiscardCardFromHand(heldCard);
             }
         }
 
@@ -102,13 +93,13 @@ namespace SeedHearth.Managers
 
             cardHandArea.RemoveCard(card);
             deckManager.DiscardCard(card);
+            card.MoveTo(cardDiscardArea.GetCenter());
         }
 
         public void DiscardCardFromPlay(Card card)
         {
-            if (deckManager == null) return;
-
-            deckManager.DiscardCard(card);
+            // There is currently no different
+            DiscardCardFromHand(card);
         }
 
         /**
@@ -117,6 +108,9 @@ namespace SeedHearth.Managers
         public void BurnCard(Card card)
         {
             if (deckManager == null) return;
+            
+            deckManager.DestroyCard(card);
+            Destroy(card.gameObject);
         }
 
         public void ResetCardToHand(Card card)

@@ -1,9 +1,10 @@
 ﻿using System;
+using SeedHearth.Cards.Data;
 using UnityEngine;
 
 namespace SeedHearth.Cards
 {
-    public class CardMovementController : MonoBehaviour
+    public class CardMovementController : CardController
     {
         public Action OnMovementComplete;
         
@@ -15,10 +16,12 @@ namespace SeedHearth.Cards
         private Vector2 targetLocation;
         private float elapsed = 0.0f;
 
-
-        private void Awake()
+        public override void Initialize(Card pCard, CardData pCardData)
         {
+            base.Initialize(pCard, pCardData);
+
             rectTransform = GetComponent<RectTransform>();
+
         }
 
         private void Update()

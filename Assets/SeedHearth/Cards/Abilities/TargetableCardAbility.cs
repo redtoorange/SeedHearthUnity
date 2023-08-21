@@ -1,8 +1,6 @@
-﻿using System;
-using SeedHearth.Cards.Abilities;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SeedHearth.Cards.Data.Abilities
+namespace SeedHearth.Cards.Abilities
 {
     public abstract class TargetableCardAbility : CardAbility
     {

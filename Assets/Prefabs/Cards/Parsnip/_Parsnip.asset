@@ -22,3 +22,6 @@ MonoBehaviour:
   cardProperties:
   - {fileID: 11400000, guid: 138b9614fa24dc64a8fab7aa64ee382e, type: 2}
   - {fileID: 11400000, guid: 1f2695b7e81f4084b901f22eba3782f3, type: 2}
+  isSellable: 1
+  baseSellValue: 25
+  basePurchaseValue: 0

@@ -1,11 +1,8 @@
 using SeedHearth.Cards.Data;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SeedHearth.Cards
 {
-    
     [RequireComponent(typeof(CardZoomController))]
     [RequireComponent(typeof(CardHoverController))]
     public class Card : MonoBehaviour
@@ -14,44 +11,34 @@ namespace SeedHearth.Cards
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
 
-        [Header("Display")]
-        [SerializeField] private TMP_Text cardTitleLabel;
-        [SerializeField] private TMP_Text cardDescriptionLabel;
-        [SerializeField] private Image cardBackgroundImage;
-        [SerializeField] private TMP_Text staminaCost;
-        [SerializeField] private Image cardIconImage;
-        [SerializeField] private GameObject cardOverlay;
 
         private bool inHand = false;
 
+        private CardVisualController cardVisualController;
         private CardMovementController cardMovementController;
         private CardZoomController cardZoomController;
         private CardHoverController cardHoverController;
-        
+        private CardFlipAnimator cardFlipAnimator;
+
         public delegate void MoveToCallback(Card card);
 
 
         private void Awake()
         {
-            RefreshCardData();
-
+            // Gather all Controllers
+            cardVisualController = GetComponent<CardVisualController>();
             cardZoomController = GetComponent<CardZoomController>();
             cardHoverController = GetComponent<CardHoverController>();
             cardMovementController = GetComponent<CardMovementController>();
-        }
+            cardFlipAnimator = GetComponent<CardFlipAnimator>();
 
-        [ContextMenu("Refresh")]
-        private void RefreshCardData()
-        {
-            if (cardData != null)
+            // Initialize all Controllers
+            foreach (CardController cardController in GetComponents<CardController>())
             {
-                cardTitleLabel.text = cardData.cardTitle;
-                cardDescriptionLabel.text = cardData.cardDescription;
-                cardBackgroundImage.color = cardData.cardBackgroundColor;
-                staminaCost.text = cardData.staminaCost.ToString();
-                cardIconImage.sprite = cardData.cardSprite;
+                cardController.Initialize(this, cardData);
             }
         }
+
 
         public CardZoomController GetZoomControl() => cardZoomController;
         public CardHoverController GetHoverControl() => cardHoverController;
@@ -60,7 +47,7 @@ namespace SeedHearth.Cards
         {
             inHand = isInHand;
         }
-        
+
         public string GetName()
         {
             return cardData.cardTitle;
@@ -68,7 +55,7 @@ namespace SeedHearth.Cards
 
         public void SetCanCast(bool canCast)
         {
-            cardOverlay.SetActive(!canCast);
+            cardVisualController.SetDimmedCard(!canCast);
         }
 
         public bool InHand()
@@ -79,6 +66,21 @@ namespace SeedHearth.Cards
         public void MoveTo(Vector2 position)
         {
             cardMovementController.MoveTo(position);
+        }
+
+        public void FlipToFont()
+        {
+            cardFlipAnimator.FlipToFront();
+        }
+
+        public void FlipToBack()
+        {
+            cardFlipAnimator.FlipToBack();
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

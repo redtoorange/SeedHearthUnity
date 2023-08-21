@@ -6,18 +6,9 @@ namespace SeedHearth.Cards.Areas
 {
     public class CardHandArea : CardArea
     {
+        [SerializeField] private CardCastingManager cardCastingManager;
+
         private List<Card> heldCards = new List<Card>();
-        private RectTransform rectTransform;
-        private Rect handAreaRect;
-        private CardCastingManager cardCastingManager;
-
-        private void Start()
-        {
-            rectTransform = GetComponent<RectTransform>();
-            handAreaRect = rectTransform.rect;
-
-            cardCastingManager = FindFirstObjectByType<CardCastingManager>();
-        }
 
         private void Update()
         {
@@ -25,9 +16,10 @@ namespace SeedHearth.Cards.Areas
             UpdateCardCanCast();
         }
 
-        public void AddCard(Card card)
+        public override void AddCard(Card card)
         {
             heldCards.Add(card);
+            card.FlipToFont();
             card.SetInHand(true);
             OrganizeCards();
         }
@@ -54,15 +46,11 @@ namespace SeedHearth.Cards.Areas
 
         public void OrganizeCards()
         {
-            // startPos will be the left edge, middle height
-            //      |
-            //      |
-            //      x---------
-            //      |
-            //      |
-            Vector3 startPos = rectTransform.position;
+            Rect handAreaRect = GetWorldBounds();
+
+            Vector3 startPos = handAreaRect.center;
             startPos.x -= handAreaRect.width / 2.0f;
-            startPos.y += handAreaRect.height / 2.0f;
+            // startPos.y -= handAreaRect.height / 2.0f;
 
             float totalWidth = handAreaRect.width;
             float totalCards = heldCards.Count;
@@ -93,6 +81,7 @@ namespace SeedHearth.Cards.Areas
             }
         }
     }
+
 
     public class CardComparer : IComparer<Card>
     {

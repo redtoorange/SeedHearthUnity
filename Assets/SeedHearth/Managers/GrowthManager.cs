@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SeedHearth.Managers.ScriptableObjects;
 using SeedHearth.Plants;
 using UnityEngine;
 

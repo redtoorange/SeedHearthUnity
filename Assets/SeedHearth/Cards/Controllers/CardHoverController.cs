@@ -4,8 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace SeedHearth.Cards
 {
-    [RequireComponent(typeof(Card))]
-    public class CardHoverController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
+    public class CardHoverController : CardController, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
         IPointerUpHandler, IDragHandler, IDropHandler
     {
         public static Action<Card> onCardStartHover;
@@ -14,18 +13,10 @@ namespace SeedHearth.Cards
         public static Action<Card> onCardStartDrag;
         public static Action<Card> onCardStopDrag;
 
-        private Card parentCard;
-
-        private void Start()
-        {
-            parentCard = GetComponent<Card>();
-        }
-
         public void OnPointerEnter(PointerEventData eventData)
         {
             onCardStartHover?.Invoke(parentCard);
         }
-
 
         public void OnPointerExit(PointerEventData eventData)
         {

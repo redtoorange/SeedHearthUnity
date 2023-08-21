@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: HOE_1
   cardTitle: Hoe
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -7228274602146956532, guid: 9801d8825f698f44c8babdc6054dfa3d, type: 3}
   cardDescription: <b>Till</b> a single tile and <b>Draw 1</b> card.
   cardBackgroundColor: {r: 0.5754717, g: 0.05157528, b: 0.05157528, a: 1}
   staminaCost: 1
   cardType: {fileID: 0}
   cardProperties: []
+  isSellable: 0
+  baseSellValue: 0
+  basePurchaseValue: 0

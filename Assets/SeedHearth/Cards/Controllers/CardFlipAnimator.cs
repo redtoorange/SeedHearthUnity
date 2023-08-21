@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Cards.Data;
+using UnityEngine;
 
 namespace SeedHearth.Cards
 {
-    public class CardFlipAnimator : MonoBehaviour
+    public class CardFlipAnimator : CardController
     {
         [Header("Objects")]
         [SerializeField] private GameObject cardFront;
@@ -13,8 +14,10 @@ namespace SeedHearth.Cards
 
         [SerializeField] private bool showingFront = true;
 
-        private void Start()
+        public override void Initialize(Card pCard, CardData pCardData)
         {
+            base.Initialize(pCard, pCardData);
+
             cardFront.transform.localScale = new Vector3(0, 1, 1);
             cardBack.transform.localScale = new Vector3(1, 1, 1);
 
@@ -22,8 +25,6 @@ namespace SeedHearth.Cards
             cardBack.SetActive(true);
 
             showingFront = false;
-
-            FlipCard();
         }
 
         public void FlipToFront()
@@ -52,7 +53,7 @@ namespace SeedHearth.Cards
                 LTSeq sequence = LeanTween.sequence();
                 sequence.append(
                     LeanTween.scaleX(cardFront, 0.0f, flipTime / 2.0f)
-                    .setOnComplete(_ => cardFront.SetActive(false))
+                        .setOnComplete(_ => cardFront.SetActive(false))
                 );
                 sequence.append(
                     LeanTween.scaleX(cardBack, 1.0f, flipTime / 2.0f)

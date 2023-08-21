@@ -2,7 +2,7 @@
 using SeedHearth.Plants;
 using UnityEngine;
 
-namespace SeedHearth.Managers
+namespace SeedHearth.Managers.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Tile Manager", menuName = "Managers/TileManager")]
     public class TileManager : ScriptableObject

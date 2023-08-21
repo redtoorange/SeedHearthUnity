@@ -12,6 +12,7 @@ namespace SeedHearth.SelectionArrow
         [SerializeField] private int arrowNodeCount;
         [SerializeField] private float scaleFactor;
 
+        private Camera camera;
         private RectTransform originPoint;
         private List<RectTransform> arrowNodes = new List<RectTransform>();
         private List<Vector2> controlPoints = new List<Vector2>
@@ -34,12 +35,16 @@ namespace SeedHearth.SelectionArrow
             }
 
             CreateNode(arrowHeadPrefab);
+            camera = Camera.main;
+            
         }
 
         private void Update()
         {
+            RectTransformUtility.ScreenPointToWorldPointInRectangle(originPoint, Mouse.current.position.value, camera,
+                out Vector3 mousePosition);
             controlPoints[0] = originPoint.position;
-            controlPoints[3] = Mouse.current.position.value;
+            controlPoints[3] = mousePosition;
 
             controlPoints[1] = controlPoints[0] + (controlPoints[3] - controlPoints[0]) * controlPointFactors[0];
             controlPoints[2] = controlPoints[0] + (controlPoints[3] - controlPoints[0]) * controlPointFactors[1];

@@ -1,5 +1,4 @@
-﻿using SeedHearth.Cards.Data.Abilities;
-using SeedHearth.Plants;
+﻿using SeedHearth.Plants;
 using UnityEngine;
 
 namespace SeedHearth.Cards.Abilities
