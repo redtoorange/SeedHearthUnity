@@ -32,6 +32,7 @@ namespace SeedHearth.Plants
             {
                 mapOfStatesToSprites.Add(groundTileSpriteStates[i], groundTileSprites[i]);
             }
+            groundDisplay.sprite = mapOfStatesToSprites[currentState];
         }
 
         private void OnEnable()
