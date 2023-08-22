@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2}
-  m_SizeDelta: {x: -4, y: 8}
+  m_AnchoredPosition: {x: -1.5000001, y: -2}
+  m_SizeDelta: {x: -7, y: 8}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2496715488815492553
 CanvasRenderer:
@@ -623,7 +623,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -16, y: -16}
+  m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6838773284401856587
 CanvasRenderer:
@@ -655,8 +655,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 9
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e2a5957fcb395d4280bd94df830e612, type: 2}
-  m_sharedMaterial: {fileID: -4193386467475282336, guid: 0e2a5957fcb395d4280bd94df830e612, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ca051849c180354d9d1706ab8c0dc02, type: 2}
+  m_sharedMaterial: {fileID: -3459616611369734116, guid: 1ca051849c180354d9d1706ab8c0dc02, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -680,11 +680,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 6
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -734,12 +734,12 @@ GameObject:
   - component: {fileID: 9075713043385330343}
   - component: {fileID: 8135011099274882879}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: StaminaHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1143444912727149793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -757,8 +757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -2}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchoredPosition: {x: -1, y: -1}
+  m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &9075713043385330343
 CanvasRenderer:
@@ -855,6 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: 98bf081915be7bb418b89ceb344efc2c, type: 2}
+  currentState: 0
 --- !u!114 &4196940404674146778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,9 +871,10 @@ MonoBehaviour:
   cardTitleLabel: {fileID: 7487437210748032201}
   cardDescriptionLabel: {fileID: 6691977409063128330}
   cardBackgroundImage: {fileID: 3800134574598040602}
-  staminaCost: {fileID: 5394525169212927842}
   cardIconImage: {fileID: 4581128426425478400}
   cardOverlay: {fileID: 2753971160200403705}
+  staminaHolder: {fileID: 6105957254462357757}
+  staminaCost: {fileID: 5394525169212927842}
 --- !u!114 &3628573338434978105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,7 +889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomInScale: 1.25
   zoomInTime: 0.1
-  yMoveAmount: 100
 --- !u!114 &1891447232104711927
 MonoBehaviour:
   m_ObjectHideFlags: 0

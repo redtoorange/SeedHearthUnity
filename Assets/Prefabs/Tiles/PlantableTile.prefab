@@ -50,7 +50,7 @@ MonoBehaviour:
   groundDisplay: {fileID: 5547341481881018025}
   groundTileSpriteStates: 000000000100000002000000
   groundTileSprites:
-  - {fileID: 212937249, guid: 06d90cc7badae244586441fd68766f1b, type: 3}
+  - {fileID: 303834709, guid: 06d90cc7badae244586441fd68766f1b, type: 3}
   - {fileID: 174829607, guid: 9801d8825f698f44c8babdc6054dfa3d, type: 3}
   - {fileID: -814271610, guid: 9801d8825f698f44c8babdc6054dfa3d, type: 3}
 --- !u!61 &4825489853364265465
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SortingLayerID: 1135249221
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 212937249, guid: 06d90cc7badae244586441fd68766f1b, type: 3}
+  m_Sprite: {fileID: 303834709, guid: 06d90cc7badae244586441fd68766f1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

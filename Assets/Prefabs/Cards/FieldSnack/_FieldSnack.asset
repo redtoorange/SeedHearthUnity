@@ -17,7 +17,7 @@ MonoBehaviour:
   cardSprite: {fileID: 0}
   cardDescription: <b>Consume</b> to recover <b>1</b> <u><b>Stamina</b></u> and <b>Draw
     1</b> card.
-  cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
+  cardBackgroundColor: {r: 0.49412233, g: 0.15686275, b: 0.61960787, a: 1}
   staminaCost: 0
   cardType: {fileID: 0}
   cardProperties:

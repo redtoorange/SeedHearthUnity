@@ -16,7 +16,7 @@ MonoBehaviour:
   cardTitle: Potato
   cardSprite: {fileID: -320179763925181062, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
   cardDescription: <b>Consume</b> to recover <b>1</b> stamina and draw <b>1</b> card.
-  cardBackgroundColor: {r: 0.61960787, g: 0.15686275, b: 0.20784315, a: 1}
+  cardBackgroundColor: {r: 0.49412233, g: 0.15686275, b: 0.61960787, a: 1}
   staminaCost: 0
   cardType: {fileID: 11400000, guid: de8b48675399b0744b8b8572da36f020, type: 2}
   cardProperties:
