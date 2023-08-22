@@ -1,3 +1,4 @@
+using System;
 using SeedHearth.Cards.Data;
 using UnityEngine;
 
@@ -7,12 +8,11 @@ namespace SeedHearth.Cards
     [RequireComponent(typeof(CardHoverController))]
     public class Card : MonoBehaviour
     {
+        public static Action<Card, CardState, CardState> OnCardChangeState;
+
         [Header("Card")]
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
-
-
-        private bool inHand = false;
 
         private CardVisualController cardVisualController;
         private CardMovementController cardMovementController;
@@ -22,6 +22,17 @@ namespace SeedHearth.Cards
 
         public delegate void MoveToCallback(Card card);
 
+        [SerializeField]
+        private CardState currentState = CardState.None;
+        public CardState GetState => currentState;
+
+        public void SetState(CardState newState)
+        {
+            if (newState == currentState) return;
+
+            OnCardChangeState?.Invoke(this, currentState, newState);
+            currentState = newState;
+        }
 
         private void Awake()
         {
@@ -43,11 +54,6 @@ namespace SeedHearth.Cards
         public CardZoomController GetZoomControl() => cardZoomController;
         public CardHoverController GetHoverControl() => cardHoverController;
 
-        public void SetInHand(bool isInHand)
-        {
-            inHand = isInHand;
-        }
-
         public string GetName()
         {
             return cardData.cardTitle;
@@ -60,7 +66,7 @@ namespace SeedHearth.Cards
 
         public bool InHand()
         {
-            return inHand;
+            return currentState == CardState.InHand;
         }
 
         public void MoveTo(Vector2 position)

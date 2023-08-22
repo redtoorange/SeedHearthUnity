@@ -12,6 +12,7 @@ namespace SeedHearth.Managers
         [SerializeField] private CardManager cardManager;
         [SerializeField] private CardCastingManager cardCastingManager;
         [SerializeField] private Canvas playCanvas;
+        [SerializeField] private RectTransform cardMovingTransform;
 
         private Camera camera;
         private Card currentlyHoveredCard;
@@ -95,6 +96,8 @@ namespace SeedHearth.Managers
             cardTransform = currentlyDraggingCard.GetComponent<RectTransform>();
 
             cardManager.PlayingCard(card);
+            card.transform.SetParent(cardMovingTransform, true);
+            card.SetState(CardState.BeingDragged);
         }
 
         private void HandleCardStopDrag(Card card)
@@ -108,7 +111,6 @@ namespace SeedHearth.Managers
                 CardArea area = mouseEnterDetector.DetectCardArea(out Vector2 releasePosition);
                 if (area is CardDiscardArea)
                 {
-                    Debug.Log("Discarding Card");
                     cardManager.DiscardCardFromHand(card);
                 }
                 else if (area is CardHandArea || area is CardDrawArea)

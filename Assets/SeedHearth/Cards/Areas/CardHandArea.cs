@@ -22,7 +22,7 @@ namespace SeedHearth.Cards.Areas
             
             heldCards.Add(card);
             card.FlipToFont();
-            card.SetInHand(true);
+            card.SetState(CardState.InHand);
             heldCards.Sort(new CardComparer());
             OrganizeCards();
         }
@@ -35,7 +35,6 @@ namespace SeedHearth.Cards.Areas
         public void RemoveCard(Card card)
         {
             heldCards.Remove(card);
-            card.SetInHand(false);
             OrganizeCards();
         }
 

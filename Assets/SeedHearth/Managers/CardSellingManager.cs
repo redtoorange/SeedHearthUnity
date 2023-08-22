@@ -13,6 +13,15 @@ namespace SeedHearth.Managers
         private void Start()
         {
             cardSellingUI.SetVisible(false);
+            Card.OnCardChangeState += HandleCardChangeState;
+        }
+
+        private void HandleCardChangeState(Card card, CardState oldState, CardState newState)
+        {
+            if (oldState == CardState.BeingSold && newState != CardState.BeingSold)
+            {
+                RemoveCard(card);
+            }
         }
 
         public void ToggleCardSellWindow()
@@ -22,13 +31,19 @@ namespace SeedHearth.Managers
 
         public void AddCard(Card soldCard)
         {
-            soldCards.Add(soldCard);
-            cardSellingUI.AddCard(soldCard);
+            if (!soldCards.Contains(soldCard))
+            {
+                soldCards.Add(soldCard);
+                cardSellingUI.AddCard(soldCard);
+            }
         }
 
         public void RemoveCard(Card cardToRemove)
         {
-            soldCards.Remove(cardToRemove);
+            if (soldCards.Contains(cardToRemove))
+            {
+                soldCards.Remove(cardToRemove);
+            }
         }
     }
 }

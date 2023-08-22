@@ -11,22 +11,14 @@ namespace SeedHearth.Cards.Areas
         {
             cardSellingManager = FindFirstObjectByType<CardSellingManager>();
             resourceManager = FindFirstObjectByType<ResourceManager>();
+            
         }
 
         public override void AddCard(Card cardToAdd)
         {
+            cardToAdd.SetState(CardState.BeingSold);
             cardToAdd.CancelMovement();
             cardSellingManager.AddCard(cardToAdd);
-            // base.AddCard(cardToAdd);
-            // cardToAdd.Hide();
-
-            // if (cardToAdd.TryGetComponent(out CardSellingController sellingController))
-            // {
-            //     if (sellingController.IsSellable)
-            //     {
-            //         resourceManager.AddGold(sellingController.SellPrice);
-            //     }
-            // }
         }
     }
 }
