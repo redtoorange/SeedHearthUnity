@@ -10506,6 +10506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df14df42545f264784a3f075dba635e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourceManager: {fileID: 160504707}
+  cardManager: {fileID: 1618300336}
   cardSellingUI: {fileID: 547830564}
   soldCards: []
 --- !u!114 &1028439985
@@ -12410,7 +12412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSpawnTarget: {fileID: 1862519826}
-  currentlyLoadedDeck: {fileID: 11400000, guid: ab7193a291f7fbc49a5e0c94500962f1, type: 2}
+  currentlyLoadedDeck: {fileID: 11400000, guid: 958ad63de098cd84583b5b922607ff50, type: 2}
   libraryCardInstances: []
   activeCardInstances: []
   graveyardCardInstances: []

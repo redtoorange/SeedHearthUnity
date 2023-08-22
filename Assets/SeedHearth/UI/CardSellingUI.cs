@@ -1,6 +1,5 @@
 ﻿using SeedHearth.Cards;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SeedHearth.UI
 {
@@ -11,6 +10,7 @@ namespace SeedHearth.UI
 
         private void Start()
         {
+            SetVisible(false);
         }
 
         public void SetVisible(bool shouldBeVisible)
@@ -26,9 +26,6 @@ namespace SeedHearth.UI
         public void AddCard(Card soldCard)
         {
             soldCard.transform.parent = cardHolder;
-            // GridLayoutGroup glg = cardHolder.GetComponent<GridLayoutGroup>();
-            // glg.SetLayoutHorizontal();
-            // glg.SetLayoutVertical();
         }
     }
 }
