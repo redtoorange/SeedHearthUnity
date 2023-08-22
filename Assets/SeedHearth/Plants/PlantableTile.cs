@@ -25,6 +25,8 @@ namespace SeedHearth.Plants
 
         private PlantableTileStates currentState = PlantableTileStates.Untilled;
 
+        private Plant currentPlant;
+
         private void Awake()
         {
             mapOfStatesToSprites = new Dictionary<PlantableTileStates, Sprite>();
@@ -67,6 +69,9 @@ namespace SeedHearth.Plants
             return false;
         }
 
+        /**
+         * Consume the watered state of the tile
+         */
         public bool UnWaterTile()
         {
             if (currentState == PlantableTileStates.Watered)
@@ -89,6 +94,27 @@ namespace SeedHearth.Plants
         public PlantableTileStates GetState()
         {
             return currentState;
+        }
+
+        public bool HasPlant()
+        {
+            return currentPlant != null;
+        }
+        
+        public void AddPlant(Plant newPlant)
+        {
+            newPlant.SetOwner(this);
+            currentPlant = newPlant;
+        }
+
+        public void RemovePlant()
+        {
+            currentPlant.SetOwner(null);
+        }
+
+        public bool IsWatered()
+        {
+            return currentState == PlantableTileStates.Watered;
         }
     }
 }
