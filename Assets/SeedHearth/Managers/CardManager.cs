@@ -93,6 +93,7 @@ namespace SeedHearth.Managers
 
             cardHandArea.RemoveCard(card);
             deckManager.DiscardCard(card);
+            card.SetState(CardState.InDiscardPile);
             card.MoveTo(cardDiscardArea.GetCenter());
         }
 
@@ -115,7 +116,7 @@ namespace SeedHearth.Managers
 
         public void ResetCardToHand(Card card)
         {
-            cardHandArea.AddCardAtPosition(card);
+            cardHandArea.AddCard(card);
         }
 
 
@@ -134,7 +135,7 @@ namespace SeedHearth.Managers
 
         public void StartCasting(Card card)
         {
-            Debug.Log("Attempting to Cast: " + card.GetName());
+            card.SetState(CardState.BeingCasting);
             if (card.TryGetComponent(out CardTargetingController cardTargetingController))
             {
                 card.MoveTo(castingPoint.position);

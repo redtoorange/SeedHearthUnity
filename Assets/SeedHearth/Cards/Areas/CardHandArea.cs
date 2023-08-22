@@ -18,16 +18,11 @@ namespace SeedHearth.Cards.Areas
 
         public override void AddCard(Card card)
         {
+            base.AddCard(card);
+            
             heldCards.Add(card);
             card.FlipToFont();
-            card.SetInHand(true);
-            OrganizeCards();
-        }
-
-        public void AddCardAtPosition(Card card)
-        {
-            heldCards.Add(card);
-            card.SetInHand(true);
+            card.SetState(CardState.InHand);
             heldCards.Sort(new CardComparer());
             OrganizeCards();
         }
@@ -40,7 +35,6 @@ namespace SeedHearth.Cards.Areas
         public void RemoveCard(Card card)
         {
             heldCards.Remove(card);
-            card.SetInHand(false);
             OrganizeCards();
         }
 

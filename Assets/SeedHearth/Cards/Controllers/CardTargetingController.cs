@@ -49,13 +49,13 @@ namespace SeedHearth.Cards
         public void StartSelectingTarget()
         {
             selectingTarget = true;
-            cardTargetingManager.EnableArrow();
+            // cardTargetingManager.EnableArrow();
         }
 
         public void StopSelectingTarget()
         {
             selectingTarget = false;
-            cardTargetingManager.DisableArrow();
+            // cardTargetingManager.DisableArrow();
         }
     }
 }

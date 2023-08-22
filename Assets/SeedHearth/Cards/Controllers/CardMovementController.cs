@@ -56,5 +56,10 @@ namespace SeedHearth.Cards
                 isMoving = false;
             }
         }
+
+        public void CancelMovement()
+        {
+            isMoving = false;
+        }
     }
 }

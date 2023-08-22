@@ -21,7 +21,8 @@ namespace SeedHearth.Cards.Abilities
 
         protected override void ApplyAbility(HoveredTargets target)
         {
-            Instantiate(plantPrefab, target.tile.transform);
+            PlantableTile tile = target.tile;
+            tile.AddPlant(Instantiate(plantPrefab, tile.transform));
         }
     }
 }

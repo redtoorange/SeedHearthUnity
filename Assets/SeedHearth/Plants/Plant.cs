@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using SeedHearth.Managers;
 using SeedHearth.Managers.ScriptableObjects;
 using UnityEngine;
 
@@ -23,6 +22,7 @@ namespace SeedHearth.Plants
         [SerializeField] private bool harvestable = false;
         [SerializeField] private Produce.Produce producePrefab;
 
+        private PlantableTile owningTile;
 
         private void Start()
         {
@@ -60,6 +60,7 @@ namespace SeedHearth.Plants
                 Quaternion.identity,
                 transform.parent
             );
+            owningTile.RemovePlant();
             Destroy(gameObject);
         }
 
@@ -91,8 +92,10 @@ namespace SeedHearth.Plants
 
         public void Grow(int days)
         {
-            if (harvestable) return;
+            if (harvestable || !owningTile.IsWatered()) return;
 
+            // Only a watered plant can grow
+            owningTile.UnWaterTile();
             daysToGrownSoFar = Math.Min(daysToGrownSoFar + days, daysRequiredToGrow);
             if (daysToGrownSoFar == daysRequiredToGrow)
             {
@@ -100,6 +103,11 @@ namespace SeedHearth.Plants
             }
 
             UpdatePlantVisuals();
+        }
+
+        public void SetOwner(PlantableTile plantableTile)
+        {
+            owningTile = plantableTile;
         }
     }
 }
