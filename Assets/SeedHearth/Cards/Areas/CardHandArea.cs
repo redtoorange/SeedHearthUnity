@@ -18,15 +18,10 @@ namespace SeedHearth.Cards.Areas
 
         public override void AddCard(Card card)
         {
+            base.AddCard(card);
+            
             heldCards.Add(card);
             card.FlipToFont();
-            card.SetInHand(true);
-            OrganizeCards();
-        }
-
-        public void AddCardAtPosition(Card card)
-        {
-            heldCards.Add(card);
             card.SetInHand(true);
             heldCards.Sort(new CardComparer());
             OrganizeCards();

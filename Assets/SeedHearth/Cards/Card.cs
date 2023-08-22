@@ -82,5 +82,10 @@ namespace SeedHearth.Cards
         {
             gameObject.SetActive(false);
         }
+
+        public void CancelMovement()
+        {
+            cardMovementController.CancelMovement();
+        }
     }
 }

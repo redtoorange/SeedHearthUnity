@@ -115,7 +115,7 @@ namespace SeedHearth.Managers
 
         public void ResetCardToHand(Card card)
         {
-            cardHandArea.AddCardAtPosition(card);
+            cardHandArea.AddCard(card);
         }
 
 

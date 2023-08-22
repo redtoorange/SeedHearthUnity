@@ -1,22 +1,21 @@
 ﻿using SeedHearth.Plants;
-using SeedHearth.SelectionArrow;
 using UnityEngine;
 
 namespace SeedHearth.Managers
 {
     public class CardTargettingManager : MonoBehaviour
     {
-        [SerializeField] private CardTargettingArrow cardTargeting;
+        // [SerializeField] private CardTargettingArrow cardTargeting;
         [SerializeField] private MouseController.MouseController mouseController;
 
         public void EnableArrow()
         {
-            cardTargeting.gameObject.SetActive(true);
+            // cardTargeting.gameObject.SetActive(true);
         }
 
         public void DisableArrow()
         {
-            cardTargeting.gameObject.SetActive(false);
+            // cardTargeting.gameObject.SetActive(false);
         }
 
         public PlantableTile GetHoveredTile() => mouseController.GetHoveredTile();
