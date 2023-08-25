@@ -93,5 +93,10 @@ namespace SeedHearth.Cards
         {
             cardMovementController.CancelMovement();
         }
+
+        public void ResetZoom()
+        {
+            cardZoomController.SetZoomState(false);
+        }
     }
 }

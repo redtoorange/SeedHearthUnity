@@ -1761,6 +1761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardCastingManager: {fileID: 957889432}
+  maxWidthPerCard: 3.25
 --- !u!114 &501636317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,7 +1775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
+  m_Color: {r: 1, g: 0, b: 0.93989515, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1997,10 +1998,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.06666667
+    y: 0.12222222
+    width: 0.20000002
+    height: 0.2
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -10710,6 +10711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281882942}
   - component: {fileID: 1281882943}
+  - component: {fileID: 1281882944}
   m_Layer: 5
   m_Name: WateringCanToolButton
   m_TagString: Untagged
@@ -10781,7 +10783,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 492723349}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1281882944}
+        m_TargetAssemblyTypeName: SeedHearth.UI.ToolButtons.ToolButton, SeedHearth
+        m_MethodName: OnToolButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1281882944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281882941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d460230794454784be25e83c20501334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolCardPrefab: {fileID: 4890684946629085404, guid: 30be96a94b7637c40ac139b6d70b7668, type: 3}
 --- !u!1 &1287661012
 GameObject:
   m_ObjectHideFlags: 0
@@ -13302,6 +13329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1785133838}
   - component: {fileID: 1785133839}
+  - component: {fileID: 1785133840}
   m_Layer: 5
   m_Name: HoeToolButton
   m_TagString: Untagged
@@ -13373,7 +13401,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 406888656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1785133840}
+        m_TargetAssemblyTypeName: SeedHearth.UI.ToolButtons.ToolButton, SeedHearth
+        m_MethodName: OnToolButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1785133840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785133837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d460230794454784be25e83c20501334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolCardPrefab: {fileID: 4890684946629085404, guid: bcf90c29960e22d47aaa1c683626fdf5, type: 3}
 --- !u!1 &1789586253
 GameObject:
   m_ObjectHideFlags: 0
