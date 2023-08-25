@@ -1,4 +1,5 @@
 ﻿using SeedHearth.Cards;
+using SeedHearth.Cards.Controllers;
 using SeedHearth.Managers;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace SeedHearth.UI.ToolButtons
         public void OnToolButtonPressed()
         {
             Card newCard = cardManager.SpawnNewCard(toolCardPrefab);
+            newCard.gameObject.AddComponent<CardFadeController>();
+            newCard.SetAsEphemeral();
             cardManager.AddNewCard(
                 newCard
             );

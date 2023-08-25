@@ -45,6 +45,10 @@ namespace SeedHearth.Managers
         {
             if (!soldCards.Contains(soldCard))
             {
+                soldCard.SetState(CardState.BeingSold);
+                soldCard.CancelMovement();
+                soldCard.ResetZoom();
+                
                 soldCards.Add(soldCard);
                 cardSellingUI.AddCard(soldCard);
             }

@@ -1998,10 +1998,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.06666667
-    y: 0.12222222
-    width: 0.20000002
-    height: 0.2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -12712,6 +12712,7 @@ MonoBehaviour:
   drawHandSize: 5
   castingPoint: {fileID: 231597057}
   deckManager: {fileID: 1579529153}
+  cardSellingManager: {fileID: 1022400359}
 --- !u!1 &1618717402
 GameObject:
   m_ObjectHideFlags: 0

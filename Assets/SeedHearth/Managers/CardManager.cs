@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Cards.Areas;
-using SeedHearth.Deck;
 using UnityEngine;
 
 namespace SeedHearth.Managers
@@ -24,8 +23,8 @@ namespace SeedHearth.Managers
         [SerializeField] private RectTransform castingPoint;
 
         [Header("External Dependencies")]
-        [SerializeField]
-        private DeckManager deckManager;
+        [SerializeField] private DeckManager deckManager;
+        [SerializeField] private CardSellingManager cardSellingManager;
 
         private void Awake()
         {
@@ -91,10 +90,17 @@ namespace SeedHearth.Managers
         {
             if (deckManager == null) return;
 
-            cardHandArea.RemoveCard(card);
-            deckManager.DiscardCard(card);
-            card.SetState(CardState.InDiscardPile);
-            card.MoveTo(cardDiscardArea.GetCenter());
+            if (card.IsEphemeral)
+            {
+                BurnCard(card);
+            }
+            else
+            {
+                cardHandArea.RemoveCard(card);
+                deckManager.DiscardCard(card);
+                card.SetState(CardState.InDiscardPile);
+                card.MoveTo(cardDiscardArea.GetCenter());
+            }
         }
 
         public void DiscardCardFromPlay(Card card)
@@ -109,7 +115,8 @@ namespace SeedHearth.Managers
         public void BurnCard(Card card)
         {
             if (deckManager == null) return;
-            
+
+            cardHandArea.RemoveCard(card);
             deckManager.DestroyCard(card);
             Destroy(card.gameObject);
         }
@@ -153,6 +160,11 @@ namespace SeedHearth.Managers
         public Card SpawnNewCard(Card card)
         {
             return deckManager.SpawnNewCard(card);
+        }
+
+        public void SellCard(Card card)
+        {
+            cardSellingManager.AddCard(card);
         }
     }
 }

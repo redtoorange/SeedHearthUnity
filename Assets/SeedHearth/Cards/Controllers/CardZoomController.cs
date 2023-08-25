@@ -41,7 +41,10 @@ namespace SeedHearth.Cards
             {
                 if (currentCardState != CardZoomState.ZoomedIn)
                 {
-                    trans.SetAsLastSibling();
+                    if (parentCard.GetState == CardState.InHand)
+                    {
+                        trans.SetAsLastSibling();
+                    }
                     elapsed = 0.0f;
                     currentCardState = CardZoomState.ZoomingIn;
                 }

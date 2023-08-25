@@ -63,7 +63,7 @@ namespace SeedHearth.Managers
         private void HandleCardStartHover(Card card)
         {
             if (isDragging) return;
-            if (!card.InHand()) return;
+            if (!card.IsZoomable()) return;
 
             if (currentlyHoveredCard != null)
             {
@@ -119,7 +119,7 @@ namespace SeedHearth.Managers
                 }
                 else if (area is CardSellArea sellArea)
                 {
-                    sellArea.AddCard(card);
+                    cardManager.SellCard(card);
                 }
                 else
                 {
