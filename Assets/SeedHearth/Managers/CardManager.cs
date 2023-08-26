@@ -142,13 +142,16 @@ namespace SeedHearth.Managers
 
         public void StartCasting(Card card)
         {
-            card.SetState(CardState.BeingCasting);
             if (card.TryGetComponent(out CardTargetingController cardTargetingController))
             {
+                card.SetState(CardState.BeingCasting);
                 card.MoveTo(castingPoint.position);
+                OnStartCasting?.Invoke(card);
             }
-
-            OnStartCasting?.Invoke(card);
+            else
+            {
+                ResetCardToHand(card);
+            }
         }
 
         public void AddNewCard(Card card)

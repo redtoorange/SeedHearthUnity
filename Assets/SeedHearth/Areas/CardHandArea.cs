@@ -75,7 +75,7 @@ namespace SeedHearth.Cards.Areas
         {
             foreach (Card card in heldCards)
             {
-                card.SetCanCast(cardCastingManager.IsAbleToCast(card));
+                card.SetCardDimmed(!cardCastingManager.IsAbleToCast(card));
             }
         }
     }

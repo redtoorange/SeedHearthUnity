@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using SeedHearth.Managers.ScriptableObjects;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SeedHearth.Plants
 {
@@ -90,9 +91,11 @@ namespace SeedHearth.Plants
             }
         }
 
-        public void Grow(int days)
+        public void Grow(int days, float randomGrowthChance)
         {
-            if (harvestable || !owningTile.IsWatered()) return;
+            if (harvestable) return;
+
+            if (!owningTile.IsWatered() && Random.Range(0.0f, 1.0f) > randomGrowthChance) return;
 
             // Only a watered plant can grow
             owningTile.UnWaterTile();

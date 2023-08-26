@@ -513,7 +513,7 @@ TextureImporter:
       213: -1991939643960124597
     second: Iconset_18x18grid_basic_169
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -587,6 +587,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -599,6 +600,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -611,6 +613,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -4196,7 +4199,177 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Iconset_18x18grid_basic_0: -7283967462535102405
+      Iconset_18x18grid_basic_1: -6273190326947586078
+      Iconset_18x18grid_basic_10: -792747519925234002
+      Iconset_18x18grid_basic_100: -7226841107709774815
+      Iconset_18x18grid_basic_101: -934528361420838230
+      Iconset_18x18grid_basic_102: 4914411752112484733
+      Iconset_18x18grid_basic_103: 8788405876725372731
+      Iconset_18x18grid_basic_104: -605651360358874090
+      Iconset_18x18grid_basic_105: 5879918669049905289
+      Iconset_18x18grid_basic_106: -7770612812988258030
+      Iconset_18x18grid_basic_107: -4777749902499045275
+      Iconset_18x18grid_basic_108: 1974720588616491266
+      Iconset_18x18grid_basic_109: -3053447101814359811
+      Iconset_18x18grid_basic_11: -4373284724167578335
+      Iconset_18x18grid_basic_110: -7644407430078299533
+      Iconset_18x18grid_basic_111: 2556187653535266182
+      Iconset_18x18grid_basic_112: 7843115085634717263
+      Iconset_18x18grid_basic_113: -6031180888161614823
+      Iconset_18x18grid_basic_114: -3888829058452947341
+      Iconset_18x18grid_basic_115: -7175277365395373362
+      Iconset_18x18grid_basic_116: -5633377197077702504
+      Iconset_18x18grid_basic_117: -2281995365549607555
+      Iconset_18x18grid_basic_118: -4632627756447340625
+      Iconset_18x18grid_basic_119: -4732672625883662646
+      Iconset_18x18grid_basic_12: 5570568630427835879
+      Iconset_18x18grid_basic_120: -4006251560631011237
+      Iconset_18x18grid_basic_121: 1775330289497026655
+      Iconset_18x18grid_basic_122: 3983905310358274988
+      Iconset_18x18grid_basic_123: 8976689438735096608
+      Iconset_18x18grid_basic_124: -5767078825869576168
+      Iconset_18x18grid_basic_125: 7886472393976076683
+      Iconset_18x18grid_basic_126: 7843755571958930342
+      Iconset_18x18grid_basic_127: -4525667268915417273
+      Iconset_18x18grid_basic_128: -3792508435863212559
+      Iconset_18x18grid_basic_129: 5875637473212744756
+      Iconset_18x18grid_basic_13: -1121966237209795509
+      Iconset_18x18grid_basic_130: -6384459620916895444
+      Iconset_18x18grid_basic_131: -1872862381962535753
+      Iconset_18x18grid_basic_132: -4763497384323983254
+      Iconset_18x18grid_basic_133: 717062215942692452
+      Iconset_18x18grid_basic_134: -2854166462492056624
+      Iconset_18x18grid_basic_135: -4240707480976378410
+      Iconset_18x18grid_basic_136: 1198396862992502136
+      Iconset_18x18grid_basic_137: 6822016839549979596
+      Iconset_18x18grid_basic_138: 3271853879265258402
+      Iconset_18x18grid_basic_139: -4206660419249647811
+      Iconset_18x18grid_basic_14: -5046875512026422067
+      Iconset_18x18grid_basic_140: 931414232527150793
+      Iconset_18x18grid_basic_141: -850280662254229935
+      Iconset_18x18grid_basic_142: -5758994986598144042
+      Iconset_18x18grid_basic_143: -4795273816300638127
+      Iconset_18x18grid_basic_144: -4843072441466076430
+      Iconset_18x18grid_basic_145: 8493603645007159405
+      Iconset_18x18grid_basic_146: 4380098224238108312
+      Iconset_18x18grid_basic_147: 4436950328099457803
+      Iconset_18x18grid_basic_148: 1963071335216047850
+      Iconset_18x18grid_basic_149: -1115464477520254417
+      Iconset_18x18grid_basic_15: -1655517654779788212
+      Iconset_18x18grid_basic_150: 3874346864432801445
+      Iconset_18x18grid_basic_151: 7892244883950168890
+      Iconset_18x18grid_basic_152: 625543733453279058
+      Iconset_18x18grid_basic_153: -1063705182539971487
+      Iconset_18x18grid_basic_154: 3563438029496416207
+      Iconset_18x18grid_basic_155: 2981146237577667283
+      Iconset_18x18grid_basic_156: 6093322039722313678
+      Iconset_18x18grid_basic_157: -5719147002388136823
+      Iconset_18x18grid_basic_158: 5344699070909912650
+      Iconset_18x18grid_basic_159: 6176416667218217014
+      Iconset_18x18grid_basic_16: -6827753528907744034
+      Iconset_18x18grid_basic_160: -8667298285736786796
+      Iconset_18x18grid_basic_161: -8643632038711321014
+      Iconset_18x18grid_basic_162: -4444775139029417595
+      Iconset_18x18grid_basic_163: -3794949501937041389
+      Iconset_18x18grid_basic_164: 4576702976885366261
+      Iconset_18x18grid_basic_165: -2033011381923072639
+      Iconset_18x18grid_basic_166: 8105301491893742145
+      Iconset_18x18grid_basic_167: 2795972128223686100
+      Iconset_18x18grid_basic_168: -7079774300614071251
+      Iconset_18x18grid_basic_169: -1991939643960124597
+      Iconset_18x18grid_basic_17: -4184549878815771343
+      Iconset_18x18grid_basic_18: 5250062371311689288
+      Iconset_18x18grid_basic_19: 4149683823608628480
+      Iconset_18x18grid_basic_2: 7026941538369231268
+      Iconset_18x18grid_basic_20: -7337729682808533383
+      Iconset_18x18grid_basic_21: 9078562034818557804
+      Iconset_18x18grid_basic_22: -6265854068098737985
+      Iconset_18x18grid_basic_23: 8313815709028901437
+      Iconset_18x18grid_basic_24: 6192717980605122527
+      Iconset_18x18grid_basic_25: -7073518855488456010
+      Iconset_18x18grid_basic_26: -1274243801366696552
+      Iconset_18x18grid_basic_27: -4870869074028061715
+      Iconset_18x18grid_basic_28: 3869105810225376147
+      Iconset_18x18grid_basic_29: -4175521705463336153
+      Iconset_18x18grid_basic_3: 2797539068522828143
+      Iconset_18x18grid_basic_30: -8918945211376856002
+      Iconset_18x18grid_basic_31: -4372396077938945253
+      Iconset_18x18grid_basic_32: -1593462754873676410
+      Iconset_18x18grid_basic_33: -2763910197114029925
+      Iconset_18x18grid_basic_34: 1736940491918239262
+      Iconset_18x18grid_basic_35: 7334674133287093903
+      Iconset_18x18grid_basic_36: -49810599404186138
+      Iconset_18x18grid_basic_37: -4400191344833002742
+      Iconset_18x18grid_basic_38: -7177774329917246399
+      Iconset_18x18grid_basic_39: 5732120173404917441
+      Iconset_18x18grid_basic_4: 7911258759384846297
+      Iconset_18x18grid_basic_40: -5378897536762368610
+      Iconset_18x18grid_basic_41: -7573846476693402299
+      Iconset_18x18grid_basic_42: -566288001467284864
+      Iconset_18x18grid_basic_43: -8478217730049305698
+      Iconset_18x18grid_basic_44: 4476295641156898087
+      Iconset_18x18grid_basic_45: -1361779653493353146
+      Iconset_18x18grid_basic_46: 7003268686749249496
+      Iconset_18x18grid_basic_47: -8356972717240184831
+      Iconset_18x18grid_basic_48: 3597605599233039504
+      Iconset_18x18grid_basic_49: 6506711391801746617
+      Iconset_18x18grid_basic_5: -8290459364020110535
+      Iconset_18x18grid_basic_50: -6381586545063957856
+      Iconset_18x18grid_basic_51: 1949725193194246576
+      Iconset_18x18grid_basic_52: 3668108760233793988
+      Iconset_18x18grid_basic_53: -8617579335968317694
+      Iconset_18x18grid_basic_54: -8428611253296138868
+      Iconset_18x18grid_basic_55: 8933642999963678009
+      Iconset_18x18grid_basic_56: 5286299661119454842
+      Iconset_18x18grid_basic_57: 4463890084693739028
+      Iconset_18x18grid_basic_58: -2875816636390843415
+      Iconset_18x18grid_basic_59: 3721591056345825325
+      Iconset_18x18grid_basic_6: -6118965676489424355
+      Iconset_18x18grid_basic_60: 8972630949478557007
+      Iconset_18x18grid_basic_61: -4966050499296578747
+      Iconset_18x18grid_basic_62: -1629685185734620527
+      Iconset_18x18grid_basic_63: 6902399142219594874
+      Iconset_18x18grid_basic_64: -7830738706724946530
+      Iconset_18x18grid_basic_65: -637160488604649866
+      Iconset_18x18grid_basic_66: -4295452777007680529
+      Iconset_18x18grid_basic_67: -5105303449739201815
+      Iconset_18x18grid_basic_68: -938681511179897830
+      Iconset_18x18grid_basic_69: -8696537927288118692
+      Iconset_18x18grid_basic_7: 3498669922879738897
+      Iconset_18x18grid_basic_70: 5635078243772801849
+      Iconset_18x18grid_basic_71: 3862154651585135884
+      Iconset_18x18grid_basic_72: 7781795629690046081
+      Iconset_18x18grid_basic_73: 256904448768381410
+      Iconset_18x18grid_basic_74: -5939766609526742483
+      Iconset_18x18grid_basic_75: 1935761268457792321
+      Iconset_18x18grid_basic_76: -1537747724201359749
+      Iconset_18x18grid_basic_77: 3667024395581725007
+      Iconset_18x18grid_basic_78: -769163299720785391
+      Iconset_18x18grid_basic_79: 5662801633281580932
+      Iconset_18x18grid_basic_8: -4533989934175910482
+      Iconset_18x18grid_basic_80: 915428864923224935
+      Iconset_18x18grid_basic_81: -6873660057739993213
+      Iconset_18x18grid_basic_82: 2403187028629188347
+      Iconset_18x18grid_basic_83: -8550957102649540699
+      Iconset_18x18grid_basic_84: -6153730538737203268
+      Iconset_18x18grid_basic_85: 5578724268705194966
+      Iconset_18x18grid_basic_86: 7553640483217814795
+      Iconset_18x18grid_basic_87: 1828446473966637713
+      Iconset_18x18grid_basic_88: -7487252607208005585
+      Iconset_18x18grid_basic_89: -6683939856628856416
+      Iconset_18x18grid_basic_9: -8353777243338071046
+      Iconset_18x18grid_basic_90: 5948832872248104089
+      Iconset_18x18grid_basic_91: -9025107330210195561
+      Iconset_18x18grid_basic_92: 1500302896622059807
+      Iconset_18x18grid_basic_93: -9135426225683271888
+      Iconset_18x18grid_basic_94: 1612148930198167552
+      Iconset_18x18grid_basic_95: 5887455217699827385
+      Iconset_18x18grid_basic_96: -2117805589179965262
+      Iconset_18x18grid_basic_97: -850744606541837162
+      Iconset_18x18grid_basic_98: -1134043981910455268
+      Iconset_18x18grid_basic_99: -2783985522972119629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

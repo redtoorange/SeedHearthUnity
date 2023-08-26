@@ -62,9 +62,9 @@ namespace SeedHearth.Cards
             return cardData.cardTitle;
         }
 
-        public void SetCanCast(bool canCast)
+        public void SetCardDimmed(bool shouldCardDim)
         {
-            cardVisualController.SetDimmedCard(!canCast);
+            cardVisualController.SetDimmedCard(shouldCardDim);
         }
 
         public void MoveTo(Vector2 position)

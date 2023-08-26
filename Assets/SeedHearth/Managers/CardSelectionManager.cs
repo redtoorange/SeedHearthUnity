@@ -58,6 +58,18 @@ namespace SeedHearth.Managers
             currentlyDraggingCard.MoveTo(
                 camera.ScreenToWorldPoint(mPos)
             );
+
+            CardArea area = mouseEnterDetector.DetectCardArea(out Vector2 releasePosition);
+            if (area != null)
+            {
+                currentlyDraggingCard.SetCardDimmed(
+                    !area.IsValidDropSpot(currentlyDraggingCard)
+                );
+            }
+            else
+            {
+                currentlyDraggingCard.SetCardDimmed(false);
+            }
         }
 
         private void HandleCardStartHover(Card card)
@@ -119,7 +131,14 @@ namespace SeedHearth.Managers
                 }
                 else if (area is CardSellArea sellArea)
                 {
-                    cardManager.SellCard(card);
+                    if (sellArea.IsValidDropSpot(card))
+                    {
+                        cardManager.SellCard(card);
+                    }
+                    else
+                    {
+                        cardManager.ResetCardToHand(card);
+                    }
                 }
                 else
                 {

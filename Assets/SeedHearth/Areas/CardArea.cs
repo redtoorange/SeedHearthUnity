@@ -56,5 +56,10 @@ namespace SeedHearth.Cards.Areas
             cardToAdd.MoveTo(GetCenter());
             cardToAdd.transform.SetParent(transform, true);
         }
+
+        public virtual bool IsValidDropSpot(Card currentCard)
+        {
+            return true;
+        }
     }
 }
