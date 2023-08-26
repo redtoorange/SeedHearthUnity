@@ -13,6 +13,9 @@ namespace SeedHearth.Cards
         [Header("Card")]
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
+        
+        [Tooltip("Should shit card be destroyed on discard?")]
+        [SerializeField] private bool isEphemeral = false;
 
         private CardVisualController cardVisualController;
         private CardMovementController cardMovementController;
@@ -59,14 +62,9 @@ namespace SeedHearth.Cards
             return cardData.cardTitle;
         }
 
-        public void SetCanCast(bool canCast)
+        public void SetCardDimmed(bool shouldCardDim)
         {
-            cardVisualController.SetDimmedCard(!canCast);
-        }
-
-        public bool InHand()
-        {
-            return currentState == CardState.InHand;
+            cardVisualController.SetDimmedCard(shouldCardDim);
         }
 
         public void MoveTo(Vector2 position)
@@ -92,6 +90,24 @@ namespace SeedHearth.Cards
         public void CancelMovement()
         {
             cardMovementController.CancelMovement();
+        }
+
+        public void ResetZoom()
+        {
+            cardZoomController.SetZoomState(false);
+        }
+
+        public void SetAsEphemeral()
+        {
+            isEphemeral = true;
+        }
+
+        public bool IsEphemeral => isEphemeral;
+
+        public bool IsZoomable()
+        {
+            return currentState == CardState.InHand || currentState == CardState.BeingSold;
+
         }
     }
 }

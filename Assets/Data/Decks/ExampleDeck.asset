@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckName: Sample Deck
   deckCardData:
-  - count: 0
-    cardPrefab: {fileID: 4890684946629085404, guid: 809d0b6b4380ae34bb490fcd22b41bc5, type: 3}
   - count: 4
     cardPrefab: {fileID: 4890684946629085404, guid: 8eaf6db1468401743aeac2784e02aca1, type: 3}
   - count: 8
@@ -23,6 +21,6 @@ MonoBehaviour:
   - count: 8
     cardPrefab: {fileID: 4890684946629085404, guid: 3cf6e33737462af48a40d83ef99f7900, type: 3}
   - count: 8
-    cardPrefab: {fileID: 4890684946629085404, guid: 30be96a94b7637c40ac139b6d70b7668, type: 3}
+    cardPrefab: {fileID: 4890684946629085404, guid: b8ebf165d91948a48a7acd230abb1743, type: 3}
   - count: 8
-    cardPrefab: {fileID: 4890684946629085404, guid: bcf90c29960e22d47aaa1c683626fdf5, type: 3}
+    cardPrefab: {fileID: 4890684946629085404, guid: 73aa380391d0bbb4e89c094371abac12, type: 3}

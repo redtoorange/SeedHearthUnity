@@ -8,6 +8,7 @@ namespace SeedHearth.Managers
     public class GrowthManager : MonoBehaviour
     {
         [SerializeField] private PlantManager plantManager;
+        [SerializeField] private float randomGrowthChance = 0.2f;
 
         private void OnEnable()
         {
@@ -24,7 +25,7 @@ namespace SeedHearth.Managers
             List<Plant> plants = plantManager.GetManagedPlants();
             foreach (Plant plant in plants)
             {
-                plant.Grow(1);
+                plant.Grow(1, randomGrowthChance);
             }
         }
     }

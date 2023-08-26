@@ -8,45 +8,107 @@ namespace SeedHearth.Cards
         [SerializeField] private float zoomInScale = 1.25f;
         [SerializeField] private float zoomInTime = 0.1f;
 
-        private bool isZoomed = false;
+        private Transform trans;
+        private CardZoomState currentCardState = CardZoomState.ZoomedOut;
+        private float elapsed = 0.0f;
+        private Vector3 targetZoomIn;
+        private Vector3 targetZoomOut;
 
-        public void ToggleZoomed(bool zoomed)
+        private void Start()
         {
-            return;
-            
-            if (zoomed == isZoomed) return;
+            trans = transform;
+            targetZoomIn = new Vector3(zoomInScale, zoomInScale, zoomInScale);
+            targetZoomOut = new Vector3(1, 1, 1);
+        }
 
-            isZoomed = zoomed;
-            transform.SetAsLastSibling();
-
-            if (isZoomed)
+        public void SetZoomState(bool shouldBeZoomed)
+        {
+            if (shouldBeZoomed)
             {
-                ZoomIn();
+                currentCardState = CardZoomState.ZoomedIn;
+                trans.localScale = targetZoomIn;
             }
             else
             {
-                ZoomOut();
+                currentCardState = CardZoomState.ZoomedOut;
+                trans.localScale = targetZoomOut;
             }
         }
 
-        public void ZoomIn()
+        public void ToggleZoomed(bool shouldBeZoomed)
         {
-            LeanTween.cancel(gameObject);
-            LeanTween.scale(
-                gameObject,
-                new Vector2(zoomInScale, zoomInScale),
-                zoomInTime
-            );
+            if (shouldBeZoomed)
+            {
+                if (currentCardState != CardZoomState.ZoomedIn)
+                {
+                    if (parentCard.GetState == CardState.InHand)
+                    {
+                        trans.SetAsLastSibling();
+                    }
+                    elapsed = 0.0f;
+                    currentCardState = CardZoomState.ZoomingIn;
+                }
+            }
+            else
+            {
+                if (currentCardState != CardZoomState.ZoomedOut)
+                {
+                    elapsed = 0.0f;
+                    currentCardState = CardZoomState.ZoomingOut;
+                }
+            }
         }
 
-        public void ZoomOut()
+        private void Update()
         {
-            LeanTween.cancel(gameObject);
-            LeanTween.scale(
-                gameObject,
-                new Vector2(1, 1),
-                zoomInTime
+            if (currentCardState == CardZoomState.ZoomingIn)
+            {
+                ProcessZoomIn();
+            }
+            else if (currentCardState == CardZoomState.ZoomingOut)
+            {
+                ProcessZoomOut();
+            }
+        }
+
+        private void ProcessZoomIn()
+        {
+            elapsed += Time.deltaTime;
+            trans.localScale = Vector3.Lerp(
+                trans.localScale,
+                targetZoomIn,
+                elapsed / zoomInTime
             );
+
+            if (Vector3.Distance(trans.localScale, targetZoomIn) < 0.01f)
+            {
+                currentCardState = CardZoomState.ZoomedIn;
+                trans.localScale = targetZoomIn;
+            }
+        }
+
+        private void ProcessZoomOut()
+        {
+            elapsed += Time.deltaTime;
+            trans.localScale = Vector3.Lerp(
+                trans.localScale,
+                targetZoomOut,
+                elapsed / zoomInTime
+            );
+            
+            if (Vector3.Distance(trans.localScale, targetZoomOut) < 0.01f)
+            {
+                currentCardState = CardZoomState.ZoomedOut;
+                trans.localScale = targetZoomOut;
+            }
+        }
+
+        private enum CardZoomState
+        {
+            ZoomedOut,
+            ZoomingIn,
+            ZoomedIn,
+            ZoomingOut
         }
     }
 }
