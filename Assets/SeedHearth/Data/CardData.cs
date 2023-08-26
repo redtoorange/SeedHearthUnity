@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using SeedHearth.Cards.Data.CardProperties;
 using UnityEngine;
 
 namespace SeedHearth.Cards.Data
@@ -18,7 +16,6 @@ namespace SeedHearth.Cards.Data
         public Color cardBackgroundColor;
         public int staminaCost = 0;
         public CardType cardType;
-        public List<CardProperty> cardProperties;
 
         public bool isSellable = true;
         public int baseSellValue = 0;

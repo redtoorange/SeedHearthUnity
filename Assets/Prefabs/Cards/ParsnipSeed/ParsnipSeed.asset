@@ -17,11 +17,8 @@ MonoBehaviour:
   cardSprite: {fileID: 3320051678166339757, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
   cardDescription: Plant 1 Potato. Requires <b>5</b> days to grow.
   cardBackgroundColor: {r: 0.24313727, g: 0.5372549, b: 0.28235295, a: 1}
-  staminaCost: 1
+  staminaCost: 0
   cardType: {fileID: 11400000, guid: 774d925cc38a7864db7ae7111ef252ad, type: 2}
-  cardProperties:
-  - {fileID: 11400000, guid: 54c0db1bb772b91499f863f0d727ab51, type: 2}
-  - {fileID: 11400000, guid: e4780899180a41d458ffd1a881b981e4, type: 2}
   isSellable: 1
   baseSellValue: 10
   basePurchaseValue: 10
