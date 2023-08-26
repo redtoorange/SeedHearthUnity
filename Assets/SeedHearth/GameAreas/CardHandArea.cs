@@ -23,7 +23,7 @@ namespace SeedHearth.Cards.Areas
             heldCards.Add(card);
             card.FlipToFont();
             card.SetState(CardState.InHand);
-            heldCards.Sort(new CardComparer());
+            heldCards.Sort(new CardPositionComparer());
             OrganizeCards();
         }
 
@@ -81,7 +81,7 @@ namespace SeedHearth.Cards.Areas
     }
 
 
-    public class CardComparer : IComparer<Card>
+    public class CardPositionComparer : IComparer<Card>
     {
         public int Compare(Card a, Card b)
         {

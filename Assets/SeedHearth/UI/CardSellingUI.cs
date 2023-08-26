@@ -1,4 +1,6 @@
-﻿using SeedHearth.Cards;
+﻿using System.Collections.Generic;
+using System.Linq;
+using SeedHearth.Cards;
 using UnityEngine;
 
 namespace SeedHearth.UI
@@ -26,6 +28,31 @@ namespace SeedHearth.UI
         public void AddCard(Card soldCard)
         {
             soldCard.transform.parent = cardHolder;
+            OrganizeCards();
+        }
+
+        private void OrganizeCards()
+        {
+            List<Card> cards = GetComponentsInChildren<Card>().ToList();
+            cards.Sort(new CardNameComparer());
+
+            for (int i = 0; i < cards.Count; i++)
+            {
+                cards[i].transform.SetSiblingIndex(i);
+            }
+        }
+
+        public class CardNameComparer : IComparer<Card>
+        {
+            public int Compare(Card a, Card b)
+            {
+                if (a == b || a == null || b == null)
+                {
+                    return 0;
+                }
+
+                return a.GetCardData().name.CompareTo(b.GetCardData().name);
+            }
         }
     }
 }
