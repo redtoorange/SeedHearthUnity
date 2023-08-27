@@ -54,6 +54,7 @@ namespace SeedHearth.Cards.Areas
         {
             cardToAdd.FlipToBack();
             cardToAdd.MoveTo(GetCenter());
+            cardToAdd.ResetZoom();
             cardToAdd.transform.SetParent(transform, true);
         }
 

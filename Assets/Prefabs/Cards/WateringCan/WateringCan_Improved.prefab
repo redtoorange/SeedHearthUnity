@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5d827a8059a0545bbd4e6c7b328565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionSquareType: 3
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 0

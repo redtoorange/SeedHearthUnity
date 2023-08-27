@@ -25,7 +25,7 @@ namespace SeedHearth.Plants
             }
         }
 
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
             Vector2 StartingPosition = transform.position -
                                        new Vector3(width / 2.0f, height / 2.0f, 0) - new Vector3(0.5f, 0.5f, 0);

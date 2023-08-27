@@ -1,30 +1,14 @@
 ﻿using System;
 using SeedHearth.Cards.Data;
 using SeedHearth.Managers;
-using SeedHearth.Plants;
-using UnityEngine;
+using SeedHearth.MouseController;
 using UnityEngine.InputSystem;
 
 namespace SeedHearth.Cards
 {
-    public class HoveredTargets
-    {
-        public PlantableTile tile;
-        public Plant plant;
-        public Produce.Produce produce;
-
-        public HoveredTargets(PlantableTile tile, Plant plant, Produce.Produce produce)
-        {
-            this.tile = tile;
-            this.plant = plant;
-            this.produce = produce;
-        }
-    }
-
-
     public class CardTargetingController : CardController
     {
-        public Action<HoveredTargets> OnTargetSelected;
+        public Action<HoverData> OnTargetSelected;
         private CardTargettingManager cardTargetingManager;
         private bool selectingTarget = false;
 
@@ -38,24 +22,20 @@ namespace SeedHearth.Cards
         {
             if (selectingTarget && Mouse.current.leftButton.wasPressedThisFrame)
             {
-                OnTargetSelected?.Invoke(new HoveredTargets(
-                    cardTargetingManager.GetHoveredTile(),
-                    cardTargetingManager.GetHoveredPlant(),
-                    cardTargetingManager.GetHoveredProduce()
-                ));
+                OnTargetSelected?.Invoke(cardTargetingManager.GetHoverData());
             }
         }
 
-        public void StartSelectingTarget()
+        public void StartSelectingTarget(SelectionSquareType selectionSquareType)
         {
             selectingTarget = true;
-            // cardTargetingManager.EnableArrow();
+            cardTargetingManager.ShowSelectionSquare(selectionSquareType);
         }
 
         public void StopSelectingTarget()
         {
             selectingTarget = false;
-            // cardTargetingManager.DisableArrow();
+            cardTargetingManager.HideSelectionSquare();
         }
     }
 }

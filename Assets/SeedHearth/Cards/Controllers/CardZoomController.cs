@@ -14,7 +14,7 @@ namespace SeedHearth.Cards
         private Vector3 targetZoomIn;
         private Vector3 targetZoomOut;
 
-        private void Start()
+        private void Awake()
         {
             trans = transform;
             targetZoomIn = new Vector3(zoomInScale, zoomInScale, zoomInScale);

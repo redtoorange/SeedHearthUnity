@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29aa88f4fe4b4ce3b1815effbf34da23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
+  amount: 4
 --- !u!114 &1132628540597195415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1906d32e4f0ca4e4a8848ed5fc37d55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
+  amount: 2
