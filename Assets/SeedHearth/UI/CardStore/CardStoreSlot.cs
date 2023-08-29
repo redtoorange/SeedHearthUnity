@@ -1,10 +1,13 @@
-﻿using SeedHearth.Cards;
+﻿using System;
+using SeedHearth.Cards;
 using UnityEngine;
 
 namespace SeedHearth.UI.CardStore
 {
     public class CardStoreSlot : MonoBehaviour
     {
+        public Action<Card> OnCardPuchased;
+
         [SerializeField] private RectTransform cardSpawnSlot;
         [SerializeField] private CardStoreSlotButton cardStoreSlotButton;
         private Card cardInstance;
@@ -18,14 +21,23 @@ namespace SeedHearth.UI.CardStore
             cardStoreSlotButton.Initialize(card.GetCardData());
         }
 
-        private void Update()
+        public void UpdateAvailable(int playerGold)
         {
-            Debug.Log("Updating card slot");
+            if (playerGold >= cardInstance.GetPurchasePrice())
+            {
+                cardStoreSlotButton.interactable = true;
+                cardInstance.SetCardDimmed(false);
+            }
+            else
+            {
+                cardStoreSlotButton.interactable = false;
+                cardInstance.SetCardDimmed(true);
+            }
         }
 
         public void OnBuyPressed()
         {
-            Debug.Log("Trying to purchase " + cardInstance.GetCardData().cardTitle);
+            OnCardPuchased?.Invoke(cardInstance);
         }
     }
 }

@@ -78,5 +78,13 @@ namespace SeedHearth.Managers
             OnStaminaChanged?.Invoke(oldValue, newValue);
             stamina = newValue;
         }
+
+        public void TakeGold(int purchasePrice)
+        {
+            int oldValue = gold;
+            int newValue = Mathf.Clamp(gold - purchasePrice, minGold, maxGold);
+            OnGoldChanged?.Invoke(oldValue, newValue);
+            gold = newValue;
+        }
     }
 }

@@ -98,7 +98,9 @@ namespace SeedHearth.Managers
 
         public Card SpawnNewCard(Card card)
         {
-            return Instantiate(card, cardSpawnTarget);
+            Card newCard = Instantiate(card, cardSpawnTarget);
+            newCard.Initialize();
+            return newCard;
         }
 
         public void DestroyCard(Card card)

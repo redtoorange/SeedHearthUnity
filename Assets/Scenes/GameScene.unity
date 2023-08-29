@@ -1376,7 +1376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &230698421
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1903,9 +1903,9 @@ RectTransform:
   m_Father: {fileID: 654823785}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &356736911
 MonoBehaviour:
@@ -10259,7 +10259,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 13}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &857421682
 MonoBehaviour:
@@ -12529,7 +12529,7 @@ RectTransform:
   m_Father: {fileID: 216515128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13444,7 +13444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSpawnTarget: {fileID: 1862519826}
-  currentlyLoadedDeck: {fileID: 11400000, guid: ab7193a291f7fbc49a5e0c94500962f1, type: 2}
+  currentlyLoadedDeck: {fileID: 11400000, guid: 1e00a02674dfd6a41acaa68fe57684af, type: 2}
   libraryCardInstances: []
   activeCardInstances: []
   graveyardCardInstances: []
@@ -15749,6 +15749,8 @@ MonoBehaviour:
   cardStoreHolder: {fileID: 857421681}
   storeDeck: {fileID: 11400000, guid: f3a15cb128d6d1f4bbede2fc1d9aabf6, type: 2}
   storeSlotPrefab: {fileID: 1177361507362408237, guid: beb7b1f4f6eba0d41bc37c2553d3c04b, type: 3}
+  cardManager: {fileID: 0}
+  playerResouces: {fileID: 0}
 --- !u!1 &2106858183
 GameObject:
   m_ObjectHideFlags: 0

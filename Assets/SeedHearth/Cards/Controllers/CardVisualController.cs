@@ -12,13 +12,12 @@ namespace SeedHearth.Cards
         [SerializeField] private TMP_Text cardDescriptionLabel;
         [SerializeField] private Image cardBackgroundImage;
         [SerializeField] private Image cardIconImage;
-        [SerializeField] private GameObject cardOverlay;
 
         [Header("Stamina")]
         [SerializeField] private GameObject staminaHolder;
         [SerializeField] private TMP_Text staminaCost;
 
-        
+
         public override void Initialize(Card pCard, CardData pCardData)
         {
             base.Initialize(pCard, pCardData);
@@ -33,11 +32,6 @@ namespace SeedHearth.Cards
             {
                 staminaHolder.SetActive(false);
             }
-        }
-
-        public void SetDimmedCard(bool isDimmed)
-        {
-            cardOverlay.SetActive(isDimmed);
         }
     }
 }
