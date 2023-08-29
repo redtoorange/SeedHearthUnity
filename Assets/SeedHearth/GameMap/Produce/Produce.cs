@@ -1,10 +1,11 @@
 using SeedHearth.Cards;
+using SeedHearth.Input.MouseController;
 using SeedHearth.Managers;
 using UnityEngine;
 
 namespace SeedHearth.Produce
 {
-    public class Produce : MonoBehaviour
+    public class Produce : MonoBehaviour, IInteractable
     {
         [SerializeField] private Card produceCardPrefab;
 
@@ -13,6 +14,11 @@ namespace SeedHearth.Produce
         private void Start()
         {
             cardManager = FindFirstObjectByType<CardManager>();
+        }
+
+        public void Interact()
+        {
+            PickUpProduce();
         }
 
         public void PickUpProduce()

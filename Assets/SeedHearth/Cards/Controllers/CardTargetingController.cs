@@ -1,5 +1,6 @@
 ﻿using System;
 using SeedHearth.Cards.Data;
+using SeedHearth.Input.MouseController;
 using SeedHearth.Managers;
 using SeedHearth.MouseController;
 using UnityEngine.InputSystem;

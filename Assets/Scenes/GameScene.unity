@@ -1573,7 +1573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.93989515, a: 0.2901961}
+  m_Color: {r: 1, g: 0, b: 0.93989515, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9811,6 +9811,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1125039787}
   - component: {fileID: 1125039788}
+  - component: {fileID: 1125039790}
+  - component: {fileID: 1125039789}
   m_Layer: 0
   m_Name: MouseController
   m_TagString: Untagged
@@ -9848,12 +9850,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d351550207ed4882ae86ea456b17d2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1125039789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125039786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04bb31563334bbb82e46d410aa779af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputManager: {fileID: 11400000, guid: 334e7cbb994eee544ae75b9686c5bf95, type: 2}
+  plantLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1125039790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125039786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a6350d20d04e0cab9756c7f99e2666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   selectionSquare1x1: {fileID: 1710870239}
   selectionSquare2x2: {fileID: 1303837485}
   selectionSquare3x3: {fileID: 549857720}
-  plantLayerMask:
-    serializedVersion: 2
-    m_Bits: 448
 --- !u!1 &1185294223
 GameObject:
   m_ObjectHideFlags: 0
@@ -11610,7 +11637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4696bae8483d34da0e3fba5340ef33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseController: {fileID: 1125039788}
+  gridDisplayController: {fileID: 1125039790}
 --- !u!1 &1618300334
 GameObject:
   m_ObjectHideFlags: 0

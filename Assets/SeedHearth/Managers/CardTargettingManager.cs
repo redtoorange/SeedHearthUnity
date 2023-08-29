@@ -1,25 +1,26 @@
-﻿using SeedHearth.MouseController;
+﻿using SeedHearth.Input.MouseController;
+using SeedHearth.MouseController;
 using UnityEngine;
 
 namespace SeedHearth.Managers
 {
     public class CardTargettingManager : MonoBehaviour
     {
-        [SerializeField] private MouseController.MouseController mouseController;
+        [SerializeField] private SelectionGridDisplayController gridDisplayController;
 
         public void ShowSelectionSquare(SelectionSquareType selectionSquareType)
         {
-            mouseController.ShowSelectionSquare(selectionSquareType);
+            gridDisplayController.ShowSelectionSquare(selectionSquareType);
         }
 
         public void HideSelectionSquare()
         {
-            mouseController.ShowSelectionSquare(SelectionSquareType.None);
+            gridDisplayController.ShowSelectionSquare(SelectionSquareType.None);
         }
 
         public HoverData GetHoverData()
         {
-            return mouseController.GetHoverData();
+            return gridDisplayController.GetHoverData();
         }
     }
 }
