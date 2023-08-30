@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
-using SeedHearth.Cards.Areas;
+using SeedHearth.Cards.Controllers;
+using SeedHearth.GameAreas;
 using UnityEngine;
 
 namespace SeedHearth.Managers

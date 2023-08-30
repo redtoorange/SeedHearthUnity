@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SeedHearth.Cards;
 using UnityEngine;
 
-namespace SeedHearth.Deck
+namespace SeedHearth.Data
 {
     [Serializable]
     public class DeckCardData

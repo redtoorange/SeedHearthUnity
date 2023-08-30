@@ -1,4 +1,5 @@
-﻿using SeedHearth.Plants;
+﻿using SeedHearth.GameMap.Plants;
+using SeedHearth.Input.MouseController;
 using UnityEngine;
 
 namespace SeedHearth.Cards.Abilities
@@ -7,22 +8,27 @@ namespace SeedHearth.Cards.Abilities
     {
         [SerializeField] private Plant plantPrefab;
 
-        protected override bool ValidTarget(HoveredTargets target)
+        protected override bool ValidTarget(HoverData targetData)
         {
-            if (target.tile != null && target.plant == null &&
-                (target.tile.GetState() == PlantableTileStates.Tilled ||
-                 target.tile.GetState() == PlantableTileStates.Watered))
+            foreach (PlantableTile tile in targetData.tiles)
             {
-                return true;
+                if (tile != null && !tile.HasPlant() &&
+                    (tile.GetState() == PlantableTileStates.Tilled ||
+                     tile.GetState() == PlantableTileStates.Watered))
+                {
+                    return true;
+                }
             }
 
             return false;
         }
 
-        protected override void ApplyAbility(HoveredTargets target)
+        protected override void ApplyAbility(HoverData targetData)
         {
-            PlantableTile tile = target.tile;
-            tile.AddPlant(Instantiate(plantPrefab, tile.transform));
+            foreach (PlantableTile tile in targetData.tiles)
+            {
+                tile.AddPlant(Instantiate(plantPrefab, tile.transform));
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
-using SeedHearth.Cards.Areas;
-using SeedHearth.Deck;
+using SeedHearth.Data;
+using SeedHearth.GameAreas;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -98,7 +98,9 @@ namespace SeedHearth.Managers
 
         public Card SpawnNewCard(Card card)
         {
-            return Instantiate(card, cardSpawnTarget);
+            Card newCard = Instantiate(card, cardSpawnTarget);
+            newCard.Initialize();
+            return newCard;
         }
 
         public void DestroyCard(Card card)

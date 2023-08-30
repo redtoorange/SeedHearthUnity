@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using SeedHearth.Cards.Areas;
+using SeedHearth.GameAreas;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace SeedHearth.MouseController
+namespace SeedHearth.Input.MouseController
 {
     public class MouseEnterDetector : MonoBehaviour
     {

@@ -15,13 +15,10 @@ MonoBehaviour:
   id: PARSNIP
   cardTitle: Parsnip
   cardSprite: {fileID: -4136858674104254888, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
-  cardDescription: <b>Consume</b> to recover <b>1</b> stamina and draw <b>1</b> card.
+  cardDescription: <b>Consume</b> to recover <b>3</b> stamina and draw <b>1</b> card.
   cardBackgroundColor: {r: 0.49412233, g: 0.15686274, b: 0.61960787, a: 1}
   staminaCost: 0
   cardType: {fileID: 11400000, guid: de8b48675399b0744b8b8572da36f020, type: 2}
-  cardProperties:
-  - {fileID: 11400000, guid: 138b9614fa24dc64a8fab7aa64ee382e, type: 2}
-  - {fileID: 11400000, guid: 1f2695b7e81f4084b901f22eba3782f3, type: 2}
   isSellable: 1
   baseSellValue: 25
   basePurchaseValue: 0

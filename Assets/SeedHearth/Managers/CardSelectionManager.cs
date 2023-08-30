@@ -1,6 +1,7 @@
 ﻿using SeedHearth.Cards;
-using SeedHearth.Cards.Areas;
-using SeedHearth.MouseController;
+using SeedHearth.Cards.Controllers;
+using SeedHearth.GameAreas;
+using SeedHearth.Input.MouseController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -101,7 +102,7 @@ namespace SeedHearth.Managers
 
         private void HandleCardStartDrag(Card card)
         {
-            if (!cardCastingManager.IsAbleToCast(card)) return;
+            if (!card.InCastableState()) return;
 
             currentlyDraggingCard = card;
             isDragging = true;

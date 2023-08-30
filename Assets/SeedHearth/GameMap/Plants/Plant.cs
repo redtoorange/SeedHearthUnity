@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using SeedHearth.Input.MouseController;
 using SeedHearth.Managers.ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SeedHearth.Plants
+namespace SeedHearth.GameMap.Plants
 {
-    public class Plant : MonoBehaviour
+    public class Plant : MonoBehaviour, IInteractable
     {
         [Header("Visuals")]
         [SerializeField] private List<Sprite> plantSpriteTops;
@@ -51,7 +52,12 @@ namespace SeedHearth.Plants
             plantManager.RemovePlant(this);
         }
 
-        public void ConvertToProduce()
+        public void Interact()
+        {
+            TryConvertToProduce();
+        }
+
+        public void TryConvertToProduce()
         {
             if (!harvestable) return;
 

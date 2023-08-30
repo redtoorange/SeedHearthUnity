@@ -1,4 +1,7 @@
-﻿namespace SeedHearth.Cards.Areas
+﻿using SeedHearth.Cards;
+using SeedHearth.Cards.Controllers;
+
+namespace SeedHearth.GameAreas
 {
     public class CardSellArea : CardArea
     {

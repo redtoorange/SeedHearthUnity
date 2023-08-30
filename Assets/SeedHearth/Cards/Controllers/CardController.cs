@@ -1,7 +1,7 @@
-﻿using SeedHearth.Cards.Data;
+﻿using SeedHearth.Data;
 using UnityEngine;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public abstract class CardController : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SeedHearth.Cards.Data
+namespace SeedHearth.Data
 {
     [CreateAssetMenu(fileName = "CardType", menuName = "Card Type", order = 0)]
     public class CardType : ScriptableObject

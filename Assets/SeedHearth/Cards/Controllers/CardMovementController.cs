@@ -1,13 +1,13 @@
 ﻿using System;
-using SeedHearth.Cards.Data;
+using SeedHearth.Data;
 using UnityEngine;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public class CardMovementController : CardController
     {
         public Action OnMovementComplete;
-        
+
         [SerializeField] private float movementTime = 10.0f;
         private RectTransform rectTransform;
 
@@ -21,7 +21,6 @@ namespace SeedHearth.Cards
             base.Initialize(pCard, pCardData);
 
             rectTransform = GetComponent<RectTransform>();
-
         }
 
         private void Update()

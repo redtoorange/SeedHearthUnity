@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SeedHearth.Cards;
-using SeedHearth.UI;
+using SeedHearth.Cards.Controllers;
+using SeedHearth.UI.ShippingBox;
 using UnityEngine;
 
 namespace SeedHearth.Managers
@@ -48,7 +49,7 @@ namespace SeedHearth.Managers
                 soldCard.SetState(CardState.BeingSold);
                 soldCard.CancelMovement();
                 soldCard.ResetZoom();
-                
+
                 soldCards.Add(soldCard);
                 cardSellingUI.AddCard(soldCard);
             }

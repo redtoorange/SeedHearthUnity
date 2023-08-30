@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public class CardZoomController : CardController
     {
@@ -14,7 +14,7 @@ namespace SeedHearth.Cards
         private Vector3 targetZoomIn;
         private Vector3 targetZoomOut;
 
-        private void Start()
+        private void Awake()
         {
             trans = transform;
             targetZoomIn = new Vector3(zoomInScale, zoomInScale, zoomInScale);
@@ -45,6 +45,7 @@ namespace SeedHearth.Cards
                     {
                         trans.SetAsLastSibling();
                     }
+
                     elapsed = 0.0f;
                     currentCardState = CardZoomState.ZoomingIn;
                 }
@@ -95,7 +96,7 @@ namespace SeedHearth.Cards
                 targetZoomOut,
                 elapsed / zoomInTime
             );
-            
+
             if (Vector3.Distance(trans.localScale, targetZoomOut) < 0.01f)
             {
                 currentCardState = CardZoomState.ZoomedOut;

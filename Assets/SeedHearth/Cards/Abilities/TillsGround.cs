@@ -1,22 +1,29 @@
-﻿using SeedHearth.Plants;
+﻿using SeedHearth.GameMap.Plants;
+using SeedHearth.Input.MouseController;
 
 namespace SeedHearth.Cards.Abilities
 {
     public class TillsGround : TargetableCardAbility
     {
-        protected override bool ValidTarget(HoveredTargets target)
+        protected override bool ValidTarget(HoverData targetData)
         {
-            if (target.tile != null && target.tile.GetState() == PlantableTileStates.Untilled)
+            foreach (PlantableTile tile in targetData.tiles)
             {
-                return true;
+                if (tile != null && tile.GetState() == PlantableTileStates.Untilled)
+                {
+                    return true;
+                }
             }
 
             return false;
         }
 
-        protected override void ApplyAbility(HoveredTargets target)
+        protected override void ApplyAbility(HoverData targetData)
         {
-            target.tile.TillTile();
+            foreach (PlantableTile tile in targetData.tiles)
+            {
+                tile.TillTile();
+            }
         }
     }
 }

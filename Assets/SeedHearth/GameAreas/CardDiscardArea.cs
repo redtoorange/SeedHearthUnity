@@ -1,4 +1,4 @@
-﻿namespace SeedHearth.Cards.Areas
+﻿namespace SeedHearth.GameAreas
 {
     public class CardDiscardArea : CardArea
     {

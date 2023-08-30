@@ -1,11 +1,10 @@
 using System;
-using SeedHearth.Cards.Data;
+using SeedHearth.Cards.Controllers;
+using SeedHearth.Data;
 using UnityEngine;
 
 namespace SeedHearth.Cards
 {
-    [RequireComponent(typeof(CardZoomController))]
-    [RequireComponent(typeof(CardHoverController))]
     public class Card : MonoBehaviour
     {
         public static Action<Card, CardState, CardState> OnCardChangeState;
@@ -13,15 +12,15 @@ namespace SeedHearth.Cards
         [Header("Card")]
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
-        
-        [Tooltip("Should shit card be destroyed on discard?")]
+
+        [Tooltip("Should this card be destroyed on discard?")]
         [SerializeField] private bool isEphemeral = false;
 
-        private CardVisualController cardVisualController;
-        private CardMovementController cardMovementController;
-        private CardZoomController cardZoomController;
-        private CardHoverController cardHoverController;
-        private CardFlipAnimator cardFlipAnimator;
+        [SerializeField] private CardMovementController cardMovementController;
+        [SerializeField] private CardZoomController cardZoomController;
+        [SerializeField] private CardHoverController cardHoverController;
+        [SerializeField] private CardFlipAnimator cardFlipAnimator;
+        [SerializeField] private CardOverlayController cardOverlayController;
 
         public delegate void MoveToCallback(Card card);
 
@@ -37,17 +36,10 @@ namespace SeedHearth.Cards
             currentState = newState;
         }
 
-        private void Awake()
+        public void Initialize()
         {
-            // Gather all Controllers
-            cardVisualController = GetComponent<CardVisualController>();
-            cardZoomController = GetComponent<CardZoomController>();
-            cardHoverController = GetComponent<CardHoverController>();
-            cardMovementController = GetComponent<CardMovementController>();
-            cardFlipAnimator = GetComponent<CardFlipAnimator>();
-
             // Initialize all Controllers
-            foreach (CardController cardController in GetComponents<CardController>())
+            foreach (CardController cardController in GetComponentsInChildren<CardController>())
             {
                 cardController.Initialize(this, cardData);
             }
@@ -64,7 +56,7 @@ namespace SeedHearth.Cards
 
         public void SetCardDimmed(bool shouldCardDim)
         {
-            cardVisualController.SetDimmedCard(shouldCardDim);
+            cardOverlayController.SetCardDimmed(shouldCardDim);
         }
 
         public void MoveTo(Vector2 position)
@@ -107,7 +99,18 @@ namespace SeedHearth.Cards
         public bool IsZoomable()
         {
             return currentState == CardState.InHand || currentState == CardState.BeingSold;
+        }
 
+        public bool InCastableState()
+        {
+            if (currentState == CardState.InHand || currentState == CardState.BeingSold) return true;
+
+            return false;
+        }
+
+        public int GetPurchasePrice()
+        {
+            return cardData.basePurchaseValue;
         }
     }
 }

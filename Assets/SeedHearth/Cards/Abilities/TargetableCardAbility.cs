@@ -1,17 +1,20 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Cards.Controllers;
+using SeedHearth.Input.MouseController;
+using UnityEngine;
 
 namespace SeedHearth.Cards.Abilities
 {
     public abstract class TargetableCardAbility : CardAbility
     {
+        [SerializeField] private SelectionSquareType selectionSquareType = SelectionSquareType.Size_1x1;
         [SerializeField] private LayerMask targetLayerMask;
         protected CardCastingContext context;
         protected CastCallback callback;
         private CardTargetingController cardTargetingController;
-        
+
         private void Start()
         {
-            cardTargetingController = GetComponent<CardTargetingController>();
+            cardTargetingController = GetComponentInParent<CardTargetingController>();
             cardTargetingController.OnTargetSelected += OnTargetSelected;
         }
 
@@ -19,15 +22,15 @@ namespace SeedHearth.Cards.Abilities
         {
             this.context = context;
             this.callback = callback;
-            cardTargetingController.StartSelectingTarget();
+            cardTargetingController.StartSelectingTarget(selectionSquareType);
         }
 
-        protected void OnTargetSelected(HoveredTargets target)
+        protected void OnTargetSelected(HoverData targetData)
         {
-            if (ValidTarget(target))
+            if (ValidTarget(targetData))
             {
-                ApplyAbility(target);
-                FinishedCasting();                
+                ApplyAbility(targetData);
+                FinishedCasting();
             }
         }
 
@@ -44,7 +47,7 @@ namespace SeedHearth.Cards.Abilities
         }
 
 
-        protected abstract bool ValidTarget(HoveredTargets target);
-        protected abstract void ApplyAbility(HoveredTargets target);
+        protected abstract bool ValidTarget(HoverData targetData);
+        protected abstract void ApplyAbility(HoverData targetData);
     }
 }

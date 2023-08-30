@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SeedHearth.Cards.Areas
+namespace SeedHearth.GameAreas
 {
     public class CardDrawArea : CardArea
     {

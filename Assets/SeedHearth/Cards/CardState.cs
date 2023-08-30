@@ -12,5 +12,6 @@ namespace SeedHearth.Cards
         BeingDragged,
         BeingCasting,
         BeingSold,
+        InStore
     }
 }
