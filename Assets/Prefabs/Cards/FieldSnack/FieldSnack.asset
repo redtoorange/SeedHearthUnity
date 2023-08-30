@@ -15,13 +15,11 @@ MonoBehaviour:
   id: FIELD_SNACK_1
   cardTitle: Field Snack
   cardSprite: {fileID: -424244937, guid: f3b28d7d034bf3a42a1799eaf7ce75d3, type: 3}
-  cardDescription: <b>Consume</b> to recover <b>1</b> <u><b>Stamina</b></u> and <b>Draw
-    1</b> card.
+  cardDescription: <b>Consume</b> to gain <b>4</b> <u><b>Stamina</b></u> and <b>Draw
+    2</b> cards.
   cardBackgroundColor: {r: 0.49412233, g: 0.15686275, b: 0.61960787, a: 1}
   staminaCost: 0
   cardType: {fileID: 0}
-  cardProperties:
-  - {fileID: 11400000, guid: 87c012944bbba394780b490f549b21e0, type: 2}
   isSellable: 1
   baseSellValue: 1
   basePurchaseValue: 5

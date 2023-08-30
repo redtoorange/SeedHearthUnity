@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using SeedHearth.Cards;
 using SeedHearth.Managers;
 using UnityEngine;
 
-namespace SeedHearth.Cards.Areas
+namespace SeedHearth.GameAreas
 {
     public class CardHandArea : CardArea
     {
@@ -19,11 +20,11 @@ namespace SeedHearth.Cards.Areas
         public override void AddCard(Card card)
         {
             base.AddCard(card);
-            
+
             heldCards.Add(card);
             card.FlipToFont();
             card.SetState(CardState.InHand);
-            heldCards.Sort(new CardComparer());
+            heldCards.Sort(new CardPositionComparer());
             OrganizeCards();
         }
 
@@ -42,7 +43,6 @@ namespace SeedHearth.Cards.Areas
         {
             Rect handAreaRect = GetWorldBounds();
 
-            
 
             float totalWidth = handAreaRect.width;
             float totalCards = heldCards.Count;
@@ -53,7 +53,7 @@ namespace SeedHearth.Cards.Areas
             }
 
             perCardWidth = Mathf.Min(perCardWidth, maxWidthPerCard);
-            
+
             Vector3 startPos = handAreaRect.center;
             startPos.x -= (perCardWidth * totalCards) / 2.0f;
             // startPos.y -= handAreaRect.height / 2.0f;
@@ -81,7 +81,7 @@ namespace SeedHearth.Cards.Areas
     }
 
 
-    public class CardComparer : IComparer<Card>
+    public class CardPositionComparer : IComparer<Card>
     {
         public int Compare(Card a, Card b)
         {

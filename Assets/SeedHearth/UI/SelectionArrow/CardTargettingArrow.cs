@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SeedHearth.SelectionArrow
+namespace SeedHearth.UI.SelectionArrow
 {
     public class CardTargettingArrow : MonoBehaviour
     {
@@ -36,7 +36,6 @@ namespace SeedHearth.SelectionArrow
 
             CreateNode(arrowHeadPrefab);
             camera = Camera.main;
-            
         }
 
         private void Update()

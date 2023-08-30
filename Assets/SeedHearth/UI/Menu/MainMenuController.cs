@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SeedHearth.Menu
+namespace SeedHearth.UI.Menu
 {
     public class MainMenuController : MonoBehaviour
     {
