@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Cards.Abilities;
 using UnityEngine;
@@ -39,7 +40,9 @@ namespace SeedHearth.Managers
         public void StartCasting(Card cardToCast)
         {
             currentlyCastingCard = cardToCast;
-            callStack = new Queue<CardAbility>(cardToCast.GetComponents<CardAbility>());
+            List<CardAbility> abilities = new List<CardAbility>(cardToCast.GetComponentsInChildren<CardAbility>());
+            abilities.Sort(new Comparison<CardAbility>((a, b) => a.GetOrder - b.GetOrder));
+            callStack = new Queue<CardAbility>(abilities);
             ProcessNextCardAbility();
         }
 

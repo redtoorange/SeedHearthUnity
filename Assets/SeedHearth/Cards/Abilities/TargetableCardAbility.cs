@@ -14,7 +14,7 @@ namespace SeedHearth.Cards.Abilities
 
         private void Start()
         {
-            cardTargetingController = GetComponent<CardTargetingController>();
+            cardTargetingController = GetComponentInParent<CardTargetingController>();
             cardTargetingController.OnTargetSelected += OnTargetSelected;
         }
 

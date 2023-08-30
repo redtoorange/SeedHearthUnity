@@ -13,7 +13,7 @@ namespace SeedHearth.Cards
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
 
-        [Tooltip("Should shit card be destroyed on discard?")]
+        [Tooltip("Should this card be destroyed on discard?")]
         [SerializeField] private bool isEphemeral = false;
 
         [SerializeField] private CardMovementController cardMovementController;
