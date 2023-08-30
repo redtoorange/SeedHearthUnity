@@ -103,7 +103,7 @@ namespace SeedHearth.Cards
 
         public bool InCastableState()
         {
-            if (currentState == CardState.InHand) return true;
+            if (currentState == CardState.InHand || currentState == CardState.BeingSold) return true;
 
             return false;
         }

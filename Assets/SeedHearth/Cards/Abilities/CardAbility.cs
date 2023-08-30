@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SeedHearth.Cards.Abilities
 {
@@ -11,7 +10,7 @@ namespace SeedHearth.Cards.Abilities
         public int GetOrder => order;
 
         protected Card parentCard;
-        
+
         private void Start()
         {
             parentCard = GetComponentInParent<Card>();

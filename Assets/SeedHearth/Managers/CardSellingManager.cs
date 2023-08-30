@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Cards.Controllers;
-using SeedHearth.UI;
 using SeedHearth.UI.ShippingBox;
 using UnityEngine;
 

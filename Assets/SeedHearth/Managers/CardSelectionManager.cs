@@ -102,7 +102,6 @@ namespace SeedHearth.Managers
 
         private void HandleCardStartDrag(Card card)
         {
-            if (!cardCastingManager.IsAbleToCast(card)) return;
             if (!card.InCastableState()) return;
 
             currentlyDraggingCard = card;
