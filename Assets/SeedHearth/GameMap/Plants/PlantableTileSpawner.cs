@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SeedHearth.Plants
+namespace SeedHearth.GameMap.Plants
 {
     public class PlantableTileSpawner : MonoBehaviour
     {
@@ -8,7 +8,7 @@ namespace SeedHearth.Plants
 
         [Range(1, 32)]
         [SerializeField] private int height;
-        
+
         [Range(1, 32)]
         [SerializeField] private int width;
 
@@ -43,7 +43,7 @@ namespace SeedHearth.Plants
                 for (int y = 0; y <= height; y++)
                 {
                     Gizmos.DrawLine(StartingPosition + new Vector2(0, y), StartingPosition + new Vector2(width, y));
-                } 
+                }
             }
         }
     }

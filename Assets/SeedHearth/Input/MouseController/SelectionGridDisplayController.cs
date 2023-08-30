@@ -1,5 +1,4 @@
-﻿using SeedHearth.MouseController;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SeedHearth.Input.MouseController
 {

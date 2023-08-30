@@ -1,5 +1,5 @@
-﻿using SeedHearth.Input.MouseController;
-using SeedHearth.MouseController;
+﻿using SeedHearth.Cards.Controllers;
+using SeedHearth.Input.MouseController;
 using UnityEngine;
 
 namespace SeedHearth.Cards.Abilities
@@ -11,7 +11,7 @@ namespace SeedHearth.Cards.Abilities
         protected CardCastingContext context;
         protected CastCallback callback;
         private CardTargetingController cardTargetingController;
-        
+
         private void Start()
         {
             cardTargetingController = GetComponent<CardTargetingController>();
@@ -30,7 +30,7 @@ namespace SeedHearth.Cards.Abilities
             if (ValidTarget(targetData))
             {
                 ApplyAbility(targetData);
-                FinishedCasting();                
+                FinishedCasting();
             }
         }
 

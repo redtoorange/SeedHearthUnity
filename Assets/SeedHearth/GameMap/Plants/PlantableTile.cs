@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using SeedHearth.Managers;
 using SeedHearth.Managers.ScriptableObjects;
 using UnityEngine;
 
-namespace SeedHearth.Plants
+namespace SeedHearth.GameMap.Plants
 {
     [Serializable]
     public enum PlantableTileStates
@@ -34,6 +33,7 @@ namespace SeedHearth.Plants
             {
                 mapOfStatesToSprites.Add(groundTileSpriteStates[i], groundTileSprites[i]);
             }
+
             groundDisplay.sprite = mapOfStatesToSprites[currentState];
         }
 
@@ -100,7 +100,7 @@ namespace SeedHearth.Plants
         {
             return currentPlant != null;
         }
-        
+
         public void AddPlant(Plant newPlant)
         {
             newPlant.SetOwner(this);

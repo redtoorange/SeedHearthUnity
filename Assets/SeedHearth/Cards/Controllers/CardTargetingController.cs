@@ -1,11 +1,10 @@
 ﻿using System;
-using SeedHearth.Cards.Data;
+using SeedHearth.Data;
 using SeedHearth.Input.MouseController;
 using SeedHearth.Managers;
-using SeedHearth.MouseController;
 using UnityEngine.InputSystem;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public class CardTargetingController : CardController
     {

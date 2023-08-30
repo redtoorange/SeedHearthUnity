@@ -1,6 +1,6 @@
 using System;
 using SeedHearth.Cards.Controllers;
-using SeedHearth.Cards.Data;
+using SeedHearth.Data;
 using UnityEngine;
 
 namespace SeedHearth.Cards
@@ -12,7 +12,7 @@ namespace SeedHearth.Cards
         [Header("Card")]
         [SerializeField] private CardData cardData;
         public CardData GetCardData() => cardData;
-        
+
         [Tooltip("Should shit card be destroyed on discard?")]
         [SerializeField] private bool isEphemeral = false;
 
@@ -99,7 +99,6 @@ namespace SeedHearth.Cards
         public bool IsZoomable()
         {
             return currentState == CardState.InHand || currentState == CardState.BeingSold;
-
         }
 
         public bool InCastableState()

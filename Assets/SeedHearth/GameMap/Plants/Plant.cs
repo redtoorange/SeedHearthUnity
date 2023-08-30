@@ -5,7 +5,7 @@ using SeedHearth.Managers.ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SeedHearth.Plants
+namespace SeedHearth.GameMap.Plants
 {
     public class Plant : MonoBehaviour, IInteractable
     {

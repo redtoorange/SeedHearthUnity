@@ -1,5 +1,5 @@
-﻿using SeedHearth.MouseController;
-using SeedHearth.Plants;
+﻿using SeedHearth.GameMap.Plants;
+using SeedHearth.Input.MouseController;
 
 namespace SeedHearth.Cards.Abilities
 {

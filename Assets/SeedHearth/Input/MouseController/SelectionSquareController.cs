@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using SeedHearth.Plants;
+using SeedHearth.GameMap.Plants;
 using UnityEngine;
 
-namespace SeedHearth.MouseController
+namespace SeedHearth.Input.MouseController
 {
     public class SelectionSquareController : MonoBehaviour
     {

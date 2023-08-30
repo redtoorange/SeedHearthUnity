@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Cards;
+using UnityEngine;
 
-namespace SeedHearth.Cards.Areas
+namespace SeedHearth.GameAreas
 {
     public abstract class CardArea : MonoBehaviour
     {

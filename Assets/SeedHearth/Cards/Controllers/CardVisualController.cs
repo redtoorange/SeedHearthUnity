@@ -1,9 +1,9 @@
-﻿using SeedHearth.Cards.Data;
+﻿using SeedHearth.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public class CardVisualController : CardController
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SeedHearth.Cards.Data
+namespace SeedHearth.Data
 {
     [CreateAssetMenu(fileName = "CardData", menuName = "Card Data", order = 0)]
     [Serializable]

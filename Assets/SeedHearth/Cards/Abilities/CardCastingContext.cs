@@ -1,4 +1,4 @@
-﻿using SeedHearth.Cards.Data;
+﻿using SeedHearth.Data;
 using SeedHearth.Managers;
 
 namespace SeedHearth.Cards.Abilities

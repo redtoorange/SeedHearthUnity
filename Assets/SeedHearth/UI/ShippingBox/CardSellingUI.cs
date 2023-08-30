@@ -3,7 +3,7 @@ using System.Linq;
 using SeedHearth.Cards;
 using UnityEngine;
 
-namespace SeedHearth.UI
+namespace SeedHearth.UI.ShippingBox
 {
     public class CardSellingUI : MonoBehaviour
     {

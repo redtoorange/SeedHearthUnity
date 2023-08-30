@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using SeedHearth.GameMap.Plants;
 using SeedHearth.Managers.ScriptableObjects;
-using SeedHearth.Plants;
 using UnityEngine;
 
 namespace SeedHearth.Managers

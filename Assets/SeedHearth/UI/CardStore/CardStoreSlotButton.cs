@@ -1,4 +1,4 @@
-﻿using SeedHearth.Cards.Data;
+﻿using SeedHearth.Data;
 using TMPro;
 using UnityEngine.UI;
 

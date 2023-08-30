@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SeedHearth.Cards;
-using SeedHearth.Cards.Areas;
-using SeedHearth.Deck;
+using SeedHearth.Data;
+using SeedHearth.GameAreas;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

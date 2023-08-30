@@ -3,7 +3,7 @@ using SeedHearth.Input.MouseController;
 using SeedHearth.Managers;
 using UnityEngine;
 
-namespace SeedHearth.Produce
+namespace SeedHearth.GameMap.Produce
 {
     public class Produce : MonoBehaviour, IInteractable
     {

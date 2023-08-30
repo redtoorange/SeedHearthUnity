@@ -1,6 +1,6 @@
-﻿using SeedHearth.Cards.Data;
+﻿using SeedHearth.Data;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public class CardSellingController : CardController
     {

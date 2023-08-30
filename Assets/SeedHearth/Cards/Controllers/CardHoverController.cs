@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.EventSystems;
 
-namespace SeedHearth.Cards
+namespace SeedHearth.Cards.Controllers
 {
     public class CardHoverController : CardController, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
         IPointerUpHandler
