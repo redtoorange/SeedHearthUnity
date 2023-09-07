@@ -41,39 +41,39 @@ namespace SeedHearth.Cards.Controllers
 
         public void FlipCard()
         {
-            if (IsTweening())
-            {
-                LeanTween.cancel(cardFront);
-                LeanTween.cancel(cardBack);
-            }
+            // if (IsTweening())
+            // {
+            //     LeanTween.cancel(cardFront);
+            //     LeanTween.cancel(cardBack);
+            // }
+            //
+            // if (showingFront)
+            // {
+            //     cardBack.SetActive(true);
+            //     LTSeq sequence = LeanTween.sequence();
+            //     sequence.append(
+            //         LeanTween.scaleX(cardFront, 0.0f, flipTime / 2.0f)
+            //             .setOnComplete(_ => cardFront.SetActive(false))
+            //     );
+            //     sequence.append(
+            //         LeanTween.scaleX(cardBack, 1.0f, flipTime / 2.0f)
+            //     );
+            // }
+            // else
+            // {
+            //     cardFront.SetActive(true);
+            //     LTSeq sequence = LeanTween.sequence();
+            //     sequence.append(LeanTween.scaleX(cardBack, 0.0f, flipTime / 2.0f)
+            //         .setOnComplete(_ => cardBack.SetActive(false)));
+            //     sequence.append(LeanTween.scaleX(cardFront, 1.0f, flipTime / 2.0f));
+            // }
 
-            if (showingFront)
-            {
-                cardBack.SetActive(true);
-                LTSeq sequence = LeanTween.sequence();
-                sequence.append(
-                    LeanTween.scaleX(cardFront, 0.0f, flipTime / 2.0f)
-                        .setOnComplete(_ => cardFront.SetActive(false))
-                );
-                sequence.append(
-                    LeanTween.scaleX(cardBack, 1.0f, flipTime / 2.0f)
-                );
-            }
-            else
-            {
-                cardFront.SetActive(true);
-                LTSeq sequence = LeanTween.sequence();
-                sequence.append(LeanTween.scaleX(cardBack, 0.0f, flipTime / 2.0f)
-                    .setOnComplete(_ => cardBack.SetActive(false)));
-                sequence.append(LeanTween.scaleX(cardFront, 1.0f, flipTime / 2.0f));
-            }
-
-            showingFront = !showingFront;
+            // showingFront = !showingFront;
         }
 
-        private bool IsTweening()
-        {
-            return LeanTween.isTweening(cardFront) || LeanTween.isTweening(cardBack);
-        }
+        // private bool IsTweening()
+        // {
+            // return LeanTween.isTweening(cardFront) || LeanTween.isTweening(cardBack);
+        // }
     }
 }

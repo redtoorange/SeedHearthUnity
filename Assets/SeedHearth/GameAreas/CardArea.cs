@@ -27,11 +27,7 @@ namespace SeedHearth.GameAreas
 
         public Rect GetWorldBounds()
         {
-            if (boundsDirty)
-            {
-                CalculateBounds();
-            }
-
+            CalculateBounds();
             return bounds;
         }
 
