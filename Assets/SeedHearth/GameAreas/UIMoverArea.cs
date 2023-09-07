@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace SeedHearth.GameAreas
 {
-    public class CardHandExpandBox : MonoBehaviour
+    public class UIMoverArea : MonoBehaviour
     {
-        [SerializeField] private CardHandMover cardHandArea;
+        [SerializeField] private UIMover uiArea;
 
         private Camera camera;
         private RectTransform rectTransform;
@@ -25,11 +25,11 @@ namespace SeedHearth.GameAreas
                 mouseInsideLastFrame = mouseInsideThisFrame;
                 if (mouseInsideThisFrame)
                 {
-                    cardHandArea.Expand();
+                    uiArea.Expand();
                 }
                 else
                 {
-                    cardHandArea.Retract();
+                    uiArea.Retract();
                 }
             }
         }

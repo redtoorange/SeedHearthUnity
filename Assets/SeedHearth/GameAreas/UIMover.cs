@@ -1,19 +1,26 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 namespace SeedHearth.GameAreas
 {
-    public class CardHandMover : MonoBehaviour
+    public class UIMover : MonoBehaviour
     {
         [Header("Slot Expand Data")]
-        [SerializeField] private float expandTime = 0.5f;
-        [SerializeField] private float expandedHeight = 0;
-        [SerializeField] private float retractedHeight = -32;
+        [SerializeField] private float expandTime = 0.2f;
+        [SerializeField] private Vector2 expandedPosition = new Vector2(0, 0);
+        [SerializeField] private Vector2 retractedPosition = new Vector2(0, -32.0f);
+
         [SerializeField] private RectTransform targetTransform;
 
         private TweenerCore<Vector2, Vector2, VectorOptions> movementTween;
+
+        private void Start()
+        {
+            Retract();
+        }
 
         public void Expand()
         {
@@ -22,7 +29,7 @@ namespace SeedHearth.GameAreas
                 movementTween.Kill();
             }
 
-            movementTween = targetTransform.DOAnchorPos(new Vector2(0.0f, expandedHeight), expandTime);
+            movementTween = targetTransform.DOAnchorPos(expandedPosition, expandTime);
         }
 
         public void Retract()
@@ -32,7 +39,7 @@ namespace SeedHearth.GameAreas
                 movementTween.Kill();
             }
 
-            movementTween = targetTransform.DOAnchorPos(new Vector2(0.0f, retractedHeight), expandTime);
+            movementTween = targetTransform.DOAnchorPos(retractedPosition, expandTime);
         }
     }
 }
