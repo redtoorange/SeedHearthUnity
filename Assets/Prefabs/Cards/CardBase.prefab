@@ -888,6 +888,7 @@ MonoBehaviour:
   cardHoverController: {fileID: 1891447232104711927}
   cardFlipAnimator: {fileID: 4320786269250144503}
   cardOverlayController: {fileID: 7722526463383008620}
+  cardAbilityContainer: {fileID: 842406719373423180}
   currentState: 0
 --- !u!114 &4196940404674146778
 MonoBehaviour:
