@@ -2351,7 +2351,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -128, y: 0.04}
+  m_SizeDelta: {x: -128, y: 64}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &501636315
 CanvasRenderer:
@@ -2375,9 +2375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardCastingManager: {fileID: 957889432}
   maxWidthPerCard: 3.25
-  expandTime: 0.2
-  expandedHeight: 64
-  retractedHeight: 0
 --- !u!114 &501636317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15719,9 +15716,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113629165}
-  - component: {fileID: 2113629168}
-  - component: {fileID: 2113629167}
   - component: {fileID: 2113629166}
+  - component: {fileID: 2113629167}
   m_Layer: 5
   m_Name: CardHandExpandBox
   m_TagString: Untagged
@@ -15760,7 +15756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1fc782477236248964830b95b263b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardHandArea: {fileID: 501636316}
+  cardHandArea: {fileID: 2113629167}
 --- !u!114 &2113629167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15770,35 +15766,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113629164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3597147093c34d77a0603a02e4bcfc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2113629168
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113629164}
-  m_CullTransparentMesh: 1
+  expandTime: 0.2
+  expandedHeight: 0
+  retractedHeight: -32
+  targetTransform: {fileID: 501636313}
 --- !u!1 &2130184638
 GameObject:
   m_ObjectHideFlags: 0

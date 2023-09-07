@@ -5,7 +5,7 @@ namespace SeedHearth.GameAreas
 {
     public class CardHandExpandBox : MonoBehaviour
     {
-        [SerializeField] private CardHandArea cardHandArea;
+        [SerializeField] private CardHandMover cardHandArea;
 
         private Camera camera;
         private RectTransform rectTransform;

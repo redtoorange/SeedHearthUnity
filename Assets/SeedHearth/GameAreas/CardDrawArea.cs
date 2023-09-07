@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SeedHearth.Cards;
+using UnityEngine;
 
 namespace SeedHearth.GameAreas
 {
@@ -7,6 +8,12 @@ namespace SeedHearth.GameAreas
         private void Start()
         {
             Debug.Log("DrawAreaCenter: " + GetCenter());
+        }
+
+        public override void AddCard(Card cardToAdd)
+        {
+            cardToAdd.FlipToBack();
+            base.AddCard(cardToAdd);
         }
     }
 }

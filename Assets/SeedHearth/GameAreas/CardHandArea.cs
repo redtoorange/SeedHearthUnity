@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SeedHearth.Cards;
 using SeedHearth.Managers;
 using UnityEngine;
@@ -12,14 +11,7 @@ namespace SeedHearth.GameAreas
         [SerializeField] private float maxWidthPerCard = 50.0f;
         private List<Card> heldCards = new List<Card>();
 
-        [Header("Slot Expand Data")]
-        [SerializeField] private float expandTime = 0.5f;
-        [SerializeField] private float expandedHeight = 64;
-        [SerializeField] private float retractedHeight = 0;
-        private float elapsedTime = 0.0f;
-        private Coroutine runningCoroutine;
-        
-        
+
         private void Update()
         {
             //TODO This needs to be optimized
@@ -85,78 +77,6 @@ namespace SeedHearth.GameAreas
             {
                 card.SetCardDimmed(!cardCastingManager.IsAbleToCast(card));
             }
-        }
-
-        public void Expand()
-        {
-            if (runningCoroutine != null)
-            {
-                StopCoroutine(runningCoroutine);
-            }
-
-            runningCoroutine = StartCoroutine(ExpandUp());
-        }
-
-        public void Retract()
-        {
-            if (runningCoroutine != null)
-            {
-                StopCoroutine(runningCoroutine);
-            }
-
-            runningCoroutine = StartCoroutine(RetractDown());
-        }
-
-       
-
-        private IEnumerator ExpandUp()
-        {
-            float start = rectTransform.rect.height;
-            float totalDelta = expandedHeight - retractedHeight;    // 64 - 0 = 64      |   64-0=64
-            float currentDelta = expandedHeight - start;            // 64 - 0 = 64      |   64-32=32
-            float percent = currentDelta / totalDelta;              // 64/64 = 1        |   32/64=0.5
-            
-            elapsedTime = expandTime * (1 - percent);               // 0.5 * (1 - 1) = 0|   0.5* (1-0.5) = 0.5*0.5=0.25
-            
-            while (true)
-            {
-                elapsedTime += Time.deltaTime;
-                float amount = Mathf.Lerp(retractedHeight, expandedHeight, elapsedTime / expandTime);
-                rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, amount);
-                if (elapsedTime >= expandTime)
-                {
-                    break;
-                }
-
-                yield return null;
-            }
-
-            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, expandedHeight);
-        }
-
-        private IEnumerator RetractDown()
-        {
-            float start = rectTransform.rect.height;
-            float totalDelta = retractedHeight - expandedHeight;
-            float currentDelta = retractedHeight - start;
-            float percent = currentDelta / totalDelta;
-            
-            elapsedTime = expandTime * (1 - percent);
-
-            while (true)
-            {
-                elapsedTime += Time.deltaTime;
-                float amount = Mathf.Lerp(expandedHeight, retractedHeight, elapsedTime / expandTime);
-                rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, amount);
-                if (elapsedTime >= expandTime)
-                {
-                    break;
-                }
-
-                yield return null;
-            }
-
-            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, retractedHeight);
         }
     }
 
