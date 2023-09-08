@@ -22,7 +22,10 @@ namespace SeedHearth.Cards.Abilities
         {
             foreach (PlantableTile tile in targetData.tiles)
             {
-                tile.TillTile();
+                if (tile.GetState() == PlantableTileStates.Untilled)
+                {
+                    tile.TillTile();
+                }
             }
         }
     }

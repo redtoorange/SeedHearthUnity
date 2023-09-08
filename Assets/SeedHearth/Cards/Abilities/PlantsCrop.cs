@@ -27,7 +27,10 @@ namespace SeedHearth.Cards.Abilities
         {
             foreach (PlantableTile tile in targetData.tiles)
             {
-                tile.AddPlant(Instantiate(plantPrefab, tile.transform));
+                if (!tile.HasPlant())
+                {
+                    tile.AddPlant(Instantiate(plantPrefab, tile.transform));
+                }
             }
         }
     }
