@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using SeedHearth.Cards.Abilities;
 using SeedHearth.Cards.Controllers;
 using SeedHearth.Data;
 using UnityEngine;
@@ -21,6 +23,8 @@ namespace SeedHearth.Cards
         [SerializeField] private CardHoverController cardHoverController;
         [SerializeField] private CardFlipAnimator cardFlipAnimator;
         [SerializeField] private CardOverlayController cardOverlayController;
+
+        [SerializeField] private Transform cardAbilityContainer;
 
         public delegate void MoveToCallback(Card card);
 
@@ -111,6 +115,22 @@ namespace SeedHearth.Cards
         public int GetPurchasePrice()
         {
             return cardData.basePurchaseValue;
+        }
+
+        public List<CardAbility> GetCardAbilities()
+        {
+            CardAbility[] abilities = cardAbilityContainer.GetComponents<CardAbility>();
+            List<CardAbility> activeAbilities = new List<CardAbility>();
+            foreach (CardAbility ability in abilities)
+            {
+                if (ability.enabled)
+                {
+                    activeAbilities.Add(ability);
+                }
+            }
+
+            activeAbilities.Sort(((a, b) => a.GetOrder - b.GetOrder));
+            return activeAbilities;
         }
     }
 }

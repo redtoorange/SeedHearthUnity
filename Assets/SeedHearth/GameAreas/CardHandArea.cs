@@ -11,6 +11,7 @@ namespace SeedHearth.GameAreas
         [SerializeField] private float maxWidthPerCard = 50.0f;
         private List<Card> heldCards = new List<Card>();
 
+
         private void Update()
         {
             //TODO This needs to be optimized
@@ -56,7 +57,6 @@ namespace SeedHearth.GameAreas
 
             Vector3 startPos = handAreaRect.center;
             startPos.x -= (perCardWidth * totalCards) / 2.0f;
-            // startPos.y -= handAreaRect.height / 2.0f;
 
             for (int i = 0; i < heldCards.Count; i++)
             {

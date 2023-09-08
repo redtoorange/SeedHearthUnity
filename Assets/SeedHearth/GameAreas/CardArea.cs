@@ -27,11 +27,7 @@ namespace SeedHearth.GameAreas
 
         public Rect GetWorldBounds()
         {
-            if (boundsDirty)
-            {
-                CalculateBounds();
-            }
-
+            CalculateBounds();
             return bounds;
         }
 
@@ -53,7 +49,6 @@ namespace SeedHearth.GameAreas
 
         public virtual void AddCard(Card cardToAdd)
         {
-            cardToAdd.FlipToBack();
             cardToAdd.MoveTo(GetCenter());
             cardToAdd.ResetZoom();
             cardToAdd.transform.SetParent(transform, true);

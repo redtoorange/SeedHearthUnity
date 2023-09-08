@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
+using UnityEngine;
 
 namespace SeedHearth.Cards.Controllers
 {
@@ -14,6 +17,8 @@ namespace SeedHearth.Cards.Controllers
         private Vector3 targetZoomIn;
         private Vector3 targetZoomOut;
 
+        private TweenerCore<Vector3, Vector3, VectorOptions> zoomTween;
+
         private void Awake()
         {
             trans = transform;
@@ -23,6 +28,11 @@ namespace SeedHearth.Cards.Controllers
 
         public void SetZoomState(bool shouldBeZoomed)
         {
+            if (zoomTween != null)
+            {
+                zoomTween.Kill();
+            }
+
             if (shouldBeZoomed)
             {
                 currentCardState = CardZoomState.ZoomedIn;
@@ -46,61 +56,29 @@ namespace SeedHearth.Cards.Controllers
                         trans.SetAsLastSibling();
                     }
 
-                    elapsed = 0.0f;
                     currentCardState = CardZoomState.ZoomingIn;
+                    if (zoomTween != null)
+                    {
+                        zoomTween.Kill();
+                    }
+
+                    zoomTween = trans.DOScale(targetZoomIn, zoomInTime)
+                        .OnComplete(() => currentCardState = CardZoomState.ZoomedIn);
                 }
             }
             else
             {
                 if (currentCardState != CardZoomState.ZoomedOut)
                 {
-                    elapsed = 0.0f;
                     currentCardState = CardZoomState.ZoomingOut;
+                    if (zoomTween != null)
+                    {
+                        zoomTween.Kill();
+                    }
+
+                    zoomTween = trans.DOScale(targetZoomOut, zoomInTime)
+                        .OnComplete(() => currentCardState = CardZoomState.ZoomedOut);
                 }
-            }
-        }
-
-        private void Update()
-        {
-            if (currentCardState == CardZoomState.ZoomingIn)
-            {
-                ProcessZoomIn();
-            }
-            else if (currentCardState == CardZoomState.ZoomingOut)
-            {
-                ProcessZoomOut();
-            }
-        }
-
-        private void ProcessZoomIn()
-        {
-            elapsed += Time.deltaTime;
-            trans.localScale = Vector3.Lerp(
-                trans.localScale,
-                targetZoomIn,
-                elapsed / zoomInTime
-            );
-
-            if (Vector3.Distance(trans.localScale, targetZoomIn) < 0.01f)
-            {
-                currentCardState = CardZoomState.ZoomedIn;
-                trans.localScale = targetZoomIn;
-            }
-        }
-
-        private void ProcessZoomOut()
-        {
-            elapsed += Time.deltaTime;
-            trans.localScale = Vector3.Lerp(
-                trans.localScale,
-                targetZoomOut,
-                elapsed / zoomInTime
-            );
-
-            if (Vector3.Distance(trans.localScale, targetZoomOut) < 0.01f)
-            {
-                currentCardState = CardZoomState.ZoomedOut;
-                trans.localScale = targetZoomOut;
             }
         }
 

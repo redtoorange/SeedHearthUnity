@@ -97,7 +97,7 @@ namespace SeedHearth.Managers
             }
 
             card.GetZoomControl().ToggleZoomed(false);
-            cardManager.ResetCardHand();
+            // cardManager.ResetCardHand();
         }
 
         private void HandleCardStartDrag(Card card)

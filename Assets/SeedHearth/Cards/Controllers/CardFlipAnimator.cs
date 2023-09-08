@@ -1,4 +1,5 @@
-﻿using SeedHearth.Data;
+﻿using DG.Tweening;
+using SeedHearth.Data;
 using UnityEngine;
 
 namespace SeedHearth.Cards.Controllers
@@ -13,6 +14,8 @@ namespace SeedHearth.Cards.Controllers
         [SerializeField] private float flipTime = 0.25f;
 
         [SerializeField] private bool showingFront = true;
+
+        private Sequence currentSequence;
 
         public override void Initialize(Card pCard, CardData pCardData)
         {
@@ -43,29 +46,22 @@ namespace SeedHearth.Cards.Controllers
         {
             if (IsTweening())
             {
-                LeanTween.cancel(cardFront);
-                LeanTween.cancel(cardBack);
+                currentSequence.Kill();
             }
 
             if (showingFront)
             {
                 cardBack.SetActive(true);
-                LTSeq sequence = LeanTween.sequence();
-                sequence.append(
-                    LeanTween.scaleX(cardFront, 0.0f, flipTime / 2.0f)
-                        .setOnComplete(_ => cardFront.SetActive(false))
-                );
-                sequence.append(
-                    LeanTween.scaleX(cardBack, 1.0f, flipTime / 2.0f)
-                );
+                currentSequence = DOTween.Sequence();
+                currentSequence.Append(cardFront.transform.DOScaleX(0.0f, flipTime / 2.0f))
+                    .Append(cardBack.transform.DOScaleX(1.0f, flipTime / 2.0f));
             }
             else
             {
                 cardFront.SetActive(true);
-                LTSeq sequence = LeanTween.sequence();
-                sequence.append(LeanTween.scaleX(cardBack, 0.0f, flipTime / 2.0f)
-                    .setOnComplete(_ => cardBack.SetActive(false)));
-                sequence.append(LeanTween.scaleX(cardFront, 1.0f, flipTime / 2.0f));
+                currentSequence = DOTween.Sequence();
+                currentSequence.Append(cardBack.transform.DOScaleX(0.0f, flipTime / 2.0f))
+                    .Append(cardFront.transform.DOScaleX(1.0f, flipTime / 2.0f));
             }
 
             showingFront = !showingFront;
@@ -73,7 +69,7 @@ namespace SeedHearth.Cards.Controllers
 
         private bool IsTweening()
         {
-            return LeanTween.isTweening(cardFront) || LeanTween.isTweening(cardBack);
+            return currentSequence != null && currentSequence.IsPlaying();
         }
     }
 }

@@ -15,11 +15,11 @@ MonoBehaviour:
   id: WATERING_CAN_2
   cardTitle: Watering Can+
   cardSprite: {fileID: 4408161865562369581, guid: 9801d8825f698f44c8babdc6054dfa3d, type: 3}
+  cardToolTipSprite: {fileID: 864776877, guid: 027e20b5381f2b34e90339fb735ecd94, type: 3}
   cardDescription: <b>Water</b> a single crop tile and <b>Draw 1</b> card.
   cardBackgroundColor: {r: 0.5754717, g: 0.05157528, b: 0.05157528, a: 1}
   staminaCost: 1
   cardType: {fileID: 0}
-  cardProperties: []
   isSellable: 0
   baseSellValue: 0
   basePurchaseValue: 0

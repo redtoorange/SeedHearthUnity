@@ -15,6 +15,7 @@ MonoBehaviour:
   id: FIELD_SNACK_1
   cardTitle: Field Snack
   cardSprite: {fileID: -424244937, guid: f3b28d7d034bf3a42a1799eaf7ce75d3, type: 3}
+  cardToolTipSprite: {fileID: 21300000, guid: 3bd670d7ff2db5c48a9d450e5aa32606, type: 3}
   cardDescription: <b>Consume</b> to gain <b>4</b> <u><b>Stamina</b></u> and <b>Draw
     2</b> cards.
   cardBackgroundColor: {r: 0.49412233, g: 0.15686275, b: 0.61960787, a: 1}

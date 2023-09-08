@@ -22,6 +22,11 @@ namespace SeedHearth.Cards.Abilities
         {
             this.context = context;
             this.callback = callback;
+
+            if (callback == null)
+            {
+                Debug.LogError("callback is null");
+            }
             cardTargetingController.StartSelectingTarget(selectionSquareType);
         }
 

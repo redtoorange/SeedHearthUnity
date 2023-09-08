@@ -99,8 +99,7 @@ namespace SeedHearth.Managers
             {
                 cardHandArea.RemoveCard(card);
                 deckManager.DiscardCard(card);
-                card.SetState(CardState.InDiscardPile);
-                card.MoveTo(cardDiscardArea.GetCenter());
+                cardDiscardArea.AddCard(card);
             }
         }
 
