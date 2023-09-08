@@ -29,7 +29,7 @@ namespace SeedHearth.Cards.Controllers
         public void StartSelectingTarget(SelectionSquareType selectionSquareType)
         {
             selectingTarget = true;
-            cardTargetingManager.ShowSelectionSquare(selectionSquareType);
+            cardTargetingManager.ShowSelectionSquare(selectionSquareType, cardData);
         }
 
         public void StopSelectingTarget()

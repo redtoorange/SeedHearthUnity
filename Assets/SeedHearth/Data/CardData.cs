@@ -12,6 +12,7 @@ namespace SeedHearth.Data
         public string id = NONE_ID;
         public string cardTitle;
         public Sprite cardSprite;
+        public Sprite cardToolTipSprite;
         [TextArea(5, 8)] public string cardDescription;
         public Color cardBackgroundColor;
         public int staminaCost = 0;

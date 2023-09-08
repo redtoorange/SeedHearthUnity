@@ -15,6 +15,7 @@ MonoBehaviour:
   id: POTATO_SEED
   cardTitle: Potato Seed
   cardSprite: {fileID: -7714837604842567857, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
+  cardToolTipSprite: {fileID: -7714837604842567857, guid: 1a8fa6b9042bde041b954d2974611576, type: 3}
   cardDescription: Plant 1 Potato. Requires <b>8</b> days to grow.
   cardBackgroundColor: {r: 0.24313727, g: 0.5372549, b: 0.28235295, a: 1}
   staminaCost: 1

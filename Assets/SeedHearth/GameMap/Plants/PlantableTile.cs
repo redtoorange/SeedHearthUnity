@@ -116,5 +116,12 @@ namespace SeedHearth.GameMap.Plants
         {
             return currentState == PlantableTileStates.Watered;
         }
+
+        public bool CanHavePlant()
+        {
+            return !HasPlant() &&
+                   (currentState == PlantableTileStates.Tilled ||
+                   currentState == PlantableTileStates.Watered);
+        }
     }
 }

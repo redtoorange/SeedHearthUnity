@@ -12,9 +12,7 @@ namespace SeedHearth.Cards.Abilities
         {
             foreach (PlantableTile tile in targetData.tiles)
             {
-                if (tile != null && !tile.HasPlant() &&
-                    (tile.GetState() == PlantableTileStates.Tilled ||
-                     tile.GetState() == PlantableTileStates.Watered))
+                if (tile != null && tile.CanHavePlant())
                 {
                     return true;
                 }
@@ -27,7 +25,7 @@ namespace SeedHearth.Cards.Abilities
         {
             foreach (PlantableTile tile in targetData.tiles)
             {
-                if (!tile.HasPlant())
+                if (tile.CanHavePlant())
                 {
                     tile.AddPlant(Instantiate(plantPrefab, tile.transform));
                 }

@@ -22,7 +22,7 @@ namespace SeedHearth.Cards.Abilities
         {
             foreach (PlantableTile tile in targetData.tiles)
             {
-                if (tile.GetState() == PlantableTileStates.Watered)
+                if (tile.GetState() == PlantableTileStates.Tilled)
                 {
                     tile.WaterTile();
                 }
