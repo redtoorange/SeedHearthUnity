@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   order: 1
-  selectionSquareType: 1
+  selectionSquareType: 2
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 0
