@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace SeedHearth.Managers
 {
-    public class CardCastingManager : MonoBehaviour
+    public class CardCastingManager : Singleton<CardCastingManager>
     {
         [SerializeField] private Card currentlyCastingCard;
         [SerializeField] private CardManager cardManager;

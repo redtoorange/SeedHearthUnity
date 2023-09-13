@@ -8,7 +8,7 @@ namespace SeedHearth.Cards.Abilities
     {
         [SerializeField] private Plant plantPrefab;
 
-        protected override bool ValidTarget(HoverData targetData)
+        public override bool ValidTarget(HoverData targetData)
         {
             foreach (PlantableTile tile in targetData.tiles)
             {

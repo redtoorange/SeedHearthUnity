@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SeedHearth.Managers
 {
-    public class TurnManager : MonoBehaviour
+    public class TurnManager : Singleton<TurnManager>
     {
         public static Action onEndTurn;
         public static Action onBeginTurn;

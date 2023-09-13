@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SeedHearth.Managers
 {
-    public class CardTargettingManager : MonoBehaviour
+    public class CardTargettingManager : Singleton<CardTargettingManager>
     {
         [SerializeField] private MouseToolTipDisplay mouseToolTipDisplay;
         [SerializeField] private SelectionGridDisplayController gridDisplayController;

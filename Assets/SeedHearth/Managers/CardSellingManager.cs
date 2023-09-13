@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SeedHearth.Managers
 {
-    public class CardSellingManager : MonoBehaviour
+    public class CardSellingManager : Singleton<CardSellingManager>
     {
         [Header("External Dependencies")]
         [SerializeField] private ResourceManager resourceManager;

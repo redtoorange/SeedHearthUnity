@@ -23,6 +23,24 @@ namespace SeedHearth.Input.MouseController
                 subSquares.Add(child.gameObject);
             }
         }
+        
+        public void UpdateSquare(Vector2 worldPosition)
+        {
+            Vector2 pos = worldPosition;
+            pos.x = Mathf.FloorToInt(pos.x);
+            pos.y = Mathf.FloorToInt(pos.y);
+            transform.position = pos + gridOffset;
+
+            List<PlantableTile> tiles = new List<PlantableTile>();
+            List<Plant> plants = new List<Plant>();
+
+            foreach (GameObject subSquare in subSquares)
+            {
+                CheckHoveredObject(subSquare.transform.position, tiles, plants);
+            }
+
+            cachedHoverData = new HoverData(tiles, plants);
+        }
 
         public HoverData GetHoverData()
         {
@@ -51,22 +69,6 @@ namespace SeedHearth.Input.MouseController
             }
         }
 
-        public void UpdateSquare(Vector2 worldPosition)
-        {
-            Vector2 pos = worldPosition;
-            pos.x = Mathf.FloorToInt(pos.x);
-            pos.y = Mathf.FloorToInt(pos.y);
-            transform.position = pos + gridOffset;
-
-            List<PlantableTile> tiles = new List<PlantableTile>();
-            List<Plant> plants = new List<Plant>();
-
-            foreach (GameObject subSquare in subSquares)
-            {
-                CheckHoveredObject(subSquare.transform.position, tiles, plants);
-            }
-
-            cachedHoverData = new HoverData(tiles, plants);
-        }
+        
     }
 }

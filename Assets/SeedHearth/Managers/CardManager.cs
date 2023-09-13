@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SeedHearth.Managers
 {
-    public class CardManager : MonoBehaviour
+    public class CardManager : Singleton<CardManager>
     {
         public Action<Card> OnStartCasting;
 

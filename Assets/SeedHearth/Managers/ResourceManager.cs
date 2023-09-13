@@ -2,7 +2,7 @@
 
 namespace SeedHearth.Managers
 {
-    public class ResourceManager : MonoBehaviour
+    public class ResourceManager : Singleton<ResourceManager>
     {
         public delegate void HandleResourceChanged(int oldValue, int newValue);
 

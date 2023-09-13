@@ -1,5 +1,6 @@
 ﻿using SeedHearth.Cards.Controllers;
 using SeedHearth.Input.MouseController;
+using SeedHearth.Managers;
 using UnityEngine;
 
 namespace SeedHearth.Cards.Abilities
@@ -23,6 +24,7 @@ namespace SeedHearth.Cards.Abilities
             this.context = context;
             this.callback = callback;
 
+            CardTileValidatorService.S.SetValidator(this);
             cardTargetingController.StartSelectingTarget(selectionSquareType);
         }
 
@@ -48,7 +50,7 @@ namespace SeedHearth.Cards.Abilities
         }
 
 
-        protected abstract bool ValidTarget(HoverData targetData);
+        public abstract bool ValidTarget(HoverData targetData);
         protected abstract void ApplyAbility(HoverData targetData);
     }
 }

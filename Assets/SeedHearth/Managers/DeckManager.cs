@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 namespace SeedHearth.Managers
 {
     [Serializable]
-    public class DeckManager : MonoBehaviour
+    public class DeckManager : Singleton<DeckManager>
     {
         [Tooltip("The transform which will be the parent of all new cards we spawn.")]
         [SerializeField] private Transform cardSpawnTarget;

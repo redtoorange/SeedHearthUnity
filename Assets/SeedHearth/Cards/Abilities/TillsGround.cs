@@ -5,7 +5,7 @@ namespace SeedHearth.Cards.Abilities
 {
     public class TillsGround : TargetableCardAbility
     {
-        protected override bool ValidTarget(HoverData targetData)
+        public override bool ValidTarget(HoverData targetData)
         {
             foreach (PlantableTile tile in targetData.tiles)
             {

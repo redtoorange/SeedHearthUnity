@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace SeedHearth.Managers
 {
-    public class CardSelectionManager : MonoBehaviour
+    public class CardSelectionManager : Singleton<CardSelectionManager>
     {
         [SerializeField] private MouseEnterDetector mouseEnterDetector;
         [SerializeField] private CardManager cardManager;

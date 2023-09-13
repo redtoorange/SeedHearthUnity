@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SeedHearth.Managers
 {
-    public class GrowthManager : MonoBehaviour
+    public class GrowthManager : Singleton<GrowthManager>
     {
         [SerializeField] private PlantManager plantManager;
         [SerializeField] private float randomGrowthChance = 0.2f;
